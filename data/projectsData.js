@@ -1,19 +1,15 @@
 const projectsData = [
   {
-    title: 'A Search Engine',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
+    title: 'greendar',
+    description: `안녕하세요. 매일 매일의 일상에 환경을 더하는 캘린더, Greendar 를 소개 합니다.`,
+    imgSrc: '/static/images/greendar.jpeg',
+    href: '/blog/greendar',
   },
   {
-    title: 'The Time Machine',
-    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    to the desired date and press "Go". No more worrying about lost keys or
-    forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
-    href: '/blog/the-time-machine',
+    title: '마이무라 CMS',
+    description: `내 주변 가게의 모든 것, 여있다 마이무라`,
+    imgSrc: '/static/images/마이무라.png',
+    href: '/blog/Greendar',
   },
 ]
 

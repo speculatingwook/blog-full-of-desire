@@ -1,16 +1,20 @@
 ---
-name: Tails Azimuth
-avatar: /static/images/avatar.png
-occupation: Professor of Atmospheric Science
-company: Stanford University
-email: address@yoursite.com
+name: 유사공대생
+avatar: /static/images/speculatingwook.jpg
+occupation: 심리학, 철학에 관심이 있는 학생개발자
+company: Konkuk university
+email: bwook9908@gmail.com
 twitter: https://twitter.com/Twitter
 linkedin: https://www.linkedin.com
-github: https://github.com
+github: https://github.com/speculatingwook
 ---
 
-Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+안녕하세요. 여러 욕망중에 지식에 대한 욕망이 가장 큰 주니어 개발자입니다.
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
+앞으로 여기에 개발지식과 제 생각들, 지식들을 모두 정리해서 써놓으려고 합니다. 2년 전에 제가 다른 곳에 글을 썼었는데, 내용은 대략 "서투르더라도 계속 해야 나중에 잘해진다, 다 서투른 때가 있다"같은 내용의 글이었습니다. 지금 보면 정말 맞는 말인 것 같습니다. 그래서 지금도 많이 서툴지만 글로 정리하면서 써놓으려고 합니다. 아직 서투르고 잘 못하지만, 제 글들을 보고 긍정적인 영향을 받으시길 기원합니다.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+---
+
+모든 글은 말을 옮겨 기록한 글이다. "나는 이기적인 사람이다"를 입을 열어 표현하면 말이 되고 글로 적으면 문장이다. 그런데 말과 글은 비슷한 듯 해도 엄청난 차이가 있다. 누구나 자라면서 자연스럽게 말은 할수는 있지만, 그렇다고 모든 사람이 자연스럽게 글을 쓸 수 있는 건 아니다. 말과 글의 가장 큰 차이는 시간을 지배하느냐의 여부다. 말은 한번 내뱉고 나면 과거로 사라진다. 하지만 똑같은 내용일지라도 글로 남기면 오랫동안 남는다. 일기장에 하루를 지내며 느낀 감상을 적는 게 아니라면, 대부분의 글은 읽는 대상이 있다. 내가 쓴 글이 아주 오랜 시간 글로 남아 누군가 볼 수 있다는 것에 주목하면, 글을 아무렇게나 쓰면 안 된다는 경각심이 들게 마련이다. 따라서 나름의 체제를 잘 갖추어야 한다. 그래서 작가들은 글을 쓰기 전, 치밀하게 계획하고 선택하며 이를 구조화한다.
+
+요즘은 유튜브 영상이 대세다. 내가 원하는 양질(?)의 정보를 얼마든지 구해 시간이 날 때마다 들여다 볼 수 있다. 보고 싶은 장면을 시간이나 장소의 구애없이 돌려보거나, 느리게 또는 빠르게 설정해서 영상을 볼 수도 있다. 남녀노소 모두가 TV보다 유튜브 시청에 많은 시간을 보낸다. TV나 책에서 볼 수 없는 자극적이고 엉뚱한 이야기들로 가득한 세계가 유튜브다. 지금 이 시간에도 수많은 유튜버가 채널 구독자 수를 들리기 위해 각종 가공, 편집 기술을 사용하고 시간과 공을 들인다. 그런 수고의 마지막 결론이 돈이라는 것을 알게 된 사람들은 씁쓸함을 감출 수 없다. 상황이 이렇다 보니 혹자는 조심스럽게 문자의 종말이 왔다고 전망한다. "누가 요즘 글을 읽나요?, 아직도 책보는 사람이 있어요?" 라는 말도 심심찮게 들려온다. 길고 짧은 것은 재봐야 알 수 있다고 했다. 나는 텍스트의 종말을 쉽게 단정할 수 없다고 생각한다. 가령 문학이나 역사와 관련하여 권위있는 분들이 등장해 알아듣기 쉽게 강의하는 동영상을 보며 배움을 익힐 수도 있다. 그러나 진정한 배움은 "엉덩이의 힘", 즉 책상머리에 앉아 오랜 시간 고통스럽게 글을 읽으며 깨달을 때 머리에 남고 새겨진다. 쉽게 얻은 지식은 쉽게 잊힌다. 결국 인간이 하는 모든 일들은 기록으로 남는다. 현재 대세라고 생각하는 영상은 말잔치에 불과하다. 인간 고유의 활동인 기록을 영상이 대신할 수는 없다. 기록, 문장, 글이 시간을 지배하기 때문이다.- [ 2단계 글쓰기 ] 중
