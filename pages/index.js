@@ -4,18 +4,24 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
-
 import NewsletterForm from '@/components/NewsletterForm'
+import { getPage } from '@/lib/notion'
 
 const MAX_DISPLAY = 5
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
+  const page = await getPage('b66d2b6d15544a34a75028a36f84f3c6')
+  if (!page) {
+    // page가 undefined이거나 null인 경우 모두 처리
+    return { props: { posts, page: {} } }
+  }
 
-  return { props: { posts } }
+  return { props: { posts, page } }
 }
 
-export default function Home({ posts }) {
+export default function Home({ posts, page }) {
+  console.log(page)
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
