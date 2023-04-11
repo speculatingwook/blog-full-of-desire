@@ -2,26 +2,29 @@ import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
+import { getAllFilesFrontMatter, getFileBySlug } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 import NewsletterForm from '@/components/NewsletterForm'
 import { getPage } from '@/lib/notion'
+import { MDXLayoutRenderer } from '@/components/MDXComponents'
 
 const MAX_DISPLAY = 5
+const DEFAULT_LAYOUT = 'AuthorLayout'
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
   const page = await getPage('b66d2b6d15544a34a75028a36f84f3c6')
+  const authorDetails = await getFileBySlug('authors', ['portfolio'])
   if (!page) {
     // page가 undefined이거나 null인 경우 모두 처리
-    return { props: { posts, page: {} } }
+    return { props: { posts, page: {}, authorDetails } }
   }
 
-  return { props: { posts, page } }
+  return { props: { posts, page, authorDetails } }
 }
 
-export default function Home({ posts, page }) {
-  console.log(page)
+export default function Home({ posts, authorDetails }) {
+  const { mdxSource, frontMatter } = authorDetails
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -34,7 +37,11 @@ export default function Home({ posts, page }) {
             {siteMetadata.description}
           </p>
         </div>
-        <h2>포트폴리오 자리-노션연동?</h2>
+        {/*<MDXLayoutRenderer*/}
+        {/*  layout={frontMatter.layout || DEFAULT_LAYOUT}*/}
+        {/*  mdxSource={mdxSource}*/}
+        {/*  frontMatter={frontMatter}*/}
+        {/*/>*/}
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
