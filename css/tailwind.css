@@ -11,11 +11,48 @@
 }
 
 .footnotes {
-  @apply pt-8 mt-12 border-t border-gray-200 dark:border-gray-700;
+  @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
 }
 
 .csl-entry {
   @apply my-5;
+}
+
+@keyframes color-animation {
+  0% {
+    color: white;
+  }
+  60% {
+    color: darkred;
+  }
+  65% {
+    color: red;
+  }
+  80% {
+    color: darkred;
+  }
+  90% {
+    color: rgba(21, 16, 21, 0.97);
+  }
+  93% {
+    color: darkgrey;
+  }
+  95% {
+    color: lightgray;
+  }
+  97% {
+    color: rgba(211, 214, 210, 0.97);
+  }
+  100% {
+    color: white;
+  }
+}
+
+.text {
+  animation-name: color-animation;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
