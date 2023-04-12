@@ -7,6 +7,8 @@ import formatDate from '@/lib/utils/formatDate'
 import NewsletterForm from '@/components/NewsletterForm'
 import { getPage } from '@/lib/notion'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
+import { useEffect, useRef } from 'react'
+import Typed from 'typed.js'
 
 const MAX_DISPLAY = 5
 const DEFAULT_LAYOUT = 'AuthorLayout'
@@ -25,6 +27,31 @@ export async function getStaticProps() {
 
 export default function Home({ posts, authorDetails }) {
   const { mdxSource, frontMatter } = authorDetails
+  /**
+   * 타이핑 효과 로직
+   */
+  // const typedRef = useRef(null)
+  //
+  // useEffect(() => {
+  //   const options = {
+  //     strings: ['Backend Developer', 'Amateur Philosopher', 'Amateur psychologist'],
+  //     typeSpeed: 50,
+  //     backDelay: 1000,
+  //     loop: true,
+  //   }
+  //   const typed = new Typed('.typed', options)
+  //   typedRef.current = typed
+  //
+  //   return () => {
+  //     typed.destroy()
+  //   }
+  // }, [])
+  //
+  // useEffect(() => {
+  //   if (typedRef.current) {
+  //     typedRef.current.reset()
+  //   }
+  // })
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -33,6 +60,7 @@ export default function Home({ posts, authorDetails }) {
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             hi
           </h1>
+          {/*<p style={{ fontSize: '24px', color: 'white' }}>I'm a <span className="typed" style={{ fontSize: '24px', color: 'white' }}></span> </p>*/}
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
           </p>
