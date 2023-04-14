@@ -48,6 +48,23 @@
   }
 }
 
+.leftNav {
+  opacity: 0;
+}
+
+.leftNav.isSticky {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.table-of-contents {
+  position: sticky;
+  display: none;
+}
+.leftNav.isSticky .table-of-contents {
+  display: block;
+}
+
 .text {
   animation-name: color-animation;
   animation-duration: 10s;
