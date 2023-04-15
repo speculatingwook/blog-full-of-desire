@@ -60,14 +60,22 @@ export default function Home({ posts, authorDetails }) {
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
           <div className="pt-6">
             <h1 className="pb-6 text-xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-              Welcome, to my{' '}
-              <span className="text-primary-color-500 dark:text-primary-color-dark-500">
+              Welcome! to my{' '}
+              <RoughNotation
+                type="underline"
+                show={true}
+                color="#FBCFE8"
+                animationDelay={1500}
+                animationDuration={3000}
+                multiline={true}
+              >
                 Blog Full of Desire
-              </span>
+              </RoughNotation>
             </h1>
             <p className="prose pt-5 text-lg text-gray-600 dark:text-gray-300">
               안녕하세요. 여러 욕망중에 지식에 대한 욕망이 가장 큰 주니어 개발자입니다. 최근 기술의
-              급격한 발전으로 많은 변화가 생기고 있습니다.
+              급격한 발전으로 많은 변화가 생기고 있습니다. 그래서 배워야 하는 기술도 계속 바뀌고, 뭘
+              어떻게 해야할지 모르는 사람들이 많습니다.
               <br />
               <br />
               <RoughNotation
