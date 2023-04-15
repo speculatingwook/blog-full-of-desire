@@ -7,6 +7,9 @@ import formatDate from '@/lib/utils/formatDate'
 import NewsletterForm from '@/components/NewsletterForm'
 import { getPage } from '@/lib/notion'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
+import { useEffect, useRef } from 'react'
+import Typed from 'typed.js'
+import { RoughNotation } from 'react-rough-notation'
 
 const MAX_DISPLAY = 5
 const DEFAULT_LAYOUT = 'AuthorLayout'
@@ -25,23 +28,94 @@ export async function getStaticProps() {
 
 export default function Home({ posts, authorDetails }) {
   const { mdxSource, frontMatter } = authorDetails
+  /**
+   * 타이핑 효과 로직
+   */
+  // const typedRef = useRef(null)
+  //
+  // useEffect(() => {
+  //   const options = {
+  //     strings: ['Backend Developer', 'Amateur Philosopher', 'Amateur psychologist'],
+  //     typeSpeed: 50,
+  //     backDelay: 1000,
+  //     loop: true,
+  //   }
+  //   const typed = new Typed('.typed', options)
+  //   typedRef.current = typed
+  //
+  //   return () => {
+  //     typed.destroy()
+  //   }
+  // }, [])
+  //
+  // useEffect(() => {
+  //   if (typedRef.current) {
+  //     typedRef.current.reset()
+  //   }
+  // })
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            hi
-          </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            {siteMetadata.description}
-          </p>
+          <div className="pt-6">
+            <h1 className="pb-6 text-xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+              Welcome! to my{' '}
+              <RoughNotation
+                type="underline"
+                show={true}
+                color="#FBCFE8"
+                animationDelay={1500}
+                animationDuration={3000}
+                multiline={true}
+              >
+                Blog Full of Desire
+              </RoughNotation>
+            </h1>
+            <p className="prose pt-5 text-lg text-gray-600 dark:text-gray-300">
+              안녕하세요. 여러 욕망중에 지식에 대한 욕망이 가장 큰 주니어 개발자입니다. 최근 기술의
+              급격한 발전으로 많은 변화가 생기고 있습니다. 그래서 배워야 하는 기술도 계속 바뀌고, 뭘
+              어떻게 해야할지 모르는 사람들이 많습니다.
+              <br />
+              <br />
+              <RoughNotation
+                animate="true"
+                type="highlight"
+                show={true}
+                color="#f44336"
+                animationDelay={1000}
+                animationDuration={2500}
+                className="text-slate-200"
+              >
+                하지만, 기술이 급격하게 변하더라도 본질적인 것은 변하지 않습니다.
+              </RoughNotation>
+              이곳에 제가 본질적으로 중요하다고 생각하는 것들을 글로 정리해두려고 합니다. 부족할
+              수도 있는 제 글들을 읽고 도움이 되셨으면 좋겠습니다.
+            </p>
+            <p className="hidden pt-10 text-lg leading-7 text-slate-600 dark:text-slate-300 md:block">
+              Hello. I am a junior developer who has a great desire for knowledge among many
+              desires. Recently, there have been many changes due to the rapid development of
+              technology.
+              <br />
+              <br />
+              <RoughNotation
+                animate="true"
+                type="highlight"
+                show={true}
+                color="#f44336"
+                animationDelay={1000}
+                animationDuration={2500}
+                className="text-slate-200"
+              >
+                However, even if technology changes rapidly, the essential things do not
+                change.&nbsp;
+              </RoughNotation>
+              I want to write down the things that I think are essential here. I may not be perfect,
+              but I hope my writing can be helpful to you.
+            </p>
+          </div>
+          {/*<p style={{ fontSize: '24px', color: 'white' }}>I'm a <span className="typed" style={{ fontSize: '24px', color: 'white' }}></span> </p>*/}
         </div>
-        {/*<MDXLayoutRenderer*/}
-        {/*  layout={frontMatter.layout || DEFAULT_LAYOUT}*/}
-        {/*  mdxSource={mdxSource}*/}
-        {/*  frontMatter={frontMatter}*/}
-        {/*/>*/}
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {

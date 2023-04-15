@@ -1,0 +1,58 @@
+---
+title: 'Pipelining'
+date: '2023-04-13'
+tags: ['COMPUTER_ARCHITECTURE', 'COMPUTER_SCIENCE']
+draft: false
+summary: '컴퓨터 아키텍처 개념'
+---
+
+Pipelining은 컴퓨터의 성능을 높이기 위한 방법 중 하나로, 프로세서의 실행 과정을 여러 단계로 분할하여 한 번에 여러 명령어를 처리할 수 있도록 하는 기술이다. Pipelining은 대부분의 현대 CPU에서 사용되고 있다. CPU의 pipelining 구조는 대개 다음과 같은 5개 단계로 구성된다.
+
+<p align="center">
+  <img
+    width="555"
+    alt="image"
+    src="https://user-images.githubusercontent.com/105579811/231613300-7e9c8f51-4d0c-402d-9542-241a74a3bcbe.png"
+  />
+</p>
+
+### Instruction Fetch (명령어 가져오기)
+
+메모리에서 명령어를 가져오는 단계이다
+프로그램 카운터(PC)가 가리키는 주소에서 명령어를 읽어들인다.
+가져온 명령어는 다음 단계에서 디코딩된다.
+
+### Instruction Decode (명령어 디코딩)
+
+가져온 명령어를 분석하여 명령어의 유형과 필요한 데이터를 결정한다.
+이 정보는 다음 단계에서 사용된다.
+
+### Execute (실행)
+
+명령어가 실제로 실행되는 단계이다.
+ALU (Arithmetic Logic Unit) 등의 기능 블록에서 명령어에 따라 계산이 수행된다.
+
+### Memory Access (메모리 액세스)
+
+명령어가 메모리를 사용하는 경우, 메모리에서 데이터를 읽거나 쓰는 단계이다.
+일부 CPU에서는 이 단계를 건너뛰거나 여러 번 수행할 수 있다.
+
+### Write Back (레지스터 업데이트)
+
+실행된 명령어에서 변경된 레지스터 값이 메모리에 저장되거나, 다음 명령어에서 사용되도록 레지스터에 저장된다.
+
+<br />
+
+### Pipeline Execution
+
+<p align="center">
+  <img
+    width="508"
+    alt="image"
+    src="https://user-images.githubusercontent.com/105579811/231613464-dc8eb0e1-c752-491a-b943-df4c08a881b7.png"
+  />
+</p>
+
+위와 같은 5단계로 명령어를 처리하면, 각 단계가 병렬로 수행될 수 있으므로 CPU의 처리량이 향상된다. 이러한 pipelining 구조를 가진 CPU에서는 한 번에 여러 개의 명령어가 처리될 수 있으므로, 실행 시간이 크게 단축될 수 있다.
+
+하지만, 파이프라이닝 구조에서는 명령어 실행에 필요한 자원들이 한 번에 사용되지 않기 때문에, 데이터 레이스(data hazards)나 명령어 레이스(instruction hazards)와 같은 오류가 발생할 수 있다. 이러한 오류를 해결하기 위해 하드웨어나 소프트웨어적으로 다양한 기술이 사용되며, pipelining의 성능 개선을 위한 연구도 지속적으로 이루어지고 있다.

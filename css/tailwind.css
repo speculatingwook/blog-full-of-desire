@@ -11,11 +11,89 @@
 }
 
 .footnotes {
-  @apply pt-8 mt-12 border-t border-gray-200 dark:border-gray-700;
+  @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
 }
 
 .csl-entry {
   @apply my-5;
+}
+
+@keyframes color-animation {
+  0% {
+    color: white;
+  }
+  60% {
+    color: darkred;
+  }
+  65% {
+    color: #e91e63;
+  }
+  85% {
+    color: #f44336;
+  }
+  90% {
+    color: rgba(21, 16, 21, 0.97);
+  }
+  93% {
+    color: darkgrey;
+  }
+  95% {
+    color: lightgray;
+  }
+  97% {
+    color: rgba(211, 214, 210, 0.97);
+  }
+  100% {
+    color: white;
+  }
+}
+
+.leftNav {
+  opacity: 0;
+}
+
+.leftNav.isSticky {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.table-of-contents {
+  position: sticky;
+  display: none;
+}
+.leftNav.isSticky .table-of-contents {
+  display: block;
+}
+
+.text {
+  animation-name: color-animation;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/*nav bar css*/
+.link-underline {
+  position: relative;
+}
+
+.link-underline:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: linear-gradient(transparent, transparent), linear-gradient(to right, #e91e63, #f44336);
+  transition: width 0.25s ease;
+  -webkit-transition: width 0.25s ease;
+}
+
+.link-underline:hover:after {
+  width: 100%;
+  left: 0;
+  background: linear-gradient(transparent, transparent), linear-gradient(to right, #e91e63, #f44336);
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
