@@ -26,10 +26,10 @@
     color: darkred;
   }
   65% {
-    color: red;
+    color: #e91e63;
   }
   85% {
-    color: darkred;
+    color: #f44336;
   }
   90% {
     color: rgba(21, 16, 21, 0.97);
@@ -70,6 +70,30 @@
   animation-duration: 10s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+}
+
+/*nav bar css*/
+.link-underline {
+  position: relative;
+}
+
+.link-underline:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: linear-gradient(transparent, transparent), linear-gradient(to right, #e91e63, #f44336);
+  transition: width 0.25s ease;
+  -webkit-transition: width 0.25s ease;
+}
+
+.link-underline:hover:after {
+  width: 100%;
+  left: 0;
+  background: linear-gradient(transparent, transparent), linear-gradient(to right, #e91e63, #f44336);
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
