@@ -31,28 +31,28 @@ export default function Home({ posts, authorDetails }) {
   /**
    * 타이핑 효과 로직
    */
-  // const typedRef = useRef(null)
-  //
-  // useEffect(() => {
-  //   const options = {
-  //     strings: ['Backend Developer', 'Amateur Philosopher', 'Amateur psychologist'],
-  //     typeSpeed: 50,
-  //     backDelay: 1000,
-  //     loop: true,
-  //   }
-  //   const typed = new Typed('.typed', options)
-  //   typedRef.current = typed
-  //
-  //   return () => {
-  //     typed.destroy()
-  //   }
-  // }, [])
-  //
-  // useEffect(() => {
-  //   if (typedRef.current) {
-  //     typedRef.current.reset()
-  //   }
-  // })
+  const typedRef = useRef(null)
+
+  useEffect(() => {
+    const options = {
+      strings: ['Latest...'],
+      typeSpeed: 200,
+      backDelay: 1000,
+      loop: true,
+    }
+    const typed = new Typed('.typed', options)
+    typedRef.current = typed
+
+    return () => {
+      typed.destroy()
+    }
+  }, [])
+
+  useEffect(() => {
+    if (typedRef.current) {
+      typedRef.current.reset()
+    }
+  })
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -114,7 +114,13 @@ export default function Home({ posts, authorDetails }) {
               but I hope my writing can be helpful to you.
             </p>
           </div>
-          {/*<p style={{ fontSize: '24px', color: 'white' }}>I'm a <span className="typed" style={{ fontSize: '24px', color: 'white' }}></span> </p>*/}
+          <br />
+          <br />
+          <br />
+
+          <h1 style={{ fontSize: '40px', color: 'white' }}>
+            <span className="typed" style={{ fontSize: '40px', color: 'white' }}></span>{' '}
+          </h1>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
