@@ -20,15 +20,7 @@ const CustomLink = ({ href, ...rest }) => {
   }
 
   if (isAnchorLink) {
-    return (
-      <a
-        className="special-underline-new no-underline hover:text-gray-100 dark:hover:text-gray-100"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={href}
-        {...rest}
-      />
-    )
+    return <a href={href} {...rest} />
   }
 
   return (

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+a.no-underline {
+  text-decoration: none;
+}
+
 .task-list-item::before {
   @apply hidden;
 }
