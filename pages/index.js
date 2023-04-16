@@ -64,7 +64,7 @@ export default function Home({ posts, authorDetails }) {
               <RoughNotation
                 type="underline"
                 show={true}
-                color="#FBCFE8"
+                color="#C9184A"
                 animationDelay={1500}
                 animationDuration={3000}
                 multiline={true}
@@ -82,7 +82,7 @@ export default function Home({ posts, authorDetails }) {
                 animate="true"
                 type="highlight"
                 show={true}
-                color="#f44336"
+                color="#FF758F"
                 animationDelay={1000}
                 animationDuration={2500}
                 className="text-slate-200"
@@ -102,7 +102,7 @@ export default function Home({ posts, authorDetails }) {
                 animate="true"
                 type="highlight"
                 show={true}
-                color="#f44336"
+                color="#FF758F"
                 animationDelay={1000}
                 animationDuration={2500}
                 className="text-slate-200"
