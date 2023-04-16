@@ -64,28 +64,28 @@ html {
 
 @keyframes color-animation {
   0% {
-    color: white;
+    color: #fff0f3;
   }
   60% {
-    color: darkred;
+    color: #ff4d6d;
   }
   65% {
-    color: #e91e63;
+    color: #c9184a;
   }
   85% {
-    color: #f44336;
+    color: #c9184a;
   }
   90% {
-    color: rgba(21, 16, 21, 0.97);
+    color: #ff4d6d;
   }
   93% {
-    color: darkgrey;
+    color: #ffb3c1;
   }
   95% {
-    color: lightgray;
+    color: #ffccd5;
   }
   97% {
-    color: rgba(211, 214, 210, 0.97);
+    color: #fff0f3;
   }
   100% {
     color: white;
