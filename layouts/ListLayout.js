@@ -4,6 +4,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { useState } from 'react'
 import Pagination from '@/components/Pagination'
 import formatDate from '@/lib/utils/formatDate'
+import { RoughNotation } from 'react-rough-notation'
 
 export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
   const [searchValue, setSearchValue] = useState('')
@@ -21,7 +22,17 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            {title}
+            <RoughNotation
+              animate="true"
+              type="underline"
+              show={true}
+              color="#f44336"
+              animationDelay={1000}
+              animationDuration={2500}
+              className="text-slate-200"
+            >
+              {title}
+            </RoughNotation>
           </h1>
           <div className="relative max-w-lg">
             <input

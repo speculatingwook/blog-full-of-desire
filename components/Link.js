@@ -8,16 +8,38 @@ const CustomLink = ({ href, ...rest }) => {
   if (isInternalLink) {
     return (
       <Link href={href}>
-        <a {...rest} />
+        <a
+          className="special-underline-new no-underline hover:text-gray-100 dark:hover:text-gray-100"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={href}
+          {...rest}
+        />
       </Link>
     )
   }
 
   if (isAnchorLink) {
-    return <a href={href} {...rest} />
+    return (
+      <a
+        className="special-underline-new no-underline hover:text-gray-100 dark:hover:text-gray-100"
+        target="_blank"
+        rel="noopener noreferrer"
+        href={href}
+        {...rest}
+      />
+    )
   }
 
-  return <a target="_blank" rel="noopener noreferrer" href={href} {...rest} />
+  return (
+    <a
+      className="special-underline-new no-underline hover:text-gray-100 dark:hover:text-gray-100"
+      target="_blank"
+      rel="noopener noreferrer"
+      href={href}
+      {...rest}
+    />
+  )
 }
 
 export default CustomLink
