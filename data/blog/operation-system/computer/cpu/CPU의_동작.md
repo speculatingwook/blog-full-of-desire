@@ -1,7 +1,7 @@
 ---
 title: 'CPU'
 date: '2023-04-16'
-tags: ['OPERATION_SYSTEM', 'COMPUTER_SCIENCE']
+tags: ['OPERATION_SYSTEM', 'COMPUTER_SCIENCE', 'COMPUTER_ARCHITECTURE']
 draft: false
 summary: '전공공부하면서 같이 공부하는 운영체제'
 ---
