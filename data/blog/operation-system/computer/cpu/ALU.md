@@ -1,7 +1,7 @@
 ---
 title: 'ALU(arithmetic logic unit)'
 date: '2023-04-17'
-tags: ['OPERATION_SYSTEM', 'COMPUTER_SCIENCE', 'COMPUTER_ARCHITECTURE']
+tags: ['COMPUTER_SCIENCE', 'HARDWARE']
 draft: false
 summary: '전공공부하면서 같이 공부하는 운영체제'
 ---
