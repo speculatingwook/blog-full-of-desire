@@ -11,6 +11,12 @@ const projectsData = [
     imgSrc: '/static/images/마이무라.png',
     href: '/blog/Greendar',
   },
+  {
+    title: '지구를 지켜라 지구방위대!',
+    description: `우주인들을 막는 종스크롤 액션 게임`,
+    imgSrc: '/static/images/지구방위대.png',
+    href: '/blog/project/done/지구방위대/edc',
+  },
 ]
 
 export default projectsData
