@@ -14,8 +14,8 @@ const projectsData = [
   {
     title: '지구를 지켜라 지구방위대!',
     description: `우주인들을 막는 종스크롤 액션 게임`,
-    imgSrc: './img/지구방위대.png',
-    href: '/blog/project/done/지구방위대',
+    imgSrc: '/static/images/지구방위대.png',
+    href: '/blog/project/done/지구방위대/edc',
   },
 ]
 

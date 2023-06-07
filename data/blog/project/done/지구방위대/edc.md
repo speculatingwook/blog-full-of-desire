@@ -6,7 +6,7 @@ draft: false
 summary: '우주인들을 막는 종스크롤 액션 게임'
 ---
 
-# <img src="./img/지구방위대.png" alt="image" width="50" height="50" /> 지구를 지켜라! 지구방위대 🔫
+# <img src="../../../../../public/static/images/지구방위대.png" alt="image" width="50" height="50" /> 지구를 지켜라! 지구방위대 🔫
 
 ### 🌕 우주인들을 막는 종스크롤 액션 게임 🌎
 
