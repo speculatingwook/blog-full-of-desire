@@ -48,9 +48,13 @@ JVM은 바이트 코드를 명령어 단위로 읽어서 해석하는데, Interp
 4. Runtime Data Area에 로딩된 .class 들은 Execution Engine을 통해 해석한다.
 5. 해석된 바이트 코드는 Runtime Data Area의 각 영역에 배치되어 수행하며 이 과정에서 Execution Engine에 의해 GC의 작동과 스레드 동기화가 이루어진다.
 
-## JVM의 구조
+## JVM Architecture
 
-### 클래스 로더(Class-Loader)
+<p align="center">
+    <img width="1000" alt="image" src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/8eb77b1e-2b08-4f98-adca-bebc5eaadd9d"/>
+</p>
+
+### 클래스 로더(Class Loaders)
 
 <p align="center">
     <img width="335" alt="image" src="https://user-images.githubusercontent.com/105579811/233773149-4fb5b3f6-38bc-4cc5-9b22-b505309900ec.png"/>
@@ -58,9 +62,30 @@ JVM은 바이트 코드를 명령어 단위로 읽어서 해석하는데, Interp
 
 자바는 동적으로 클래스를 읽어오므로, 프로그램이 실행 중인 런타임에서야 모든 코드가 자바 가상 머신과 연결된다. 이렇게 동적으로 클래스를 로딩해주는 역할을 하는 것이 바로 클래스 로더(class loader)이다. 자바에서 소스를 작성하면 .java파일이 생성되고, .java 컴파일러가 컴파일하면 .class 파일이 생성되는데 클래스 로더는 .class 파일을 묶어서 JVM이 운영체제로부터 할당받은 메모리 영역인 Runtime Data Area로 적재한다.
 
+- 클래스 로더는 런타임에 Java 클래스/인터페이스의 바이트코드를 동적으로 메모리에 로딩한다.
+
+  - 한 번에 모든 클래스가 메모리에 로드되지 않고 필요할 때마다 로드된다.
+
+- 로딩 작업은 크게 3가지로 분리된다.
+  - Loading: JVM이 필요한 클래스 파일을 로드한다.
+  - Linking: 로드된 클래스의 verify, prepare, resolve 작업을 수행한다.
+  - Initializing: 클래스/정적 변수 등을 초기화한다.
+
 ### 실행 엔진(Execution Engine)
 
 클래스 로더에 의해 JVM으로 로드 된 .class 파일(바이트 코드)들은 Runtime Data Areas의 Method Area에 배치되는데, 배치된 이후에 JVM은 Method Area의 바이트 코드를 실행 엔진(Execution Engine)에 제공하여, 정의된 내용대로 바이트 코드를 실행시킨다. 이때, 로드된 바이트코드를 실행하는 런타임 모듈이 실행 엔진(Execution Engine)이다. 실행 엔진은 바이트 코드를 명령어 단위로 읽어서 실행한다.
+
+- JVM 메모리 영역에 있는 바이트 코드를 읽어 네이티브 코드로 변환하고 실행한다.
+  - Interpreter
+    - 메모리에 로드된 바이트코드를 한줄씩 해석/실행한다.
+  - JIT(Just-In-Time) Compiler
+    - 자주 호출되는 메서드(hot method)의 바이트코드를 네이티브 코드로 컴파일
+    - JVM이 실행 메서드를 모니터, JIT 컴파일러의 프로파일러가 수집한 프로파일 정보를 기반으로 처리한다.
+    - 중간 코드 생성 > 코드 최적화 > 네이티브 코드 생성
+  - GC(Garbage Collector)
+    - 메모리에서 사용하지 않는 개체를 식별해 삭제하는 프로세스(대표적으로 Heap 영역)
+    - 데몬 스레드로 동작(명시적으로 호출해도 즉시 실행되지 않음)
+- 필요한 경우 JNI를 통해 네이티브 메서드 라이브러리를 호출
 
 ### 가비지 컬렉터(Garbage Collector)
 
@@ -70,7 +95,7 @@ JVM은 바이트 코드를 명령어 단위로 읽어서 해석하는데, Interp
 
 자바 가상 머신은 가비지 컬렉터(garbage collector)를 이용하여 더는 사용하지 않는 메모리를 자동으로 회수해 준다. 따라서 개발자가 따로 메모리를 관리하지 않아도 되므로, 더욱 손쉽게 프로그래밍을 할 수 있도록 도와준다. Heap 메모리 영역에서 생성된 객체들 중 참조되지 않은 객체들을 탐색 후 제거하는 역할을 하며 해당 역할을 하는 시간은 정확히 언제인지 알 수 없다. GC 역할을 수행하는 스레드를 제외한 나머지 모든 스레드들은 일시정지 상태가 된다.
 
-## 런타임 데이터 영역
+## 런타임 데이터 영역(Runtime Data Areas)
 
 <p align="center">
     <img width="818" alt="image" src="https://user-images.githubusercontent.com/105579811/233774112-acefbc0b-94f2-4c1f-95b2-9a73a82582dc.png"/>
@@ -116,7 +141,19 @@ Young Generation(Eden + Servior) 영역이 차게 되면 또 참조 정도에 �
 
 Thread가 생성될 때마다 생성되는 영역으로 프로그램 카운터, 즉 현재 스레드가 실행되는 부분의 주소와 명령을 저장하고 있는 영역이다.
 
+### JNI(Java Native Interface)
+
+- JVM과 네이티브 라이브러리 사용을 위한 인터페이스이자 동시에 해당 역할을 수행한다.(일종의 프레임워크)
+- 네이티브 메서드(네이티브 언더 C/C++ 등으로 작성) 호출, 데이터 전달과 메모리 관리 등을 수행한다.
+- JNI를 통해 JVM 내 Java 코드는 네이티브 언어/라이브러리와 상호 운용될 수 있음
+  - JNI는 Java VM에 의존적이지 않아 다른 부분에 영향을 주지 않고 JNI에 대해서 추가 가능하다.
+
 ### 네이티브 메서드 스택(Native Method Stack)
+
+자바 프로그램에서 네이티브 메소드(네이티브 코드로 구현된 메소드)를 호출할 때 사용되는 메모리 영역이다.
+네이티브 메소드는 일반적으로 C, C++ 등의 언어로 작성된 코드로, 자바 가상 머신(Java Virtual Machine, JVM)에서 직접 실행되는 것이 아니라 운영 체제의 네이티브 라이브러리를 통해 실행된다.
+네이티브 메소드 호출은 자바 프로그램에서 Java Native Interface(JNI)를 사용하여 이루어진다.
+네이티브 메소드 스택은 네이티브 메소드 호출에 필요한 매개변수, 지역 변수 및 호출 상태 정보를 저장하는 데 사용된다.
 
 1. 자바 이외의 언어(C, C++, 어셈블리 등)로 작성된 네이티브 코드를 실행할 때 사용되는 메모리 영역으로 일반적인 C 스택을 사용한다.
 2. 보통 C/C++ 등의 코드를 수행하기 위한 스택을 말하며(JNI) 자바 컴파일러에 의해 변환된 자바 바이트 코드를 읽고 해석하는 역할을 하는 것이 자바 인터프리터(interpreter)이다.
@@ -126,3 +163,5 @@ Thread가 생성될 때마다 생성되는 영역으로 프로그램 카운터, 
 - [자바 가상머신 총정리](https://coding-factory.tistory.com/827)
 
 - [JVM 내부 구조 & 메모리 영역 총정리](https://inpa.tistory.com/entry/JAVA-%E2%98%95-JVM-%EB%82%B4%EB%B6%80-%EA%B5%AC%EC%A1%B0-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%98%81%EC%97%AD-%EC%8B%AC%ED%99%94%ED%8E%B8)
+
+- [the jvm architecture explained](https://dzone.com/articles/jvm-architecture-explained)
