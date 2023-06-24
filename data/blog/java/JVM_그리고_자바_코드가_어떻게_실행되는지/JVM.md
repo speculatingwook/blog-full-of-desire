@@ -51,10 +51,10 @@ JVM은 바이트 코드를 명령어 단위로 읽어서 해석하는데, Interp
 ## JVM Architecture
 
 <p align="center">
-    <img width="1000" alt="image" src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/8eb77b1e-2b08-4f98-adca-bebc5eaadd9d"/>
+    <img width="1200" alt="image" src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/c9668a5b-59fd-458a-936d-16729e82c101"/>
 </p>
 
-### 클래스 로더(Class Loaders)
+### [클래스 로더(Class Loaders)](/blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/클래스로더와_클래스로딩)
 
 <p align="center">
     <img width="335" alt="image" src="https://user-images.githubusercontent.com/105579811/233773149-4fb5b3f6-38bc-4cc5-9b22-b505309900ec.png"/>
