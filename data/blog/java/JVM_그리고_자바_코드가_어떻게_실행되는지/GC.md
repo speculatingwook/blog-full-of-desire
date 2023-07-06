@@ -1,5 +1,5 @@
 ---
-title: 'GC(Garbage Collection), Java GC'
+title: '[ JAVA ] GC(Garbage Collection), Java GC'
 date: '2023-06-12'
 tags: ['JAVA']
 draft: false

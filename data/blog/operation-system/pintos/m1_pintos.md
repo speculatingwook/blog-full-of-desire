@@ -1,7 +1,7 @@
 ---
-title: m1 mac에서 pintos 돌리기
+title: '[ Pintos ] m1 mac에서 pintos 돌리기'
 date: '2023-07-04'
-tags: ['operating-system', 'side-project']
+tags: ['operating-system', 'side-project', 'pintos']
 draft: false
 summary: 하,,,,,,
 ---
@@ -20,7 +20,7 @@ mac 환경에서 pintos 프로젝트가 빌드가 되지 않았습니다. 그래
 혹은
 
 ```shell
-  docker pull speculatingwook/pintosm1
+docker pull speculatingwook/pintosm1
 ```
 
 ## Doker Container 생성하기

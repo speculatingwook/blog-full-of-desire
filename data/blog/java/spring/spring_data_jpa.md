@@ -1,5 +1,5 @@
 ---
-title: 'Spring Data Jpa'
+title: '[ Spring ] Spring Data Jpa'
 date: '2023-05-15'
 tags: ['spring', 'jpa', 'database']
 draft: false

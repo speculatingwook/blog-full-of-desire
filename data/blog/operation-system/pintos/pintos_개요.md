@@ -1,7 +1,7 @@
 ---
-title: 카이스트 전산과의 학부 프로젝트, pintos
+title: '[ Pintos ] 카이스트 전산과의 학부 프로젝트, pintos'
 date: '2023-06-30'
-tags: ['operating-system', 'side-project']
+tags: ['operating-system', 'side-project', 'pintos']
 draft: false
 summary: 카이스트 출신 개발자 사수분이 알려주신 PINT-OS, 작은 OS 구현 프로젝트
 ---

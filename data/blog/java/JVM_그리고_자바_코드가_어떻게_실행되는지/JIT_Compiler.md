@@ -1,5 +1,5 @@
 ---
-title: 'Just-In-Time (JIT) 컴파일러 이해하기'
+title: '[ JAVA ] Just-In-Time (JIT) 컴파일러 이해하기'
 date: '2023-04-22'
 tags: ['JAVA']
 draft: false
