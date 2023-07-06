@@ -1,5 +1,5 @@
 ---
-title: 'servlet & spring web MVC'
+title: '[ Spring ] servlet & spring web MVC'
 date: '2023-05-30'
 tags: ['spring']
 draft: false

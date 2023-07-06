@@ -1,7 +1,7 @@
 ---
-title: Pintos project 1, Threads
+title: '[ Pintos ] project 1, Threads'
 date: '2023-06-30'
-tags: ['operating-system', 'side-project']
+tags: ['operating-system', 'side-project', 'pintos']
 draft: false
 summary: 카이스트 출신 개발자 사수분이 알려주신 PINT-OS, 작은 OS 구현 프로젝트
 ---
@@ -12,7 +12,7 @@ In this assignment, we give you a minimally functional thread system. Your job i
 
 음. 이 시스템의 기능을 확장하는게 제가 해야 할 일인 것 같네요. 이걸 해결하면서 동기화 문제에 대한 이해도가 높아진다고 합니다. `treads` 디렉토리에서 주로 작업하고, `device` 디렉토리에서 조금 일한다고 하네요. 컴파일은 `threads` 디렉토리에서 한다고 합니다.
 
-이 문서를 읽기 전에, [먼저 Synchronization에 대해 슥 훑어보라고 하는데, 지금 보러 가겠습니다.](/blog/operation-system/pintos/Synchronization)
+이 문서를 읽기 전에, [먼저 Synchronization에 대해 슥 훑어보라고 하는데, 지금 보러 가겠습니다.](/blog/operation-system/pintos/appendix/Synchronization)
 
 ## Background
 

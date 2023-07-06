@@ -1,5 +1,5 @@
 ---
-title: 'Spring Bean'
+title: '[ Spring ] Bean'
 date: '2023-06-28'
 tags: ['spring', 'bean']
 draft: false

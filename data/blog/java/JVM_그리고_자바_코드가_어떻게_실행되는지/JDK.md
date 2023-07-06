@@ -1,5 +1,5 @@
 ---
-title: 'JDK(Java Development Kit)'
+title: '[ JAVA ] JDK(Java Development Kit)'
 date: '2023-04-22'
 tags: ['JAVA']
 draft: false

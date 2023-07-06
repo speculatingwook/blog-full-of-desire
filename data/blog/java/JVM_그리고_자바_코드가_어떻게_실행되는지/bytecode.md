@@ -1,5 +1,5 @@
 ---
-title: '바이트코드(bytecode)'
+title: '[ JAVA ] 바이트코드(bytecode)'
 date: '2023-04-22'
 tags: ['JAVA']
 draft: false

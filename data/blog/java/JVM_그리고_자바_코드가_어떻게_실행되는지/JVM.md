@@ -1,5 +1,5 @@
 ---
-title: 'JVM(Java virtual machine)'
+title: '[ JAVA ] JVM(Java virtual machine)'
 date: '2023-04-22'
 tags: ['JAVA']
 draft: false

@@ -1,9 +1,9 @@
 ---
-title: Synchronization
+title: '[ Pintos ] Synchronization'
 date: '2023-06-30'
-tags: ['operating-system', 'side-project']
+tags: ['operating-system', 'side-project', 'pintos']
 draft: false
-summary: PintOs appendix
+summary: Pintos appendix
 ---
 
 _If sharing of resources between threads is not handled in a careful, controlled fasion, the result is usually a big mess. This is especially the case in operating system kernels, where faulty sharing can crash the entire machine. Pintos provides several synchronization primitives to help out._

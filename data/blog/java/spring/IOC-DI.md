@@ -1,5 +1,5 @@
 ---
-title: 'DI(의존성 주입), IOC'
+title: '[ Spring ] DI(의존성 주입), IOC'
 date: '2023-05-30'
 tags: ['spring', '스프링 삼각형']
 draft: false
