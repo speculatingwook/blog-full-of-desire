@@ -1,5 +1,5 @@
 ---
-title: CORS
+title: '[Network] CORS'
 date: '2023-06-23'
 tags: ['CORS']
 draft: false
@@ -97,6 +97,6 @@ CORS를 모르는 서버를 위해 있다.
 - 서버 측
   - Access-Control-Allow-Credentials: true(Access-Control-Allow-Origin: \*은 안된다.)
 
-****출처****
+\***\*출처\*\***
 
 - [나봄의 CORS](https://www.youtube.com/watch?v=-2TgkKYmJt4&list=WL&index=22&t=81s)
