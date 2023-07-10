@@ -32,7 +32,7 @@ void timer_sleep (int64_t ticks);
 
 ## 음, 이해는 했는데, 이제 뭘 해야 하지?
 
-일단, 구글링을 조금 해봤습니다. [좋은 블로그](https://poalim.tistory.com/28)가 있길래 조금씩 참고하면서 진행하려고 합니다.
+일단, 구글링을 조금 해봤습니다. [좋은 블로그1](https://poalim.tistory.com/28), [좋은 블로그2](https://velog.io/@e_juhee/pintos-kaist-PROJECT1-Alarm-Clock-Sleep-Awake-%EB%B0%A9%EC%8B%9D%EC%9D%98-Alarm-Clock-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0) 가 있길래 조금씩 참고하면서 진행하려고 합니다.
 
 ## Busy Waiting
 
@@ -45,3 +45,151 @@ Busy waiting은 특정 작업이 완료되기를 기다리거나, 공유 자원�
 하지만 Busy waiting은 대기 시간 동안 CPU를 계속해서 사용하므로, 대기 시간이 길거나 다른 작업에 우선순위를 주어야 하는 경우에는 비효율적일 수 있습니다. 이러한 경우에는 대기열(Queue)이나 블로킹 기법(Block) 등의 다른 동기화 기법을 사용하는 것이 더 적합할 수 있습니다. 대기열이나 블로킹 기법은 스레드를 일시 정지 상태로 만들고, 작업이 완료되거나 자원이 사용 가능해질 때까지 대기할 수 있도록 합니다.
 
 따라서 Busy waiting은 상황에 따라 적절하게 사용되어야 합니다. 작업의 특성과 대기 시간의 길이, 시스템의 요구사항 등을 고려하여 적절한 동기화 기법을 선택하는 것이 중요합니다.
+
+## Ready Queue
+
+Ready Queue는 CPU 스케줄링에서 사용하는 개념으로, 프로세서의 실행을 기다리는 프로세스의 대기열을 나타냅니다. 컴퓨터 시스템에서 여러 프로세스가 동시에 실행되어야 할 때, CPU는 실행 가능한 프로세스중 하나를 선택하여 실행합니다. 이 선택은 일반적으로 스케줄러에 의해 관리되며, ready queue는 스케줄러가 프로세스를 선택하는 데 사용하는 중요한 자료 구조입니다.
+
+Ready queue에는 실행가능한 모든 프로세스가 들어갑니다. 즉, 메모리에 로드되고 실행을 시작할 준비가 된 프로세스들이 ready queue에 대기하게 됩니다. 이 대기열은 일반적으로 FIFO 방식이지만, 다른 스케줄링 알고리즘에 따라 우선순위 또는 기타 요소에 따라 재정렬될 수도 있습니다.
+
+스케줄러는 ready queue에서 어떤 프로세스를 선택하여 CPU에 할당할 지 결정합니다. 이 선택은 다양한 스케줄러 알고리즘에 의해 이루어질 수 있으며, 이 알고리즘은 프로세스의 우선순위, 실행 시간, 입출력 요구사항 등을 고려할 수 있습니다.
+
+프로세스가 CPU를 할당받으면, 해당 프로세스는 실행 큐에서 ready queue에서 실행 상태로 전환됩니다. 실행이 완료되거나 중단되면, 해당 프로세스는 종료되거나 다른 상태로 전환될 수 있습니다.
+
+## 기존의 코드
+
+```c
+void timer_sleep(int64_t ticks)
+{
+  int64_t start = timer_ticks();
+
+  ASSERT (intr_get_level () == INTR_ON);
+  while (timer_elapsed (start) < ticks)
+    thread_yield ();
+}
+```
+
+`timer_sleep()` 함수는 `ticks` 만큼의 시간이 지날 때까지 현재 스레드를 재운다. 현재 구현된 코드는 `ticks` 만큼의 시간이 지날 때까지 현재 스레드를 계속해서 `yield()` 시킨다. 하지만 CPU를 양보 받은 스레드도 아직 ticks에 도달하지 않은 경우, CPU를 양보받자마자 바로 다른 스레드에게 양보를 해야 한다.(즉, 불필요한 Contex switching이 많이 일어날 수 있다.)
+
+따라서 아직 ticks에 도달하지 않은 스레드가 깨워지는 것이 큰 비효율을 발생시키고, 이것을 해결하는 것이 이번 과제의 목적이다.
+
+> ## Tick?
+>
+> - tick은 일정 시간 간격으로 발생하는 시스템의 기본적인 시간 단위이다.
+> - 시스템 타이머는 이러한 틱을 생성하며, 일반적으로 운영체제는 이러한 틱을 사용하여 시스템 상태를 유지하고 다양한 작업을 스케줄링한다.
+>   - 예를 들어, 시스템 타이머가 100번의 틱을 초당 생성한다면, 운영체제는 1초를 100개의 틱으로 나누어 시스템 상태를 업데이트하고 작업을 스케줄링한다(10ms).이러한 방식으로 시스템이 일관된 방식으로 동작할 수 있도록 한다.
+>
+> ### 틱을 사용하는 이유
+>
+> > 1.  틱은 고정된 간격으로 발생, 운영체제가 특정 작업을 실행하기 위해 기다리는 시간을 정확히 계산할 수 있다.
+> > 2.  시간 단위를 사용하는 경우, 시스템이 다른 작업을 수행하면서 시간이 흐를 때마다 시간을 업데이트해야 하기 때문에 부하가 커질 수 있다. 따라서, 틱 단위로 시간을 추적함으로써 시스템의 부하를 줄이고 일관성을 유지할 수 있다.
+> >
+> > - 틱을 업데이트하는 것도 일정한 부하를 발생시키지만, 이 부하는 대부분 무시할 수준이다. 틱은 하드웨어에서 매우 빠르게 처리될 수 있는 단위이기 때문이다.
+> >
+> >   3. 틱을 사용하여 CPU 사용률을 조절할 수 있다.
+> >
+> > - 틱의 간격을 더 작게 조정하면, 시스템은 더 자주 인터럽트를 처리하여 작업을 스케줄링할 수 있게 된다.
+> > - 이는 우선순위가 높은 작업이 더 빠르게 실행될 수 있도록 하여 시스템의 반응성을 향상시키는 데 도움이 된다.
+
+## Sleep-Awake 방식의 Alarm Clock 구현하기
+
+### 변경 방안
+
+`busy-waiting` 방식
+스레드가 잠들면 모두 스케줄링 대기열인 ready_list에 추가하고 있어서, 아직 깰 시간이 되지 않은 스레드가 께워져서 대기하고 있게 된다.
+
+`sleep-awake` 방식
+잠든 스레드가 깰 시간(tick 도달 시간)까지는 ready_list에 추가하지 않고, 깰 시간(ticks)에 도달한 경우에만 ready_list에 추가하는 방식으로, 아직 ticks에 도달하지 않은 스레드가 깨지 않는다.
+
+### 구현 방법
+
+### sleep list 선언 & 초기화
+
+`sleep_list`는 잠든 스레드들을 저장하는 리스트이다. `sleep_list`는 `list` 구조체를 사용하여 구현한다.
+
+`sleep-awake` 방식을 구현하기 위해서는, 스레드가 잠들었을 때, 잠들어야 하는 시간을 저장해야 한다. 이를 위해 `thread` 구조체에 `int64_t ticks` 변수를 추가한다. 이 변수는 스레드가 잠들어야 하는 시간을 저장한다.
+
+```c
+
+/* thread.h */
+
+static struct list sleep_list;
+
+void thread_init(void)
+{
+    ...
+    list_init(&sleep_list); // sleep_list 초기화
+    ...
+}
+
+```
+
+### thread 구조체에 필드 추가
+
+````c
+/* thread.h */
+struct thread
+{
+    /* Owned by thread.c. */
+    tid_t tid;                          /* Thread identifier. */
+    enum thread_status status;          /* Thread state. */
+    char name[16];                      /* Name (for debugging purposes). */
+    int priority;                       /* Priority. */
+
+    ** int64_t wakeup_ticks;                    /* ticks to wake up */
+    ```
+};
+````
+
+### thread_sleep 로직 변경
+
+#### `timer_sleep`
+
+- 기존 코드에 있는 thread_yield() 함수를 호출하면 잠든 스레드가 ready_list에 삽입된다.
+- 잠든 스레드는 ready_list가 아닌 sleep_list에 삽입하는 thread_sleep() 함수를 호출한다.
+  - thread_sleep() 함수는 아래에서 새로 선언한다.
+
+```c
+/* timer.c */
+
+void timer_sleep(int64_t ticks)
+{
+    int64_t start = timer_ticks();
+
+    ASSERT (intr_get_level() == INTR_ON);
+    thread_sleep(start * ticks); // thread_sleep() 함수 호출
+}
+```
+
+#### `thread_sleep`
+
+```c
+/* thread.h */
+void thread_sleep(int64_t ticks);
+```
+
+```c
+/* thread.c */
+void thread_sleep(int64_t ticks)
+{
+    struct thread*curr;
+    enum intr_level old_level;
+    old_level = intr_disable();
+
+    curr = thread_current();
+    ASSERT(curr != idle_thread);
+
+    curr->wakeup_ticks = ticks; // 스레드가 깨어나야 하는 시간 저장
+    list_insert_ordered(&sleep_list, &curr->elem, cmp_priority, NULL); // sleep_list에 삽입
+    thread_block(); // 현재 스레드 재우기
+
+    intr_set_level(old_level); // 인터럽트 상태를 원래 상태로 변경
+
+}
+```
+
+####
+
+- 참고자료
+
+[[Pintos-KAIST] Project 1 :: Alarm Clock (Sleep-Awake 방식의 Alarm Clock 구현하기)](https://velog.io/@e_juhee/pintos-kaist-PROJECT1-Alarm-Clock-Sleep-Awake-%EB%B0%A9%EC%8B%9D%EC%9D%98-Alarm-Clock-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0)
