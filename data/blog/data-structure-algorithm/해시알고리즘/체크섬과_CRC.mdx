@@ -1,0 +1,26 @@
+---
+title: '[ Algorithm ] 체크섬과 CRC'
+date: '2023-09-08'
+tags: ['ALGORITHM', 'HASH']
+draft: false
+summary: pope 강의를 듣고 필요한 부분을 정리하는 글
+---
+
+## 체크섬(checksum)
+
+여러 데이터로부터 도출한 작은 크기의 데이터 하나이다.
+보통 데이터에 있는 모든 바이트를 어떤 방식으로든 합한다.
+
+해시 함수와 매우 비슷한 개념이다. 만약 출력값의 크기가 고정되어 있으면 해시함수이다.
+
+<p align="center">
+  <img
+    width="793"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/d269989f-513f-45a7-a786-fcccee6cc29a"
+  />
+</p>
+
+저장 혹은 전송중에 발생한 오류를 찾아낸다. 처음 데이터를 저장할 때 체크섬을 계산해서 그것도 저장하고, 나중에 데이터를 읽을 때 다시 체크섬을 계산한다. 또한, 처음에 저장해둔 체크섬과 다르면 오류가 난 것이다.
+
+주민번호 유효성 검사, 신용카드 번호의 유효성 검사, ISBN의 유효성 검사에 사용된다.

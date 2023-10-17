@@ -1,0 +1,343 @@
+---
+title: 'Gradle'
+date: '2023-06-09'
+tags: ['spring', 'gradle']
+draft: false
+summary: gradle에 관해
+---
+
+## Gradle이란?
+
+거의 모든 유형의 소프트웨어를 빌드할 수 있을 만큼 유연한 빌드 자동화 도구이다.
+
+### 빌드 자동화 도구란?
+
+<p align="center">
+  <img
+    width="756"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/28e31815-b231-4a98-97c4-52708f182ecf"
+  />
+</p>
+
+우리는 어떤 소스코드를 실행해달라고 요청하면 컴퓨터는 이해하지 못한다. 따라서 소스코드를 실행가능한 파일로 변환해주어야 하는데, 이것을 "빌드"라고 한다.
+
+<p align="center">
+  <img
+    width="788"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/3a1c8c13-9061-46f4-8d5e-912e4b354f18"
+  />
+</p>
+<p align="center">
+  <img
+    width="868"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/6f12dea1-011d-4ade-86eb-2ff4b451ce61"
+  />
+</p>
+
+빌드 도구는 코드를 실행 가능한 파일로 만들어주는 과정 및 라이브러리 관리, 테스팅 등을 '자동화'하여 수행한다.
+
+### 빌드 도구를 사용하지 않을 때의 문제점
+
+1. 반복적인 작업을 수작업으로 진행해야 하므로 비효율적이다.
+2. 라이브러리를 직접 다운로드 및 버젼 업데이트해야 한다.
+3. 프로젝트의 의존성을 파악하기 어렵다.
+
+## Gradle의 장점
+
+**_`Gradle은 Groovy 기반의 스크립트 언어이다.`_**
+
+### 스크립트 언어
+
+- 동적으로 실행 가능하다.
+- 추가적인 로직을 작성하고 싶을 때 스크립트 로직을 직접 작성할 수 있다.
+- 또는 Gradle이 지원하는 플러그인(Plugin)을 호출할 수도 있다.
+
+### Groovy 기반의 DSL
+
+- Groovy 기반으로, 자바와 유사한 문법 구조를 가지며 Java와 호환된다.
+- JVM에서 실행되는 스크립트 언어이다.
+
+- `DSL`: 특정 도메인을 대상으로 만들어진 특수 프로그래밍 언어
+
+## Gradle 빌드 스크립트
+
+- build.gradle을 빌드 스크립트라고 한다.
+
+아래 코드는 전 프로젝트에서 쓰였던 빌드 스크립트이다.
+
+```groovy
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.6'
+	//id 'org.springframework.boot' version '2.7.7'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'earth.defense.corps'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation 'org.springframework.security:spring-security-test'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	implementation group: 'com.auth0', name: 'java-jwt', version: '3.18.3'
+
+
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+```
+
+### Plugins
+
+```groovy
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.6'
+	//id 'org.springframework.boot' version '2.7.7'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+```
+
+- Plugin이란 특정 작업을 위해 모아놓은 task들의 묶음이다.
+
+<p align="center">
+  <img
+    width="456"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/05b15ced-938e-48d7-aa92-43237f1e2000"
+  />
+</p>
+자바 플러그인을 추가하면, 다음과 같은 태스크들이 추가되어 수행할 수 있다.
+
+### Dependencies(의존성 관리)
+
+```groovy
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation 'org.springframework.security:spring-security-test'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	implementation group: 'com.auth0', name: 'java-jwt', version: '3.18.3'
+
+
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+}
+```
+
+- 프로젝트에서 사용하는 라이브러리나 패키지를 '의존성'이라고 한다.
+- 프로젝트별로 어떤 의존성을 갖는지 명시해주어야 한다.
+
+#### **의존성의 종류**
+
+- `implementation`: 런타임 + 컴파일 시점 모두에서 사용
+- `compileOnly`: 컴파일할 때만 사용되고 런타임 때에는 미사용
+- `runtimeOnly`: 런타임때에만 사용
+- `testImplementation`: 테스트할 떄만 사용
+
+#### **Dependencies Configuration**
+
+- 라이브러리를 추가하는 시점을 설정할 수 있다.
+- 특정 시점에서 불필요한 특정 라이브러리를 추가한다면 리소스 낭비이다.
+
+### Repositories
+
+```groovy
+repositories {
+	mavenCentral()
+}
+```
+
+- Repositories는 라이브러리(모듈)가 저장된 위치를 정의한다.
+- 대표적으로 Maven Central(), Jcenter(), Google Android()가 있다.
+- 라이브러리의 저장소를 명시해주면 Gradle이 해당 저장소에서 필요한 라이브러리를 가져온다.
+
+## Gradle의 특징
+
+<p align="center">
+  <img
+    width="860"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/7d28d07d-7137-430b-a6fe-d1e6dae792fc"
+  />
+</p>
+
+### 뛰어난 성능
+
+#### build Cache
+
+- 빌드 결과물을 캐싱하여 재사용
+- 라이브러리 의존성을 캐시로 저장한 후 이전에 다운로드한 라이브버리 재사용
+
+#### 점진적 빌드
+
+- 마지막 빌드 호출 이후 변경된 부분만 빌드
+- 변경되지 않은 부분은 캐시 결과를 검색해 재사용
+- 태스크의 입력, 출력 혹은 변경되지 않은 부분은 빌드하지 않음
+
+#### 데몬 프로세스 사용
+
+<p align="center">
+  <img
+    width="877"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/a82a2788-3ca0-4c55-89b4-1b4347bbc9b6"
+  />
+</p>
+
+<p align="center">
+  <img
+    width="880"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/ad1ffd79-6bab-47cc-9cba-803bf93c879f"
+  />
+</p>
+
+- 다음 빌드 작업을 위해 백그라운드에서 대기하는 프로세스
+- 초기 빌드 이후 빌드 실행 시 초기화 작업을 거치지 않음
+- 이로 인해 한 번 빌드된 프로젝트는 다음 빌드에서 매우 적은 시간만 소요됨
+
+### 멀티 프로젝트 빌드 지원
+
+<p align="center">
+  <img
+    width="762"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/7d2aa64d-e975-434f-b706-9f2cb9965c29"
+  />
+</p>
+
+관리자 프로젝트, 일반 회원 프로젝트 모두 멤버 클래스를 추가하는 방식이 있지만, 관리가 어렵다는 단점이 있다.
+따라서 Gradle을 활용해 공통모듈을 관리할 수 있다.
+
+#### 멀티프로젝트(멀티모듈)이란?
+
+<p align="center">
+  <img
+    width="437"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/d6027ea7-43d0-4736-95a9-52104eb640aa"
+  />
+</p>
+
+- 공통되는 도메인을 사용하는 프로젝트를 하나의 프로젝트로 묶어서 관리하는 것이다.
+- Gradle은 각 프로젝트가 공통으로 사용하는 클래스를 모듈로 만들어 독립적인 각 프로젝트에서 사용할 수 있어야 한다.
+
+<p align="center">
+  <img
+    width="279"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/09609e1b-92ed-4856-85f0-eefb09a73e4a"
+  />
+  <img
+    width="217"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/8356c678-c64d-407f-a4f8-3dd11ea376dc"
+  />
+</p>
+
+- `root프로젝트`: 공통 모듈 '멤버'를 사용하는 관리자, 일반 회원 프로젝트를 묶는 프로젝트
+- `공통모듈`: 각 프로젝트에서 사용되는 클래스를 하나의 모듈로 저장한다.
+
+_Gradle은 독립적인 두 프로젝트에서 멤버 모듈을 사용할 수 있도록 도와준다._
+
+#### Root 프로젝트 설정
+
+<p align="center">
+  <img
+    width="500"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/e61ebdce-10b1-46b8-b751-90529803a01b"
+  />
+  <img
+    width="386"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/50ba0fed-fb8f-49a5-b04c-cef58788a3e6"
+  />
+  <img
+    width="467"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/d8e4e989-0b79-4182-a4f5-5ce1e17d3e1d"
+  />
+</p>
+
+#### Configuration Injection
+
+```groovy
+dependencies {
+    Compile('org.springframework.boot:spring-boot-starter')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+```
+
+- 필요한 정보(설정)를 직접 프로젝트에 주입하는 방식
+- 공통되는 정보는 묶어서 주입 가능
+- 프로젝트별로 설정을 다르게 주입 가능
+- Maven의 상속 구조와 비교했을 떄 가독성 측면에서 우월
+
+#### Jar 생성 비활성화
+
+<p align="center">
+  <img
+    width="277"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/6d6ea39b-6831-4cd1-8e5b-0755f0d52eb0"
+  />
+</p>
+
+- root 프로젝트와 common-project는 main 없이 라이브러리의 역할을 하는 모듈이기 때문에 실행하지 않는다는 것을 명시해주기 위해 bootJar.enabled = false 해준다.
+
+## 정리
+
+- Gradle이란
+
+  - 프로그래머가 작성한 코드를 실행가능한 파일로 변환해주고, 라이브러리, 테스트, 배포 등을 자동화하여 관리해주는 빌드 자동화 도구이다.
+
+- Gradle은
+  - Groovy 기반의 스크립트 언어로서 유연성을 갖는다.
+  - 성능 측면에서 유리한 빌드 도구이다.
+  - Configuration Injection 방식을 통해 편리한 멀티프로젝트 빌드를 지원한다.
+
+_출처_
+
+- [10분 테코톡 - 메리의 Gradle](https://www.youtube.com/watch?v=V4knLFDG-ZM&list=WL&index=2&t=17s)
