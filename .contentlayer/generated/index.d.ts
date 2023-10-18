@@ -9,3 +9,5 @@ export declare const allBlogs: Blog[]
 export declare const allAuthors: Authors[]
 
 export declare const allDocuments: DocumentTypes[]
+
+

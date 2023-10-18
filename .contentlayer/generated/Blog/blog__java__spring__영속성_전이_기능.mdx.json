@@ -1,7 +1,10 @@
 {
   "title": "[ JPA ] 연관관계 매핑시 알아야 할 영속성 전이 기능(cascade)",
   "date": "2023-05-22T00:00:00.000Z",
-  "tags": ["spring", "jpa"],
+  "tags": [
+    "spring",
+    "jpa"
+  ],
   "draft": false,
   "summary": "지구방위대 프로젝트 하다가 오류가 터져서 공부하는 영속성 전이 기능",
   "body": {

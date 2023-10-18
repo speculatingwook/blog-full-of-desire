@@ -1,7 +1,11 @@
 {
   "title": "[Database] 설계시, 식별 비식별 관계의 장단점",
   "date": "2023-07-13T00:00:00.000Z",
-  "tags": ["Database", "SQL", "MySQL"],
+  "tags": [
+    "Database",
+    "SQL",
+    "MySQL"
+  ],
   "draft": false,
   "summary": "식별 비식별 관계의 장단점",
   "body": {

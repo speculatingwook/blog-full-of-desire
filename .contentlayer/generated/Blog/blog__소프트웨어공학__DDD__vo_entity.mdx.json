@@ -1,7 +1,9 @@
 {
   "title": "[ DDD ] VO(Value Object)와 Entity",
   "date": "2023-09-07T00:00:00.000Z",
-  "tags": ["SOFTWARE_ENGINEERING"],
+  "tags": [
+    "SOFTWARE_ENGINEERING"
+  ],
   "draft": false,
   "summary": "도메인 주도 개발에서의 주요 개념인 VO와 엔티티",
   "body": {

@@ -1,7 +1,9 @@
 {
   "title": "[ JAVA ] GC(Garbage Collection), Java GC",
   "date": "2023-06-12T00:00:00.000Z",
-  "tags": ["JAVA"],
+  "tags": [
+    "JAVA"
+  ],
   "draft": false,
   "summary": "GC의 정의와 Java GC 알고리즘에 대해 알아봅시다.",
   "body": {

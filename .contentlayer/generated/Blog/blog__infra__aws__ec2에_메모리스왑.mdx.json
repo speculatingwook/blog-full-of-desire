@@ -1,7 +1,11 @@
 {
   "title": "ec2 t2.micro에 스왑 공간 만들기, swappiness",
   "date": "2023-05-10T00:00:00.000Z",
-  "tags": ["AWS", "EC2", "INFRA"],
+  "tags": [
+    "AWS",
+    "EC2",
+    "INFRA"
+  ],
   "draft": false,
   "summary": "ec2 t2.micro에 스왑 공간을 만들어서 우리 지갑을 지켜보자",
   "body": {

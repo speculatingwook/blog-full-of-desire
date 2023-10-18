@@ -1,7 +1,11 @@
 {
   "title": "쓰레드(Thread)",
   "date": "2023-06-04T00:00:00.000Z",
-  "tags": ["OPERATION_SYSTEM", "COMPUTER_SCIENCE", "COMPUTER_ARCHITECTURE"],
+  "tags": [
+    "OPERATION_SYSTEM",
+    "COMPUTER_SCIENCE",
+    "COMPUTER_ARCHITECTURE"
+  ],
   "draft": false,
   "summary": "전공공부하면서 같이 공부하는 운영체제",
   "body": {

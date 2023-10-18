@@ -1,7 +1,9 @@
 {
   "title": "[ Spring ] 스프링 어노테이션, 객체 정리",
   "date": "2023-05-07T00:00:00.000Z",
-  "tags": ["spring"],
+  "tags": [
+    "spring"
+  ],
   "draft": false,
   "summary": "스프링에 쓰이는 어노테이션, 객체 정리",
   "body": {

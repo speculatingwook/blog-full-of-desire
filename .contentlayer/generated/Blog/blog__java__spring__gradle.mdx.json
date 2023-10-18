@@ -1,7 +1,10 @@
 {
   "title": "Gradle",
   "date": "2023-06-09T00:00:00.000Z",
-  "tags": ["spring", "gradle"],
+  "tags": [
+    "spring",
+    "gradle"
+  ],
   "draft": false,
   "summary": "gradle에 관해",
   "body": {

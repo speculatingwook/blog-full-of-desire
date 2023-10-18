@@ -1,7 +1,10 @@
 {
   "title": "[ Algorithm ] 정렬 알고리즘의 안정성",
   "date": "2023-07-20T00:00:00.000Z",
-  "tags": ["ALGORITHM", "SORTING"],
+  "tags": [
+    "ALGORITHM",
+    "SORTING"
+  ],
   "draft": false,
   "summary": "pope 강의를 듣고 필요한 부분을 정리하는 글",
   "body": {

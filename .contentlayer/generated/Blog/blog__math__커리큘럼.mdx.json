@@ -1,7 +1,10 @@
 {
   "title": "소프트웨어 공학용 수학",
   "date": "2023-04-25T00:00:00.000Z",
-  "tags": ["MATH", "SOFTWARE_ENGINEERING"],
+  "tags": [
+    "MATH",
+    "SOFTWARE_ENGINEERING"
+  ],
   "draft": true,
   "summary": "소프트웨어 공학용 수학 커리큘럼",
   "body": {

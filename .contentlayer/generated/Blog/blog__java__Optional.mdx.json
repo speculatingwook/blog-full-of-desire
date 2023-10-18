@@ -1,7 +1,9 @@
 {
   "title": "[ JAVA ] Optional Class",
   "date": "2023-08-31T00:00:00.000Z",
-  "tags": ["JAVA"],
+  "tags": [
+    "JAVA"
+  ],
   "draft": false,
   "summary": "있을 수도 있고 없을 수도 있을 때 사용하는 자바의 Optional Class",
   "body": {

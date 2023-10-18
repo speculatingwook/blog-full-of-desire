@@ -1,7 +1,10 @@
 {
   "title": "[ Spring ] DI(의존성 주입), IOC",
   "date": "2023-05-30T00:00:00.000Z",
-  "tags": ["spring", "스프링 삼각형"],
+  "tags": [
+    "spring",
+    "스프링 삼각형"
+  ],
   "draft": false,
   "summary": "스프링 삼각형중 IOC에 대한 내용 정리",
   "body": {

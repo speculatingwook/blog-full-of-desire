@@ -1,7 +1,10 @@
 {
   "title": "2. 메모리",
   "date": "2023-04-10T00:00:00.000Z",
-  "tags": ["OPERATION_SYSTEM", "COMPUTER_SCIENCE"],
+  "tags": [
+    "OPERATION_SYSTEM",
+    "COMPUTER_SCIENCE"
+  ],
   "draft": false,
   "summary": "친한 형이 준 운영체재 자료 요점정리",
   "body": {
