@@ -1,0 +1,46 @@
+{
+  "title": "소프트웨어 공학용 수학",
+  "date": "2023-04-25T00:00:00.000Z",
+  "tags": ["MATH", "SOFTWARE_ENGINEERING"],
+  "draft": true,
+  "summary": "소프트웨어 공학용 수학 커리큘럼",
+  "body": {
+    "raw": "\n## 커리큘럼\n\n- 숫자 체계(10진법, 2진법, 8진법, 16진법)\n- 진수 변환\n- 비트와 바이트\n\n- 다양한 진법 간의 관계\n- 컴퓨터의 정수 표현법\n- 부호 없는 정수\n- 부호 있는 정수\n- 1의 보수, 2의 보수\n- BCD (Binary-Coded Decimal)\n- 2진수의 사칙연산\n- 언더플로와 오버플로\n\n- 컴퓨터의 문자 표현법\n- 아스키(ASCII)\n- 멀티바이트\n- 유니코드\n- 인코딩 (UTF-8, UTF-16, UTF-32)\n\n- 컴퓨터의 실수 표현법\n- 고정소수점 수\n- 부동소수점 수 (IEEE754)\n\n- 집합의 개념과 관계\n- 집합의 연산\n- 함수\n\n- 명제\n- 불 대수(Boolean algebra)\n- 논리 회로 설계\n- 논리 게이트의 조합\n\n- 조건명제\n- 증명\n- 모순에 의한 증명\n- 사례에 의한 증명 (Proof by cases)\n- 존재/반례 증명\n\n- 과학적 사고방법\n- 이진수를 이용한 꼼수\n- 비트 마스킹\n\n- 수학적 귀납법\n- 재귀\n- 분할 정복\n\n- 벡터(vector)\n- 튜플(tuple)\n- 행렬(matrix)\n\n- 경우의 수\n- 경우의 수 세기(counting)\n- 순열\n- 조합\n- 확률\n- 확률 분포\n\n- 이항 분포\n- 몬테카를로 알고리듬\n- 통계\n- 정규 분포\n\n- 도수 분포표\n- 히스토그램 (histogram)\n- 데이터 비닝(data binning)\n- 근삿값 구하기(approximation)\n\n- 점근 표기법(asymptotics)\n- 빅오 표기법(big-O notation)\n- 지수(exponent)\n- 로그(logarithm)\n",
+    "code": "var Component=(()=>{var o=Object.create;var c=Object.defineProperty;var s=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var g=(n,i)=>()=>(i||n((i={exports:{}}).exports,i),i.exports),f=(n,i)=>{for(var e in i)c(n,e,{get:i[e],enumerable:!0})},h=(n,i,e,d)=>{if(i&&typeof i==\"object\"||typeof i==\"function\")for(let r of m(i))!x.call(n,r)&&r!==e&&c(n,r,{get:()=>i[r],enumerable:!(d=s(i,r))||d.enumerable});return n};var _=(n,i,e)=>(e=n!=null?o(u(n)):{},h(i||!n||!n.__esModule?c(e,\"default\",{value:n,enumerable:!0}):e,n)),b=n=>h(c({},\"__esModule\",{value:!0}),n);var t=g((C,p)=>{p.exports=_jsx_runtime});var I={};f(I,{default:()=>F,frontmatter:()=>j});var l=_(t()),j={title:\"\\uC18C\\uD504\\uD2B8\\uC6E8\\uC5B4 \\uACF5\\uD559\\uC6A9 \\uC218\\uD559\",date:\"2023-04-25\",tags:[\"MATH\",\"SOFTWARE_ENGINEERING\"],draft:!0,summary:\"\\uC18C\\uD504\\uD2B8\\uC6E8\\uC5B4 \\uACF5\\uD559\\uC6A9 \\uC218\\uD559 \\uCEE4\\uB9AC\\uD058\\uB7FC\"};function a(n){let i=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",ul:\"ul\",li:\"li\",p:\"p\"},n.components);return(0,l.jsxs)(l.Fragment,{children:[(0,l.jsxs)(i.h2,{id:\"\\uCEE4\\uB9AC\\uD058\\uB7FC\",children:[(0,l.jsx)(i.a,{\"aria-hidden\":\"true\",href:\"#\\uCEE4\\uB9AC\\uD058\\uB7FC\",tabIndex:\"-1\",children:(0,l.jsx)(i.span,{className:\"icon icon-link\"})}),\"\\uCEE4\\uB9AC\\uD058\\uB7FC\"]}),(0,l.jsxs)(i.ul,{children:[(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC22B\\uC790 \\uCCB4\\uACC4(10\\uC9C4\\uBC95, 2\\uC9C4\\uBC95, 8\\uC9C4\\uBC95, 16\\uC9C4\\uBC95)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC9C4\\uC218 \\uBCC0\\uD658\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uBE44\\uD2B8\\uC640 \\uBC14\\uC774\\uD2B8\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uB2E4\\uC591\\uD55C \\uC9C4\\uBC95 \\uAC04\\uC758 \\uAD00\\uACC4\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uCEF4\\uD4E8\\uD130\\uC758 \\uC815\\uC218 \\uD45C\\uD604\\uBC95\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uBD80\\uD638 \\uC5C6\\uB294 \\uC815\\uC218\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uBD80\\uD638 \\uC788\\uB294 \\uC815\\uC218\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"1\\uC758 \\uBCF4\\uC218, 2\\uC758 \\uBCF4\\uC218\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"BCD (Binary-Coded Decimal)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"2\\uC9C4\\uC218\\uC758 \\uC0AC\\uCE59\\uC5F0\\uC0B0\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC5B8\\uB354\\uD50C\\uB85C\\uC640 \\uC624\\uBC84\\uD50C\\uB85C\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uCEF4\\uD4E8\\uD130\\uC758 \\uBB38\\uC790 \\uD45C\\uD604\\uBC95\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC544\\uC2A4\\uD0A4(ASCII)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uBA40\\uD2F0\\uBC14\\uC774\\uD2B8\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC720\\uB2C8\\uCF54\\uB4DC\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC778\\uCF54\\uB529 (UTF-8, UTF-16, UTF-32)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uCEF4\\uD4E8\\uD130\\uC758 \\uC2E4\\uC218 \\uD45C\\uD604\\uBC95\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uACE0\\uC815\\uC18C\\uC218\\uC810 \\uC218\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uBD80\\uB3D9\\uC18C\\uC218\\uC810 \\uC218 (IEEE754)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC9D1\\uD569\\uC758 \\uAC1C\\uB150\\uACFC \\uAD00\\uACC4\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC9D1\\uD569\\uC758 \\uC5F0\\uC0B0\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uD568\\uC218\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uBA85\\uC81C\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uBD88 \\uB300\\uC218(Boolean algebra)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uB17C\\uB9AC \\uD68C\\uB85C \\uC124\\uACC4\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uB17C\\uB9AC \\uAC8C\\uC774\\uD2B8\\uC758 \\uC870\\uD569\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC870\\uAC74\\uBA85\\uC81C\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC99D\\uBA85\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uBAA8\\uC21C\\uC5D0 \\uC758\\uD55C \\uC99D\\uBA85\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC0AC\\uB840\\uC5D0 \\uC758\\uD55C \\uC99D\\uBA85 (Proof by cases)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC874\\uC7AC/\\uBC18\\uB840 \\uC99D\\uBA85\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uACFC\\uD559\\uC801 \\uC0AC\\uACE0\\uBC29\\uBC95\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC774\\uC9C4\\uC218\\uB97C \\uC774\\uC6A9\\uD55C \\uAF3C\\uC218\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uBE44\\uD2B8 \\uB9C8\\uC2A4\\uD0B9\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC218\\uD559\\uC801 \\uADC0\\uB0A9\\uBC95\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC7AC\\uADC0\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uBD84\\uD560 \\uC815\\uBCF5\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uBCA1\\uD130(vector)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uD29C\\uD50C(tuple)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uD589\\uB82C(matrix)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uACBD\\uC6B0\\uC758 \\uC218\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uACBD\\uC6B0\\uC758 \\uC218 \\uC138\\uAE30(counting)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC21C\\uC5F4\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC870\\uD569\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uD655\\uB960\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uD655\\uB960 \\uBD84\\uD3EC\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC774\\uD56D \\uBD84\\uD3EC\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uBAAC\\uD14C\\uCE74\\uB97C\\uB85C \\uC54C\\uACE0\\uB9AC\\uB4EC\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uD1B5\\uACC4\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC815\\uADDC \\uBD84\\uD3EC\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uB3C4\\uC218 \\uBD84\\uD3EC\\uD45C\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uD788\\uC2A4\\uD1A0\\uADF8\\uB7A8 (histogram)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uB370\\uC774\\uD130 \\uBE44\\uB2DD(data binning)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uADFC\\uC0BF\\uAC12 \\uAD6C\\uD558\\uAE30(approximation)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC810\\uADFC \\uD45C\\uAE30\\uBC95(asymptotics)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uBE45\\uC624 \\uD45C\\uAE30\\uBC95(big-O notation)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uC9C0\\uC218(exponent)\"})}),(0,l.jsx)(i.li,{children:(0,l.jsx)(i.p,{children:\"\\uB85C\\uADF8(logarithm)\"})})]})]})}function E(n={}){let{wrapper:i}=n.components||{};return i?(0,l.jsx)(i,Object.assign({},n,{children:(0,l.jsx)(a,n)})):a(n)}var F=E;return b(I);})();\n;return Component;"
+  },
+  "_id": "blog/math/커리큘럼.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/math/커리큘럼.mdx",
+    "sourceFileName": "커리큘럼.mdx",
+    "sourceFileDir": "blog/math",
+    "contentType": "mdx",
+    "flattenedPath": "blog/math/커리큘럼"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "2 min read",
+    "minutes": 1.73,
+    "time": 103800,
+    "words": 346
+  },
+  "slug": "math/커리큘럼",
+  "path": "blog/math/커리큘럼",
+  "filePath": "blog/math/커리큘럼.mdx",
+  "toc": [
+    {
+      "value": "커리큘럼",
+      "url": "#커리큘럼",
+      "depth": 2
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "소프트웨어 공학용 수학",
+    "datePublished": "2023-04-25T00:00:00.000Z",
+    "dateModified": "2023-04-25T00:00:00.000Z",
+    "description": "소프트웨어 공학용 수학 커리큘럼",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/math/커리큘럼"
+  }
+}

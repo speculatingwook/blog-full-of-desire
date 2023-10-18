@@ -1,0 +1,86 @@
+{
+  "title": "[ 회고 ] 회고 및 생각정리, 그리고 2023 전체적인 마일드스톤",
+  "date": "2023-05-19T00:00:00.000Z",
+  "tags": ["2023마일드스톤", "생각정리"],
+  "draft": false,
+  "summary": "생각이 복잡해져서 술 마시면서 정리하는 올해 계획",
+  "body": {
+    "raw": "\n## 들어가며\n\n오늘 유난히 공부가 되지를 않고 집중이 안된다. 심란한 것도 있고, 할 게 많은데 정리가 안되니까 집중이 안되는 것 같기도 하다. 그래서 문제를 되짚어보고, 어떻게 해결할 건지 시간을 기준으로 정리해두려고 한다.\n\n## 지금까지의 문제점\n\n### `CS, 프레임워크 프로그래밍적 이해의 부재`\n\n프로젝트 하나는 잘 마무리 했다. 하지만 프로젝트 내용을 100% 다 소화했다고 보기는 어렵다. 처음으로 스프링 백엔드를 접하다 보니까 그런 것 같기도 하다.\n\n노션에 있는 내용을 여기에 정리해 둬야겠다.\n\n### `트러블슈팅시 블로그에 정리하지 않는 문제`\n\n뭔가 문제를 해결하고 나면 다시 정리를 하고 싶지가 않다. 그래서 지금까지 크고 작은 오류들이 발생했지만 해결하는데 몰두하고 막상 해결하고 나니까 하기가 싫어진다.\n트러블 슈팅시 문서화하면서 정리해둬야겠다.\n\n### `일주일간 해야할 일을 정리해두지 않고 그냥 그때그때 하고 싶은 걸 한다`\n\n사실 이렇게 해도 하는 양이 많으면 상관이 없는데, 오히려 이렇게 하니까 효율이 나지 않는 것 같다. 내가 공부하는 특성상 이것저것 왔다갔다 하는 성격이라 하루까지 쪼개지 않더라도, 일주일 정도는 정리를 해 두는 것이 좋을 것 같다.\n\n### `프로젝트 개수를 너무 많이 늘려놨다.`\n\n학과 생활과 병행하면서 프로젝트를 3개 이상 하는 건 미친짓인 것 같다. 여기에 CS도 공부해야 하는데 할 수가 없다. 불가능하다.\n\n## 앞으로의 전체적인 계획(해결방안)\n\n### 습관 잡기\n\n- 트러블슈팅시 바로 에러사항 캡쳐와 기록 문서화\n- 일주일중 하루에서 반나절정도는 그다음주에 해야 할 일 정리(구글 캘린더나 다른 툴로 정리)\n- 프로젝트 관리\n\n### 2023 마일드 스톤(아직 미완성)\n\n- 컴퓨터 구조 -> 운영체제 -> 네트워크 -> 데이터베이스 순으로 공부(올해 안에 끝내야 함)\n- 최대한 경험과 연관짓게 해야 함. 그래야 기억에 오래 남고, 제대로 된 공부를 할 수 있음\n- 블로그에 백엔드 마일드스톤에 맞춰서 모두 정리\n\n- 5월\n  - 한 권으로 보는 컴퓨터 구조 완독, 정리\n  - 지구방위대 프로젝트 마무리, 정리\n  - 팝티 프로젝트 준비, 드림학기제 기획 정리\n- 6월\n  - 아이패드에 있는 책 목록 보고 정리\n  - 팝티 디비 설계, 인프라 구축\n- 7월\n  - 코딩테스트 중 구현 문제 완파(자료 미정)\n- 8월\n  - 코딩테스트 구현 문제 완파(자료 미정)\n- 9월\n  - 드림학기제, 팝티\n- 10월\n  - 드림학기제, 팝티\n- 11월\n  - 드림학기제, 팝티, 우테코 준비\n- 12월\n  - 우테코 과정\n  - 소마 준비\n- 1월\n  - 소마 준비\n",
+    "code": "var Component=(()=>{var o=Object.create;var d=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var f=(e,i)=>()=>(i||e((i={exports:{}}).exports,i),i.exports),b=(e,i)=>{for(var l in i)d(e,l,{get:i[l],enumerable:!0})},h=(e,i,l,r)=>{if(i&&typeof i==\"object\"||typeof i==\"function\")for(let c of u(i))!x.call(e,c)&&c!==l&&d(e,c,{get:()=>i[c],enumerable:!(r=p(i,c))||r.enumerable});return e};var k=(e,i,l)=>(l=e!=null?o(m(e)):{},h(i||!e||!e.__esModule?d(l,\"default\",{value:e,enumerable:!0}):l,e)),I=e=>h(d({},\"__esModule\",{value:!0}),e);var s=f((M,a)=>{a.exports=_jsx_runtime});var g={};b(g,{default:()=>_,frontmatter:()=>N});var n=k(s()),N={title:\"[ \\uD68C\\uACE0 ] \\uD68C\\uACE0 \\uBC0F \\uC0DD\\uAC01\\uC815\\uB9AC, \\uADF8\\uB9AC\\uACE0 2023 \\uC804\\uCCB4\\uC801\\uC778 \\uB9C8\\uC77C\\uB4DC\\uC2A4\\uD1A4\",date:\"2023-05-19\",tags:[\"2023\\uB9C8\\uC77C\\uB4DC\\uC2A4\\uD1A4\",\"\\uC0DD\\uAC01\\uC815\\uB9AC\"],draft:!1,summary:\"\\uC0DD\\uAC01\\uC774 \\uBCF5\\uC7A1\\uD574\\uC838\\uC11C \\uC220 \\uB9C8\\uC2DC\\uBA74\\uC11C \\uC815\\uB9AC\\uD558\\uB294 \\uC62C\\uD574 \\uACC4\\uD68D\"};function t(e){let i=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",p:\"p\",h3:\"h3\",code:\"code\",ul:\"ul\",li:\"li\"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(i.h2,{id:\"\\uB4E4\\uC5B4\\uAC00\\uBA70\",children:[(0,n.jsx)(i.a,{\"aria-hidden\":\"true\",href:\"#\\uB4E4\\uC5B4\\uAC00\\uBA70\",tabIndex:\"-1\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"\\uB4E4\\uC5B4\\uAC00\\uBA70\"]}),(0,n.jsx)(i.p,{children:\"\\uC624\\uB298 \\uC720\\uB09C\\uD788 \\uACF5\\uBD80\\uAC00 \\uB418\\uC9C0\\uB97C \\uC54A\\uACE0 \\uC9D1\\uC911\\uC774 \\uC548\\uB41C\\uB2E4. \\uC2EC\\uB780\\uD55C \\uAC83\\uB3C4 \\uC788\\uACE0, \\uD560 \\uAC8C \\uB9CE\\uC740\\uB370 \\uC815\\uB9AC\\uAC00 \\uC548\\uB418\\uB2C8\\uAE4C \\uC9D1\\uC911\\uC774 \\uC548\\uB418\\uB294 \\uAC83 \\uAC19\\uAE30\\uB3C4 \\uD558\\uB2E4. \\uADF8\\uB798\\uC11C \\uBB38\\uC81C\\uB97C \\uB418\\uC9DA\\uC5B4\\uBCF4\\uACE0, \\uC5B4\\uB5BB\\uAC8C \\uD574\\uACB0\\uD560 \\uAC74\\uC9C0 \\uC2DC\\uAC04\\uC744 \\uAE30\\uC900\\uC73C\\uB85C \\uC815\\uB9AC\\uD574\\uB450\\uB824\\uACE0 \\uD55C\\uB2E4.\"}),(0,n.jsxs)(i.h2,{id:\"\\uC9C0\\uAE08\\uAE4C\\uC9C0\\uC758-\\uBB38\\uC81C\\uC810\",children:[(0,n.jsx)(i.a,{\"aria-hidden\":\"true\",href:\"#\\uC9C0\\uAE08\\uAE4C\\uC9C0\\uC758-\\uBB38\\uC81C\\uC810\",tabIndex:\"-1\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"\\uC9C0\\uAE08\\uAE4C\\uC9C0\\uC758 \\uBB38\\uC81C\\uC810\"]}),(0,n.jsxs)(i.h3,{id:\"cs-\\uD504\\uB808\\uC784\\uC6CC\\uD06C-\\uD504\\uB85C\\uADF8\\uB798\\uBC0D\\uC801-\\uC774\\uD574\\uC758-\\uBD80\\uC7AC\",children:[(0,n.jsx)(i.a,{\"aria-hidden\":\"true\",href:\"#cs-\\uD504\\uB808\\uC784\\uC6CC\\uD06C-\\uD504\\uB85C\\uADF8\\uB798\\uBC0D\\uC801-\\uC774\\uD574\\uC758-\\uBD80\\uC7AC\",tabIndex:\"-1\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),(0,n.jsx)(i.code,{children:\"CS, \\uD504\\uB808\\uC784\\uC6CC\\uD06C \\uD504\\uB85C\\uADF8\\uB798\\uBC0D\\uC801 \\uC774\\uD574\\uC758 \\uBD80\\uC7AC\"})]}),(0,n.jsx)(i.p,{children:\"\\uD504\\uB85C\\uC81D\\uD2B8 \\uD558\\uB098\\uB294 \\uC798 \\uB9C8\\uBB34\\uB9AC \\uD588\\uB2E4. \\uD558\\uC9C0\\uB9CC \\uD504\\uB85C\\uC81D\\uD2B8 \\uB0B4\\uC6A9\\uC744 100% \\uB2E4 \\uC18C\\uD654\\uD588\\uB2E4\\uACE0 \\uBCF4\\uAE30\\uB294 \\uC5B4\\uB835\\uB2E4. \\uCC98\\uC74C\\uC73C\\uB85C \\uC2A4\\uD504\\uB9C1 \\uBC31\\uC5D4\\uB4DC\\uB97C \\uC811\\uD558\\uB2E4 \\uBCF4\\uB2C8\\uAE4C \\uADF8\\uB7F0 \\uAC83 \\uAC19\\uAE30\\uB3C4 \\uD558\\uB2E4.\"}),(0,n.jsx)(i.p,{children:\"\\uB178\\uC158\\uC5D0 \\uC788\\uB294 \\uB0B4\\uC6A9\\uC744 \\uC5EC\\uAE30\\uC5D0 \\uC815\\uB9AC\\uD574 \\uB46C\\uC57C\\uACA0\\uB2E4.\"}),(0,n.jsxs)(i.h3,{id:\"\\uD2B8\\uB7EC\\uBE14\\uC288\\uD305\\uC2DC-\\uBE14\\uB85C\\uADF8\\uC5D0-\\uC815\\uB9AC\\uD558\\uC9C0-\\uC54A\\uB294-\\uBB38\\uC81C\",children:[(0,n.jsx)(i.a,{\"aria-hidden\":\"true\",href:\"#\\uD2B8\\uB7EC\\uBE14\\uC288\\uD305\\uC2DC-\\uBE14\\uB85C\\uADF8\\uC5D0-\\uC815\\uB9AC\\uD558\\uC9C0-\\uC54A\\uB294-\\uBB38\\uC81C\",tabIndex:\"-1\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),(0,n.jsx)(i.code,{children:\"\\uD2B8\\uB7EC\\uBE14\\uC288\\uD305\\uC2DC \\uBE14\\uB85C\\uADF8\\uC5D0 \\uC815\\uB9AC\\uD558\\uC9C0 \\uC54A\\uB294 \\uBB38\\uC81C\"})]}),(0,n.jsx)(i.p,{children:\"\\uBB54\\uAC00 \\uBB38\\uC81C\\uB97C \\uD574\\uACB0\\uD558\\uACE0 \\uB098\\uBA74 \\uB2E4\\uC2DC \\uC815\\uB9AC\\uB97C \\uD558\\uACE0 \\uC2F6\\uC9C0\\uAC00 \\uC54A\\uB2E4. \\uADF8\\uB798\\uC11C \\uC9C0\\uAE08\\uAE4C\\uC9C0 \\uD06C\\uACE0 \\uC791\\uC740 \\uC624\\uB958\\uB4E4\\uC774 \\uBC1C\\uC0DD\\uD588\\uC9C0\\uB9CC \\uD574\\uACB0\\uD558\\uB294\\uB370 \\uBAB0\\uB450\\uD558\\uACE0 \\uB9C9\\uC0C1 \\uD574\\uACB0\\uD558\\uACE0 \\uB098\\uB2C8\\uAE4C \\uD558\\uAE30\\uAC00 \\uC2EB\\uC5B4\\uC9C4\\uB2E4. \\uD2B8\\uB7EC\\uBE14 \\uC288\\uD305\\uC2DC \\uBB38\\uC11C\\uD654\\uD558\\uBA74\\uC11C \\uC815\\uB9AC\\uD574\\uB46C\\uC57C\\uACA0\\uB2E4.\"}),(0,n.jsxs)(i.h3,{id:\"\\uC77C\\uC8FC\\uC77C\\uAC04-\\uD574\\uC57C\\uD560-\\uC77C\\uC744-\\uC815\\uB9AC\\uD574\\uB450\\uC9C0-\\uC54A\\uACE0-\\uADF8\\uB0E5-\\uADF8\\uB54C\\uADF8\\uB54C-\\uD558\\uACE0-\\uC2F6\\uC740-\\uAC78-\\uD55C\\uB2E4\",children:[(0,n.jsx)(i.a,{\"aria-hidden\":\"true\",href:\"#\\uC77C\\uC8FC\\uC77C\\uAC04-\\uD574\\uC57C\\uD560-\\uC77C\\uC744-\\uC815\\uB9AC\\uD574\\uB450\\uC9C0-\\uC54A\\uACE0-\\uADF8\\uB0E5-\\uADF8\\uB54C\\uADF8\\uB54C-\\uD558\\uACE0-\\uC2F6\\uC740-\\uAC78-\\uD55C\\uB2E4\",tabIndex:\"-1\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),(0,n.jsx)(i.code,{children:\"\\uC77C\\uC8FC\\uC77C\\uAC04 \\uD574\\uC57C\\uD560 \\uC77C\\uC744 \\uC815\\uB9AC\\uD574\\uB450\\uC9C0 \\uC54A\\uACE0 \\uADF8\\uB0E5 \\uADF8\\uB54C\\uADF8\\uB54C \\uD558\\uACE0 \\uC2F6\\uC740 \\uAC78 \\uD55C\\uB2E4\"})]}),(0,n.jsx)(i.p,{children:\"\\uC0AC\\uC2E4 \\uC774\\uB807\\uAC8C \\uD574\\uB3C4 \\uD558\\uB294 \\uC591\\uC774 \\uB9CE\\uC73C\\uBA74 \\uC0C1\\uAD00\\uC774 \\uC5C6\\uB294\\uB370, \\uC624\\uD788\\uB824 \\uC774\\uB807\\uAC8C \\uD558\\uB2C8\\uAE4C \\uD6A8\\uC728\\uC774 \\uB098\\uC9C0 \\uC54A\\uB294 \\uAC83 \\uAC19\\uB2E4. \\uB0B4\\uAC00 \\uACF5\\uBD80\\uD558\\uB294 \\uD2B9\\uC131\\uC0C1 \\uC774\\uAC83\\uC800\\uAC83 \\uC654\\uB2E4\\uAC14\\uB2E4 \\uD558\\uB294 \\uC131\\uACA9\\uC774\\uB77C \\uD558\\uB8E8\\uAE4C\\uC9C0 \\uCABC\\uAC1C\\uC9C0 \\uC54A\\uB354\\uB77C\\uB3C4, \\uC77C\\uC8FC\\uC77C \\uC815\\uB3C4\\uB294 \\uC815\\uB9AC\\uB97C \\uD574 \\uB450\\uB294 \\uAC83\\uC774 \\uC88B\\uC744 \\uAC83 \\uAC19\\uB2E4.\"}),(0,n.jsxs)(i.h3,{id:\"\\uD504\\uB85C\\uC81D\\uD2B8-\\uAC1C\\uC218\\uB97C-\\uB108\\uBB34-\\uB9CE\\uC774-\\uB298\\uB824\\uB1A8\\uB2E4\",children:[(0,n.jsx)(i.a,{\"aria-hidden\":\"true\",href:\"#\\uD504\\uB85C\\uC81D\\uD2B8-\\uAC1C\\uC218\\uB97C-\\uB108\\uBB34-\\uB9CE\\uC774-\\uB298\\uB824\\uB1A8\\uB2E4\",tabIndex:\"-1\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),(0,n.jsx)(i.code,{children:\"\\uD504\\uB85C\\uC81D\\uD2B8 \\uAC1C\\uC218\\uB97C \\uB108\\uBB34 \\uB9CE\\uC774 \\uB298\\uB824\\uB1A8\\uB2E4.\"})]}),(0,n.jsx)(i.p,{children:\"\\uD559\\uACFC \\uC0DD\\uD65C\\uACFC \\uBCD1\\uD589\\uD558\\uBA74\\uC11C \\uD504\\uB85C\\uC81D\\uD2B8\\uB97C 3\\uAC1C \\uC774\\uC0C1 \\uD558\\uB294 \\uAC74 \\uBBF8\\uCE5C\\uC9D3\\uC778 \\uAC83 \\uAC19\\uB2E4. \\uC5EC\\uAE30\\uC5D0 CS\\uB3C4 \\uACF5\\uBD80\\uD574\\uC57C \\uD558\\uB294\\uB370 \\uD560 \\uC218\\uAC00 \\uC5C6\\uB2E4. \\uBD88\\uAC00\\uB2A5\\uD558\\uB2E4.\"}),(0,n.jsxs)(i.h2,{id:\"\\uC55E\\uC73C\\uB85C\\uC758-\\uC804\\uCCB4\\uC801\\uC778-\\uACC4\\uD68D\\uD574\\uACB0\\uBC29\\uC548\",children:[(0,n.jsx)(i.a,{\"aria-hidden\":\"true\",href:\"#\\uC55E\\uC73C\\uB85C\\uC758-\\uC804\\uCCB4\\uC801\\uC778-\\uACC4\\uD68D\\uD574\\uACB0\\uBC29\\uC548\",tabIndex:\"-1\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"\\uC55E\\uC73C\\uB85C\\uC758 \\uC804\\uCCB4\\uC801\\uC778 \\uACC4\\uD68D(\\uD574\\uACB0\\uBC29\\uC548)\"]}),(0,n.jsxs)(i.h3,{id:\"\\uC2B5\\uAD00-\\uC7A1\\uAE30\",children:[(0,n.jsx)(i.a,{\"aria-hidden\":\"true\",href:\"#\\uC2B5\\uAD00-\\uC7A1\\uAE30\",tabIndex:\"-1\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"\\uC2B5\\uAD00 \\uC7A1\\uAE30\"]}),(0,n.jsxs)(i.ul,{children:[(0,n.jsx)(i.li,{children:\"\\uD2B8\\uB7EC\\uBE14\\uC288\\uD305\\uC2DC \\uBC14\\uB85C \\uC5D0\\uB7EC\\uC0AC\\uD56D \\uCEA1\\uCCD0\\uC640 \\uAE30\\uB85D \\uBB38\\uC11C\\uD654\"}),(0,n.jsx)(i.li,{children:\"\\uC77C\\uC8FC\\uC77C\\uC911 \\uD558\\uB8E8\\uC5D0\\uC11C \\uBC18\\uB098\\uC808\\uC815\\uB3C4\\uB294 \\uADF8\\uB2E4\\uC74C\\uC8FC\\uC5D0 \\uD574\\uC57C \\uD560 \\uC77C \\uC815\\uB9AC(\\uAD6C\\uAE00 \\uCE98\\uB9B0\\uB354\\uB098 \\uB2E4\\uB978 \\uD234\\uB85C \\uC815\\uB9AC)\"}),(0,n.jsx)(i.li,{children:\"\\uD504\\uB85C\\uC81D\\uD2B8 \\uAD00\\uB9AC\"})]}),(0,n.jsxs)(i.h3,{id:\"2023-\\uB9C8\\uC77C\\uB4DC-\\uC2A4\\uD1A4\\uC544\\uC9C1-\\uBBF8\\uC644\\uC131\",children:[(0,n.jsx)(i.a,{\"aria-hidden\":\"true\",href:\"#2023-\\uB9C8\\uC77C\\uB4DC-\\uC2A4\\uD1A4\\uC544\\uC9C1-\\uBBF8\\uC644\\uC131\",tabIndex:\"-1\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"2023 \\uB9C8\\uC77C\\uB4DC \\uC2A4\\uD1A4(\\uC544\\uC9C1 \\uBBF8\\uC644\\uC131)\"]}),(0,n.jsxs)(i.ul,{children:[(0,n.jsx)(i.li,{children:(0,n.jsx)(i.p,{children:\"\\uCEF4\\uD4E8\\uD130 \\uAD6C\\uC870 -> \\uC6B4\\uC601\\uCCB4\\uC81C -> \\uB124\\uD2B8\\uC6CC\\uD06C -> \\uB370\\uC774\\uD130\\uBCA0\\uC774\\uC2A4 \\uC21C\\uC73C\\uB85C \\uACF5\\uBD80(\\uC62C\\uD574 \\uC548\\uC5D0 \\uB05D\\uB0B4\\uC57C \\uD568)\"})}),(0,n.jsx)(i.li,{children:(0,n.jsx)(i.p,{children:\"\\uCD5C\\uB300\\uD55C \\uACBD\\uD5D8\\uACFC \\uC5F0\\uAD00\\uC9D3\\uAC8C \\uD574\\uC57C \\uD568. \\uADF8\\uB798\\uC57C \\uAE30\\uC5B5\\uC5D0 \\uC624\\uB798 \\uB0A8\\uACE0, \\uC81C\\uB300\\uB85C \\uB41C \\uACF5\\uBD80\\uB97C \\uD560 \\uC218 \\uC788\\uC74C\"})}),(0,n.jsx)(i.li,{children:(0,n.jsx)(i.p,{children:\"\\uBE14\\uB85C\\uADF8\\uC5D0 \\uBC31\\uC5D4\\uB4DC \\uB9C8\\uC77C\\uB4DC\\uC2A4\\uD1A4\\uC5D0 \\uB9DE\\uCDB0\\uC11C \\uBAA8\\uB450 \\uC815\\uB9AC\"})}),(0,n.jsxs)(i.li,{children:[(0,n.jsx)(i.p,{children:\"5\\uC6D4\"}),(0,n.jsxs)(i.ul,{children:[(0,n.jsx)(i.li,{children:\"\\uD55C \\uAD8C\\uC73C\\uB85C \\uBCF4\\uB294 \\uCEF4\\uD4E8\\uD130 \\uAD6C\\uC870 \\uC644\\uB3C5, \\uC815\\uB9AC\"}),(0,n.jsx)(i.li,{children:\"\\uC9C0\\uAD6C\\uBC29\\uC704\\uB300 \\uD504\\uB85C\\uC81D\\uD2B8 \\uB9C8\\uBB34\\uB9AC, \\uC815\\uB9AC\"}),(0,n.jsx)(i.li,{children:\"\\uD31D\\uD2F0 \\uD504\\uB85C\\uC81D\\uD2B8 \\uC900\\uBE44, \\uB4DC\\uB9BC\\uD559\\uAE30\\uC81C \\uAE30\\uD68D \\uC815\\uB9AC\"})]})]}),(0,n.jsxs)(i.li,{children:[(0,n.jsx)(i.p,{children:\"6\\uC6D4\"}),(0,n.jsxs)(i.ul,{children:[(0,n.jsx)(i.li,{children:\"\\uC544\\uC774\\uD328\\uB4DC\\uC5D0 \\uC788\\uB294 \\uCC45 \\uBAA9\\uB85D \\uBCF4\\uACE0 \\uC815\\uB9AC\"}),(0,n.jsx)(i.li,{children:\"\\uD31D\\uD2F0 \\uB514\\uBE44 \\uC124\\uACC4, \\uC778\\uD504\\uB77C \\uAD6C\\uCD95\"})]})]}),(0,n.jsxs)(i.li,{children:[(0,n.jsx)(i.p,{children:\"7\\uC6D4\"}),(0,n.jsx)(i.ul,{children:(0,n.jsx)(i.li,{children:\"\\uCF54\\uB529\\uD14C\\uC2A4\\uD2B8 \\uC911 \\uAD6C\\uD604 \\uBB38\\uC81C \\uC644\\uD30C(\\uC790\\uB8CC \\uBBF8\\uC815)\"})})]}),(0,n.jsxs)(i.li,{children:[(0,n.jsx)(i.p,{children:\"8\\uC6D4\"}),(0,n.jsx)(i.ul,{children:(0,n.jsx)(i.li,{children:\"\\uCF54\\uB529\\uD14C\\uC2A4\\uD2B8 \\uAD6C\\uD604 \\uBB38\\uC81C \\uC644\\uD30C(\\uC790\\uB8CC \\uBBF8\\uC815)\"})})]}),(0,n.jsxs)(i.li,{children:[(0,n.jsx)(i.p,{children:\"9\\uC6D4\"}),(0,n.jsx)(i.ul,{children:(0,n.jsx)(i.li,{children:\"\\uB4DC\\uB9BC\\uD559\\uAE30\\uC81C, \\uD31D\\uD2F0\"})})]}),(0,n.jsxs)(i.li,{children:[(0,n.jsx)(i.p,{children:\"10\\uC6D4\"}),(0,n.jsx)(i.ul,{children:(0,n.jsx)(i.li,{children:\"\\uB4DC\\uB9BC\\uD559\\uAE30\\uC81C, \\uD31D\\uD2F0\"})})]}),(0,n.jsxs)(i.li,{children:[(0,n.jsx)(i.p,{children:\"11\\uC6D4\"}),(0,n.jsx)(i.ul,{children:(0,n.jsx)(i.li,{children:\"\\uB4DC\\uB9BC\\uD559\\uAE30\\uC81C, \\uD31D\\uD2F0, \\uC6B0\\uD14C\\uCF54 \\uC900\\uBE44\"})})]}),(0,n.jsxs)(i.li,{children:[(0,n.jsx)(i.p,{children:\"12\\uC6D4\"}),(0,n.jsxs)(i.ul,{children:[(0,n.jsx)(i.li,{children:\"\\uC6B0\\uD14C\\uCF54 \\uACFC\\uC815\"}),(0,n.jsx)(i.li,{children:\"\\uC18C\\uB9C8 \\uC900\\uBE44\"})]})]}),(0,n.jsxs)(i.li,{children:[(0,n.jsx)(i.p,{children:\"1\\uC6D4\"}),(0,n.jsx)(i.ul,{children:(0,n.jsx)(i.li,{children:\"\\uC18C\\uB9C8 \\uC900\\uBE44\"})})]})]})]})}function j(e={}){let{wrapper:i}=e.components||{};return i?(0,n.jsx)(i,Object.assign({},e,{children:(0,n.jsx)(t,e)})):t(e)}var _=j;return I(g);})();\n;return Component;"
+  },
+  "_id": "blog/speculating/회고_및_올해_전체적인_틀.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/speculating/회고_및_올해_전체적인_틀.mdx",
+    "sourceFileName": "회고_및_올해_전체적인_틀.mdx",
+    "sourceFileDir": "blog/speculating",
+    "contentType": "mdx",
+    "flattenedPath": "blog/speculating/회고_및_올해_전체적인_틀"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "5 min read",
+    "minutes": 4.11,
+    "time": 246600,
+    "words": 822
+  },
+  "slug": "speculating/회고_및_올해_전체적인_틀",
+  "path": "blog/speculating/회고_및_올해_전체적인_틀",
+  "filePath": "blog/speculating/회고_및_올해_전체적인_틀.mdx",
+  "toc": [
+    {
+      "value": "들어가며",
+      "url": "#들어가며",
+      "depth": 2
+    },
+    {
+      "value": "지금까지의 문제점",
+      "url": "#지금까지의-문제점",
+      "depth": 2
+    },
+    {
+      "value": "CS, 프레임워크 프로그래밍적 이해의 부재",
+      "url": "#cs-프레임워크-프로그래밍적-이해의-부재",
+      "depth": 3
+    },
+    {
+      "value": "트러블슈팅시 블로그에 정리하지 않는 문제",
+      "url": "#트러블슈팅시-블로그에-정리하지-않는-문제",
+      "depth": 3
+    },
+    {
+      "value": "일주일간 해야할 일을 정리해두지 않고 그냥 그때그때 하고 싶은 걸 한다",
+      "url": "#일주일간-해야할-일을-정리해두지-않고-그냥-그때그때-하고-싶은-걸-한다",
+      "depth": 3
+    },
+    {
+      "value": "프로젝트 개수를 너무 많이 늘려놨다.",
+      "url": "#프로젝트-개수를-너무-많이-늘려놨다",
+      "depth": 3
+    },
+    {
+      "value": "앞으로의 전체적인 계획(해결방안)",
+      "url": "#앞으로의-전체적인-계획해결방안",
+      "depth": 2
+    },
+    {
+      "value": "습관 잡기",
+      "url": "#습관-잡기",
+      "depth": 3
+    },
+    {
+      "value": "2023 마일드 스톤(아직 미완성)",
+      "url": "#2023-마일드-스톤아직-미완성",
+      "depth": 3
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "[ 회고 ] 회고 및 생각정리, 그리고 2023 전체적인 마일드스톤",
+    "datePublished": "2023-05-19T00:00:00.000Z",
+    "dateModified": "2023-05-19T00:00:00.000Z",
+    "description": "생각이 복잡해져서 술 마시면서 정리하는 올해 계획",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/speculating/회고_및_올해_전체적인_틀"
+  }
+}

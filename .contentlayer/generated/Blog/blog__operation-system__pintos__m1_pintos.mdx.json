@@ -1,0 +1,76 @@
+{
+  "title": "[ Pintos ] m1 mac에서 pintos 돌리기",
+  "date": "2023-07-04T00:00:00.000Z",
+  "tags": ["operating-system", "side-project", "pintos"],
+  "draft": false,
+  "summary": "하,,,,,,",
+  "body": {
+    "raw": "\n## 들어가며\n\nmac 환경에서 pintos 프로젝트가 빌드가 되지 않았습니다. 그래서 이 문제를 해결하는데 3일은 쓴 것 같은 느낌이 듭니다. 결론부터 말하면 mac에서 pintos를 돌리기 위해서는 amd64 환경에서 돌려야 합니다. 이 글에서는 이 문제를 해결하는 과정을 기록하고자 합니다.\n\n## Docker를 사용하자\n\n개인적으로 가상머신을 돌리고 싶지는 않았습니다. 그래서 여러 방법을 시도하고(aws 서버에서 돌리기, 회사 서버에서 돌리기) 결국 docker를 사용하기로 했습니다. docker를 사용하면 컴퓨터에 직접적으로 영향을 주지 않고, 컨테이너를 사용하기 때문에 가상머신보다는 가볍습니다.\n\n## DockerHub에서 이미지 받기\n\n제가 개인적으로 커스텀하여 만든 도커 이미지입니다. [여기](https://hub.docker.com/r/speculatingwook/pintosm1)에서 확인하실 수 있습니다.\n혹은\n\n```shell\ndocker pull speculatingwook/pintosm1\n```\n\n## Doker Container 생성하기\n\n    ```shell\n    docker run -it --name [원하는 컨테이너 이름] -p [포트]:[포트] ~/[개인 로컬 컴퓨터에서 저장하고 싶은 위치]/[저장하고싶은 디렉토리 이름]:/home/linuxbrew/[저장하고싶은 디렉토리 이름] speculatingwook/pintosm1 /bin/bash\n    ```\n\n이거 하나 치면 만들어집니다.\n\n## pintos 빌드하기\n\npintos를 깃으로 받고, 내부 루트 디렉토리에서 다음 명령어를 실행합니다.\n\n```shell\nsource ./activate\n```\n\n그리고 `threads` 디렉토리에 들어가서\n\n```shell\nmake\n```\n\n명령어를 실행하면 빌드가 됩니다.\n\n## 어떻게 사용하면 되나?\n\n이제 로컬 컴퓨터 환경에서 개인 idle를 사용해서 코드를 수정하면 됩니다. 그리고 컨테이너에서 빌드와 실행하면 됩니다.\n\n## 진짜,, 세팅하는데 3일 걸렸습니다.\n\n빨리 플젝하러 가겠습니다.\n",
+    "code": "var Component=(()=>{var h=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,k=Object.prototype.hasOwnProperty;var N=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),g=(a,e)=>{for(var c in e)s(a,c,{get:e[c],enumerable:!0})},r=(a,e,c,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of m(e))!k.call(a,i)&&i!==c&&s(a,i,{get:()=>e[i],enumerable:!(l=p(e,i))||l.enumerable});return a};var b=(a,e,c)=>(c=a!=null?h(u(a)):{},r(e||!a||!a.__esModule?s(c,\"default\",{value:a,enumerable:!0}):c,a)),f=a=>r(s({},\"__esModule\",{value:!0}),a);var d=N((D,t)=>{t.exports=_jsx_runtime});var _={};g(_,{default:()=>I,frontmatter:()=>x});var n=b(d()),x={title:\"[ Pintos ] m1 mac\\uC5D0\\uC11C pintos \\uB3CC\\uB9AC\\uAE30\",date:\"2023-07-04\",tags:[\"operating-system\",\"side-project\",\"pintos\"],draft:!1,summary:\"\\uD558,,,,,,\"};function o(a){let e=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",p:\"p\",pre:\"pre\",code:\"code\"},a.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.h2,{id:\"\\uB4E4\\uC5B4\\uAC00\\uBA70\",children:[(0,n.jsx)(e.a,{href:\"#\\uB4E4\\uC5B4\\uAC00\\uBA70\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uB4E4\\uC5B4\\uAC00\\uBA70\"]}),(0,n.jsx)(e.p,{children:\"mac \\uD658\\uACBD\\uC5D0\\uC11C pintos \\uD504\\uB85C\\uC81D\\uD2B8\\uAC00 \\uBE4C\\uB4DC\\uAC00 \\uB418\\uC9C0 \\uC54A\\uC558\\uC2B5\\uB2C8\\uB2E4. \\uADF8\\uB798\\uC11C \\uC774 \\uBB38\\uC81C\\uB97C \\uD574\\uACB0\\uD558\\uB294\\uB370 3\\uC77C\\uC740 \\uC4F4 \\uAC83 \\uAC19\\uC740 \\uB290\\uB08C\\uC774 \\uB4ED\\uB2C8\\uB2E4. \\uACB0\\uB860\\uBD80\\uD130 \\uB9D0\\uD558\\uBA74 mac\\uC5D0\\uC11C pintos\\uB97C \\uB3CC\\uB9AC\\uAE30 \\uC704\\uD574\\uC11C\\uB294 amd64 \\uD658\\uACBD\\uC5D0\\uC11C \\uB3CC\\uB824\\uC57C \\uD569\\uB2C8\\uB2E4. \\uC774 \\uAE00\\uC5D0\\uC11C\\uB294 \\uC774 \\uBB38\\uC81C\\uB97C \\uD574\\uACB0\\uD558\\uB294 \\uACFC\\uC815\\uC744 \\uAE30\\uB85D\\uD558\\uACE0\\uC790 \\uD569\\uB2C8\\uB2E4.\"}),(0,n.jsxs)(e.h2,{id:\"docker\\uB97C-\\uC0AC\\uC6A9\\uD558\\uC790\",children:[(0,n.jsx)(e.a,{href:\"#docker\\uB97C-\\uC0AC\\uC6A9\\uD558\\uC790\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"Docker\\uB97C \\uC0AC\\uC6A9\\uD558\\uC790\"]}),(0,n.jsx)(e.p,{children:\"\\uAC1C\\uC778\\uC801\\uC73C\\uB85C \\uAC00\\uC0C1\\uBA38\\uC2E0\\uC744 \\uB3CC\\uB9AC\\uACE0 \\uC2F6\\uC9C0\\uB294 \\uC54A\\uC558\\uC2B5\\uB2C8\\uB2E4. \\uADF8\\uB798\\uC11C \\uC5EC\\uB7EC \\uBC29\\uBC95\\uC744 \\uC2DC\\uB3C4\\uD558\\uACE0(aws \\uC11C\\uBC84\\uC5D0\\uC11C \\uB3CC\\uB9AC\\uAE30, \\uD68C\\uC0AC \\uC11C\\uBC84\\uC5D0\\uC11C \\uB3CC\\uB9AC\\uAE30) \\uACB0\\uAD6D docker\\uB97C \\uC0AC\\uC6A9\\uD558\\uAE30\\uB85C \\uD588\\uC2B5\\uB2C8\\uB2E4. docker\\uB97C \\uC0AC\\uC6A9\\uD558\\uBA74 \\uCEF4\\uD4E8\\uD130\\uC5D0 \\uC9C1\\uC811\\uC801\\uC73C\\uB85C \\uC601\\uD5A5\\uC744 \\uC8FC\\uC9C0 \\uC54A\\uACE0, \\uCEE8\\uD14C\\uC774\\uB108\\uB97C \\uC0AC\\uC6A9\\uD558\\uAE30 \\uB54C\\uBB38\\uC5D0 \\uAC00\\uC0C1\\uBA38\\uC2E0\\uBCF4\\uB2E4\\uB294 \\uAC00\\uBCCD\\uC2B5\\uB2C8\\uB2E4.\"}),(0,n.jsxs)(e.h2,{id:\"dockerhub\\uC5D0\\uC11C-\\uC774\\uBBF8\\uC9C0-\\uBC1B\\uAE30\",children:[(0,n.jsx)(e.a,{href:\"#dockerhub\\uC5D0\\uC11C-\\uC774\\uBBF8\\uC9C0-\\uBC1B\\uAE30\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"DockerHub\\uC5D0\\uC11C \\uC774\\uBBF8\\uC9C0 \\uBC1B\\uAE30\"]}),(0,n.jsxs)(e.p,{children:[\"\\uC81C\\uAC00 \\uAC1C\\uC778\\uC801\\uC73C\\uB85C \\uCEE4\\uC2A4\\uD140\\uD558\\uC5EC \\uB9CC\\uB4E0 \\uB3C4\\uCEE4 \\uC774\\uBBF8\\uC9C0\\uC785\\uB2C8\\uB2E4. \",(0,n.jsx)(e.a,{href:\"https://hub.docker.com/r/speculatingwook/pintosm1\",children:\"\\uC5EC\\uAE30\"}),\"\\uC5D0\\uC11C \\uD655\\uC778\\uD558\\uC2E4 \\uC218 \\uC788\\uC2B5\\uB2C8\\uB2E4. \\uD639\\uC740\"]}),(0,n.jsx)(e.pre,{className:\"language-shell\",children:(0,n.jsx)(e.code,{className:\"language-shell code-highlight\",children:(0,n.jsxs)(e.span,{className:\"code-line\",children:[(0,n.jsx)(e.span,{className:\"token function\",children:\"docker\"}),` pull speculatingwook/pintosm1\n`]})})}),(0,n.jsxs)(e.h2,{id:\"doker-container-\\uC0DD\\uC131\\uD558\\uAE30\",children:[(0,n.jsx)(e.a,{href:\"#doker-container-\\uC0DD\\uC131\\uD558\\uAE30\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"Doker Container \\uC0DD\\uC131\\uD558\\uAE30\"]}),(0,n.jsx)(e.pre,{className:\"language-shell\",children:(0,n.jsx)(e.code,{className:\"language-shell code-highlight\",children:(0,n.jsxs)(e.span,{className:\"code-line\",children:[(0,n.jsx)(e.span,{className:\"token function\",children:\"docker\"}),\" run \",(0,n.jsx)(e.span,{className:\"token parameter variable\",children:\"-it\"}),\" \",(0,n.jsx)(e.span,{className:\"token parameter variable\",children:\"--name\"}),\" \",(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"[\"}),\"\\uC6D0\\uD558\\uB294 \\uCEE8\\uD14C\\uC774\\uB108 \\uC774\\uB984\",(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"]\"}),\" \",(0,n.jsx)(e.span,{className:\"token parameter variable\",children:\"-p\"}),\" \",(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"[\"}),\"\\uD3EC\\uD2B8\",(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"]\"}),\":\",(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"[\"}),\"\\uD3EC\\uD2B8\",(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"]\"}),\" ~/\",(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"[\"}),\"\\uAC1C\\uC778 \\uB85C\\uCEEC \\uCEF4\\uD4E8\\uD130\\uC5D0\\uC11C \\uC800\\uC7A5\\uD558\\uACE0 \\uC2F6\\uC740 \\uC704\\uCE58\",(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"]\"}),\"/\",(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"[\"}),\"\\uC800\\uC7A5\\uD558\\uACE0\\uC2F6\\uC740 \\uB514\\uB809\\uD1A0\\uB9AC \\uC774\\uB984\",(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"]\"}),\":/home/linuxbrew/\",(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"[\"}),\"\\uC800\\uC7A5\\uD558\\uACE0\\uC2F6\\uC740 \\uB514\\uB809\\uD1A0\\uB9AC \\uC774\\uB984\",(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"]\"}),` speculatingwook/pintosm1 /bin/bash\n`]})})}),(0,n.jsx)(e.p,{children:\"\\uC774\\uAC70 \\uD558\\uB098 \\uCE58\\uBA74 \\uB9CC\\uB4E4\\uC5B4\\uC9D1\\uB2C8\\uB2E4.\"}),(0,n.jsxs)(e.h2,{id:\"pintos-\\uBE4C\\uB4DC\\uD558\\uAE30\",children:[(0,n.jsx)(e.a,{href:\"#pintos-\\uBE4C\\uB4DC\\uD558\\uAE30\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"pintos \\uBE4C\\uB4DC\\uD558\\uAE30\"]}),(0,n.jsx)(e.p,{children:\"pintos\\uB97C \\uAE43\\uC73C\\uB85C \\uBC1B\\uACE0, \\uB0B4\\uBD80 \\uB8E8\\uD2B8 \\uB514\\uB809\\uD1A0\\uB9AC\\uC5D0\\uC11C \\uB2E4\\uC74C \\uBA85\\uB839\\uC5B4\\uB97C \\uC2E4\\uD589\\uD569\\uB2C8\\uB2E4.\"}),(0,n.jsx)(e.pre,{className:\"language-shell\",children:(0,n.jsx)(e.code,{className:\"language-shell code-highlight\",children:(0,n.jsxs)(e.span,{className:\"code-line\",children:[(0,n.jsx)(e.span,{className:\"token builtin class-name\",children:\"source\"}),` ./activate\n`]})})}),(0,n.jsxs)(e.p,{children:[\"\\uADF8\\uB9AC\\uACE0 \",(0,n.jsx)(e.code,{children:\"threads\"}),\" \\uB514\\uB809\\uD1A0\\uB9AC\\uC5D0 \\uB4E4\\uC5B4\\uAC00\\uC11C\"]}),(0,n.jsx)(e.pre,{className:\"language-shell\",children:(0,n.jsx)(e.code,{className:\"language-shell code-highlight\",children:(0,n.jsxs)(e.span,{className:\"code-line\",children:[(0,n.jsx)(e.span,{className:\"token function\",children:\"make\"}),`\n`]})})}),(0,n.jsx)(e.p,{children:\"\\uBA85\\uB839\\uC5B4\\uB97C \\uC2E4\\uD589\\uD558\\uBA74 \\uBE4C\\uB4DC\\uAC00 \\uB429\\uB2C8\\uB2E4.\"}),(0,n.jsxs)(e.h2,{id:\"\\uC5B4\\uB5BB\\uAC8C-\\uC0AC\\uC6A9\\uD558\\uBA74-\\uB418\\uB098\",children:[(0,n.jsx)(e.a,{href:\"#\\uC5B4\\uB5BB\\uAC8C-\\uC0AC\\uC6A9\\uD558\\uBA74-\\uB418\\uB098\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uC5B4\\uB5BB\\uAC8C \\uC0AC\\uC6A9\\uD558\\uBA74 \\uB418\\uB098?\"]}),(0,n.jsx)(e.p,{children:\"\\uC774\\uC81C \\uB85C\\uCEEC \\uCEF4\\uD4E8\\uD130 \\uD658\\uACBD\\uC5D0\\uC11C \\uAC1C\\uC778 idle\\uB97C \\uC0AC\\uC6A9\\uD574\\uC11C \\uCF54\\uB4DC\\uB97C \\uC218\\uC815\\uD558\\uBA74 \\uB429\\uB2C8\\uB2E4. \\uADF8\\uB9AC\\uACE0 \\uCEE8\\uD14C\\uC774\\uB108\\uC5D0\\uC11C \\uBE4C\\uB4DC\\uC640 \\uC2E4\\uD589\\uD558\\uBA74 \\uB429\\uB2C8\\uB2E4.\"}),(0,n.jsxs)(e.h2,{id:\"\\uC9C4\\uC9DC-\\uC138\\uD305\\uD558\\uB294\\uB370-3\\uC77C-\\uAC78\\uB838\\uC2B5\\uB2C8\\uB2E4\",children:[(0,n.jsx)(e.a,{href:\"#\\uC9C4\\uC9DC-\\uC138\\uD305\\uD558\\uB294\\uB370-3\\uC77C-\\uAC78\\uB838\\uC2B5\\uB2C8\\uB2E4\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uC9C4\\uC9DC,, \\uC138\\uD305\\uD558\\uB294\\uB370 3\\uC77C \\uAC78\\uB838\\uC2B5\\uB2C8\\uB2E4.\"]}),(0,n.jsx)(e.p,{children:\"\\uBE68\\uB9AC \\uD50C\\uC81D\\uD558\\uB7EC \\uAC00\\uACA0\\uC2B5\\uB2C8\\uB2E4.\"})]})}function j(a={}){let{wrapper:e}=a.components||{};return e?(0,n.jsx)(e,Object.assign({},a,{children:(0,n.jsx)(o,a)})):o(a)}var I=j;return f(_);})();\n;return Component;"
+  },
+  "_id": "blog/operation-system/pintos/m1_pintos.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/operation-system/pintos/m1_pintos.mdx",
+    "sourceFileName": "m1_pintos.mdx",
+    "sourceFileDir": "blog/operation-system/pintos",
+    "contentType": "mdx",
+    "flattenedPath": "blog/operation-system/pintos/m1_pintos"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "3 min read",
+    "minutes": 2.525,
+    "time": 151500,
+    "words": 505
+  },
+  "slug": "operation-system/pintos/m1_pintos",
+  "path": "blog/operation-system/pintos/m1_pintos",
+  "filePath": "blog/operation-system/pintos/m1_pintos.mdx",
+  "toc": [
+    {
+      "value": "들어가며",
+      "url": "#들어가며",
+      "depth": 2
+    },
+    {
+      "value": "Docker를 사용하자",
+      "url": "#docker를-사용하자",
+      "depth": 2
+    },
+    {
+      "value": "DockerHub에서 이미지 받기",
+      "url": "#dockerhub에서-이미지-받기",
+      "depth": 2
+    },
+    {
+      "value": "Doker Container 생성하기",
+      "url": "#doker-container-생성하기",
+      "depth": 2
+    },
+    {
+      "value": "pintos 빌드하기",
+      "url": "#pintos-빌드하기",
+      "depth": 2
+    },
+    {
+      "value": "어떻게 사용하면 되나?",
+      "url": "#어떻게-사용하면-되나",
+      "depth": 2
+    },
+    {
+      "value": "진짜,, 세팅하는데 3일 걸렸습니다.",
+      "url": "#진짜-세팅하는데-3일-걸렸습니다",
+      "depth": 2
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "[ Pintos ] m1 mac에서 pintos 돌리기",
+    "datePublished": "2023-07-04T00:00:00.000Z",
+    "dateModified": "2023-07-04T00:00:00.000Z",
+    "description": "하,,,,,,",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/operation-system/pintos/m1_pintos"
+  }
+}
