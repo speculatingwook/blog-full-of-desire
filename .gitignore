@@ -4,6 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
+/.yarn/*
+!/.yarn/releases
+!/.yarn/plugins
+!/.yarn/sdks
 
 # testing
 /coverage
@@ -17,14 +21,15 @@ public/sitemap.xml
 # production
 /build
 *.xml
+
 # rss feed
-/public/feed.xml 
+/public/feed.xml
+
+# search
+/public/search.json
 
 # misc
 .DS_Store
-
-# Ignore all .DS_Store files
-**/.DS_Store
 
 # debug
 *.log
@@ -37,4 +42,6 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
-.env
+
+# Contentlayer
+.contentlayer
