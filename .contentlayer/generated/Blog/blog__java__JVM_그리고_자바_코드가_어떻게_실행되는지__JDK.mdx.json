@@ -1,0 +1,40 @@
+{
+  "title": "[ JAVA ] JDK(Java Development Kit)",
+  "date": "2023-04-22T00:00:00.000Z",
+  "tags": ["JAVA"],
+  "draft": false,
+  "summary": "자바를 사용한다면 무조건 알아야 할 자바 환경",
+  "body": {
+    "raw": "",
+    "code": "var Component=(()=>{var f=Object.create;var o=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),j=(t,e)=>{for(var n in e)o(t,n,{get:e[n],enumerable:!0})},m=(t,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of d(e))!_.call(t,a)&&a!==n&&o(t,a,{get:()=>e[a],enumerable:!(s=x(e,a))||s.enumerable});return t};var p=(t,e,n)=>(n=t!=null?f(l(t)):{},m(e||!t||!t.__esModule?o(n,\"default\",{value:t,enumerable:!0}):n,t)),A=t=>m(o({},\"__esModule\",{value:!0}),t);var i=g((C,c)=>{c.exports=_jsx_runtime});var v={};j(v,{default:()=>M,frontmatter:()=>D});var r=p(i()),D={title:\"[ JAVA ] JDK(Java Development Kit)\",date:\"2023-04-22\",tags:[\"JAVA\"],draft:!1,summary:\"\\uC790\\uBC14\\uB97C \\uC0AC\\uC6A9\\uD55C\\uB2E4\\uBA74 \\uBB34\\uC870\\uAC74 \\uC54C\\uC544\\uC57C \\uD560 \\uC790\\uBC14 \\uD658\\uACBD\"};function u(t){return(0,r.jsx)(r.Fragment,{})}function J(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,Object.assign({},t,{children:(0,r.jsx)(u,t)})):u(t)}var M=J;return A(v);})();\n;return Component;"
+  },
+  "_id": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/JDK.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/JDK.mdx",
+    "sourceFileName": "JDK.mdx",
+    "sourceFileDir": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지",
+    "contentType": "mdx",
+    "flattenedPath": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/JDK"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "0 min read",
+    "minutes": 0,
+    "time": 0,
+    "words": 0
+  },
+  "slug": "java/JVM_그리고_자바_코드가_어떻게_실행되는지/JDK",
+  "path": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/JDK",
+  "filePath": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/JDK.mdx",
+  "toc": [],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "[ JAVA ] JDK(Java Development Kit)",
+    "datePublished": "2023-04-22T00:00:00.000Z",
+    "dateModified": "2023-04-22T00:00:00.000Z",
+    "description": "자바를 사용한다면 무조건 알아야 할 자바 환경",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/JDK"
+  }
+}

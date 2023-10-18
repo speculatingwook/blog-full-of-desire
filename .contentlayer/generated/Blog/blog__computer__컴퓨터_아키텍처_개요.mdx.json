@@ -1,0 +1,91 @@
+{
+  "title": "컴퓨터 구조 개요(Computer Architecture)",
+  "date": "2023-04-16T00:00:00.000Z",
+  "tags": ["OPERATION_SYSTEM", "COMPUTER_SCIENCE", "COMPUTER_ARCHITECTURE"],
+  "draft": false,
+  "summary": "전공공부하면서 같이 공부하는 운영체제",
+  "body": {
+    "raw": "\n## 컴퓨터의 구성\n\n<p align=\"center\">\n  <img\n    width=\"665\"\n    alt=\"image\"\n    src=\"https://user-images.githubusercontent.com/105579811/232283525-2da7629e-ca07-46ca-8e77-f42f3226143d.png\"\n  />\n</p>\n컴퓨터 시스템은 크게 하드웨어(Hardware)와 소프트웨어(Software) 두 가지로 나눌 수 있다. 하드웨어는 물리적으로\n컴퓨터 시스템을 구성하고 있는 기계 장치이고 소프트웨어는 논리적으로 컴퓨터 시스템을 구성하고 하드웨어들을\n관리하고 동작시키는 역할을 한다. 소프트웨어는 명령어들의 집합으로 볼 수 있으며 일반적으로 프로그램이라고\n칭하기도 한다.\n\n## 컴퓨터 아키텍처란\n\n컴퓨터 아키텍처는 컴퓨터 시스템을 구성하는 `하드웨어와 소프트웨어의 구조와 상호작용 방식`을 정의하는 개념이다. 컴퓨터 아키텍처는 CPU, 메모리, 입출력(I/O) 장치 등의 하드웨어와 이들 간의 연결과 데이터 전송 방식, 그리고 명령어 집합과 같은 소프트웨어적 측면 등을 포함한다.\n\n컴퓨터 아키텍처는 대개 **명령어 집합 아키텍처(ISA)** 와 **시스템 아키텍처(System Architecture)** 로 구분된다.\n\n### 명령어 집합 아키텍처(ISA)\n\nCPU가 인식하고 수행할 수 있는 명령어와 그 명령어가 동작하는 방식에 대한 규격이다.\nISA는 하드웨어와 소프트웨어 사이의 인터페이스 역할을 한다.\n\n### 시스템 아키텍처(System Architecture)\n\n컴퓨터 시스템을 구성하는 하드웨어와 소프트웨어의 상호작용 방식에 대한 규격이다.\n시스템 아키텍처는 CPU, 메모리, 입출력 장치 등의 장치를 연결하는 버스와 인터럽트 등과 같은 하드웨어적 측면과 운영체제와 같은 소프트웨어적 측면을 포함한다.\n컴퓨터 아키텍처는 성능, 효율성, 확장성, 신뢰성, 보안성 등 다양한 요소를 고려하여 설계되며, 이를 통해 컴퓨터 시스템이 효율적으로 동작하도록 보장한다.\n\n## 컴퓨터 아키텍처의 구성요소\n\n컴퓨터 아키텍처의 구성 요소에는 다음과 같은 것들이 있다.\n\n<p align=\"center\">\n  <img\n    width=\"655\"\n    alt=\"image\"\n    src=\"https://user-images.githubusercontent.com/105579811/232283362-fd0fc1a6-1100-4086-94c6-8f68bec04be9.png\"\n  />\n</p>\n\n### 중앙처리장치(Central Processing Unit, CPU)\n\n데이터와 명령어를 처리하고 제어하는 역할을 수행한다.\n산술 논리 연산장치(ALU), 레지스터 등의 하드웨어로 구성된다.\n\n### 메모리(Memory)\n\n프로그램과 데이터를 저장하고 읽어올 수 있는 공간이다.\n주기억장치(RAM), 보조기억장치(하드디스크, SSD 등) 등으로 구성된다.\n\n### 버스(Bus)\n\n데이터와 신호를 전송하는 경로이다.\n데이터 버스, 주소 버스, 제어 버스 등으로 구성된다.\n\n### 입출력(I/O) 장치\n\n사용자와 컴퓨터 시스템 간의 상호작용을 위한 장치이다.\n모니터, 키보드, 마우스, 프린터, 스피커 등이 있다.\n\n### 시스템 버스(System Bus)\n\nCPU, 메모리, 입출력 장치 등의 장치를 연결하는 버스이다.\n",
+    "code": "var Component=(()=>{var o=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),b=(i,e)=>{for(var r in e)c(i,r,{get:e[r],enumerable:!0})},s=(i,e,r,t)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of u(e))!g.call(i,a)&&a!==r&&c(i,a,{get:()=>e[a],enumerable:!(t=m(e,a))||t.enumerable});return i};var x=(i,e,r)=>(r=i!=null?o(p(i)):{},s(e||!i||!i.__esModule?c(r,\"default\",{value:i,enumerable:!0}):r,i)),I=i=>s(c({},\"__esModule\",{value:!0}),i);var h=f((A,d)=>{d.exports=_jsx_runtime});var S={};b(S,{default:()=>N,frontmatter:()=>C});var n=x(h()),C={title:\"\\uCEF4\\uD4E8\\uD130 \\uAD6C\\uC870 \\uAC1C\\uC694(Computer Architecture)\",date:\"2023-04-16\",tags:[\"OPERATION_SYSTEM\",\"COMPUTER_SCIENCE\",\"COMPUTER_ARCHITECTURE\"],draft:!1,summary:\"\\uC804\\uACF5\\uACF5\\uBD80\\uD558\\uBA74\\uC11C \\uAC19\\uC774 \\uACF5\\uBD80\\uD558\\uB294 \\uC6B4\\uC601\\uCCB4\\uC81C\"};function l(i){let e=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",p:\"p\",code:\"code\",strong:\"strong\",h3:\"h3\"},i.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.h2,{id:\"\\uCEF4\\uD4E8\\uD130\\uC758-\\uAD6C\\uC131\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uCEF4\\uD4E8\\uD130\\uC758-\\uAD6C\\uC131\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uCEF4\\uD4E8\\uD130\\uC758 \\uAD6C\\uC131\"]}),(0,n.jsx)(\"p\",{align:\"center\",children:(0,n.jsx)(\"img\",{width:\"665\",alt:\"image\",src:\"https://user-images.githubusercontent.com/105579811/232283525-2da7629e-ca07-46ca-8e77-f42f3226143d.png\"})}),(0,n.jsx)(e.p,{children:\"\\uCEF4\\uD4E8\\uD130 \\uC2DC\\uC2A4\\uD15C\\uC740 \\uD06C\\uAC8C \\uD558\\uB4DC\\uC6E8\\uC5B4(Hardware)\\uC640 \\uC18C\\uD504\\uD2B8\\uC6E8\\uC5B4(Software) \\uB450 \\uAC00\\uC9C0\\uB85C \\uB098\\uB20C \\uC218 \\uC788\\uB2E4. \\uD558\\uB4DC\\uC6E8\\uC5B4\\uB294 \\uBB3C\\uB9AC\\uC801\\uC73C\\uB85C \\uCEF4\\uD4E8\\uD130 \\uC2DC\\uC2A4\\uD15C\\uC744 \\uAD6C\\uC131\\uD558\\uACE0 \\uC788\\uB294 \\uAE30\\uACC4 \\uC7A5\\uCE58\\uC774\\uACE0 \\uC18C\\uD504\\uD2B8\\uC6E8\\uC5B4\\uB294 \\uB17C\\uB9AC\\uC801\\uC73C\\uB85C \\uCEF4\\uD4E8\\uD130 \\uC2DC\\uC2A4\\uD15C\\uC744 \\uAD6C\\uC131\\uD558\\uACE0 \\uD558\\uB4DC\\uC6E8\\uC5B4\\uB4E4\\uC744 \\uAD00\\uB9AC\\uD558\\uACE0 \\uB3D9\\uC791\\uC2DC\\uD0A4\\uB294 \\uC5ED\\uD560\\uC744 \\uD55C\\uB2E4. \\uC18C\\uD504\\uD2B8\\uC6E8\\uC5B4\\uB294 \\uBA85\\uB839\\uC5B4\\uB4E4\\uC758 \\uC9D1\\uD569\\uC73C\\uB85C \\uBCFC \\uC218 \\uC788\\uC73C\\uBA70 \\uC77C\\uBC18\\uC801\\uC73C\\uB85C \\uD504\\uB85C\\uADF8\\uB7A8\\uC774\\uB77C\\uACE0 \\uCE6D\\uD558\\uAE30\\uB3C4 \\uD55C\\uB2E4.\"}),(0,n.jsxs)(e.h2,{id:\"\\uCEF4\\uD4E8\\uD130-\\uC544\\uD0A4\\uD14D\\uCC98\\uB780\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uCEF4\\uD4E8\\uD130-\\uC544\\uD0A4\\uD14D\\uCC98\\uB780\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uCEF4\\uD4E8\\uD130 \\uC544\\uD0A4\\uD14D\\uCC98\\uB780\"]}),(0,n.jsxs)(e.p,{children:[\"\\uCEF4\\uD4E8\\uD130 \\uC544\\uD0A4\\uD14D\\uCC98\\uB294 \\uCEF4\\uD4E8\\uD130 \\uC2DC\\uC2A4\\uD15C\\uC744 \\uAD6C\\uC131\\uD558\\uB294 \",(0,n.jsx)(e.code,{children:\"\\uD558\\uB4DC\\uC6E8\\uC5B4\\uC640 \\uC18C\\uD504\\uD2B8\\uC6E8\\uC5B4\\uC758 \\uAD6C\\uC870\\uC640 \\uC0C1\\uD638\\uC791\\uC6A9 \\uBC29\\uC2DD\"}),\"\\uC744 \\uC815\\uC758\\uD558\\uB294 \\uAC1C\\uB150\\uC774\\uB2E4. \\uCEF4\\uD4E8\\uD130 \\uC544\\uD0A4\\uD14D\\uCC98\\uB294 CPU, \\uBA54\\uBAA8\\uB9AC, \\uC785\\uCD9C\\uB825(I/O) \\uC7A5\\uCE58 \\uB4F1\\uC758 \\uD558\\uB4DC\\uC6E8\\uC5B4\\uC640 \\uC774\\uB4E4 \\uAC04\\uC758 \\uC5F0\\uACB0\\uACFC \\uB370\\uC774\\uD130 \\uC804\\uC1A1 \\uBC29\\uC2DD, \\uADF8\\uB9AC\\uACE0 \\uBA85\\uB839\\uC5B4 \\uC9D1\\uD569\\uACFC \\uAC19\\uC740 \\uC18C\\uD504\\uD2B8\\uC6E8\\uC5B4\\uC801 \\uCE21\\uBA74 \\uB4F1\\uC744 \\uD3EC\\uD568\\uD55C\\uB2E4.\"]}),(0,n.jsxs)(e.p,{children:[\"\\uCEF4\\uD4E8\\uD130 \\uC544\\uD0A4\\uD14D\\uCC98\\uB294 \\uB300\\uAC1C \",(0,n.jsx)(e.strong,{children:\"\\uBA85\\uB839\\uC5B4 \\uC9D1\\uD569 \\uC544\\uD0A4\\uD14D\\uCC98(ISA)\"}),\" \\uC640 \",(0,n.jsx)(e.strong,{children:\"\\uC2DC\\uC2A4\\uD15C \\uC544\\uD0A4\\uD14D\\uCC98(System Architecture)\"}),\" \\uB85C \\uAD6C\\uBD84\\uB41C\\uB2E4.\"]}),(0,n.jsxs)(e.h3,{id:\"\\uBA85\\uB839\\uC5B4-\\uC9D1\\uD569-\\uC544\\uD0A4\\uD14D\\uCC98isa\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uBA85\\uB839\\uC5B4-\\uC9D1\\uD569-\\uC544\\uD0A4\\uD14D\\uCC98isa\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uBA85\\uB839\\uC5B4 \\uC9D1\\uD569 \\uC544\\uD0A4\\uD14D\\uCC98(ISA)\"]}),(0,n.jsx)(e.p,{children:\"CPU\\uAC00 \\uC778\\uC2DD\\uD558\\uACE0 \\uC218\\uD589\\uD560 \\uC218 \\uC788\\uB294 \\uBA85\\uB839\\uC5B4\\uC640 \\uADF8 \\uBA85\\uB839\\uC5B4\\uAC00 \\uB3D9\\uC791\\uD558\\uB294 \\uBC29\\uC2DD\\uC5D0 \\uB300\\uD55C \\uADDC\\uACA9\\uC774\\uB2E4. ISA\\uB294 \\uD558\\uB4DC\\uC6E8\\uC5B4\\uC640 \\uC18C\\uD504\\uD2B8\\uC6E8\\uC5B4 \\uC0AC\\uC774\\uC758 \\uC778\\uD130\\uD398\\uC774\\uC2A4 \\uC5ED\\uD560\\uC744 \\uD55C\\uB2E4.\"}),(0,n.jsxs)(e.h3,{id:\"\\uC2DC\\uC2A4\\uD15C-\\uC544\\uD0A4\\uD14D\\uCC98system-architecture\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uC2DC\\uC2A4\\uD15C-\\uC544\\uD0A4\\uD14D\\uCC98system-architecture\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uC2DC\\uC2A4\\uD15C \\uC544\\uD0A4\\uD14D\\uCC98(System Architecture)\"]}),(0,n.jsx)(e.p,{children:\"\\uCEF4\\uD4E8\\uD130 \\uC2DC\\uC2A4\\uD15C\\uC744 \\uAD6C\\uC131\\uD558\\uB294 \\uD558\\uB4DC\\uC6E8\\uC5B4\\uC640 \\uC18C\\uD504\\uD2B8\\uC6E8\\uC5B4\\uC758 \\uC0C1\\uD638\\uC791\\uC6A9 \\uBC29\\uC2DD\\uC5D0 \\uB300\\uD55C \\uADDC\\uACA9\\uC774\\uB2E4. \\uC2DC\\uC2A4\\uD15C \\uC544\\uD0A4\\uD14D\\uCC98\\uB294 CPU, \\uBA54\\uBAA8\\uB9AC, \\uC785\\uCD9C\\uB825 \\uC7A5\\uCE58 \\uB4F1\\uC758 \\uC7A5\\uCE58\\uB97C \\uC5F0\\uACB0\\uD558\\uB294 \\uBC84\\uC2A4\\uC640 \\uC778\\uD130\\uB7FD\\uD2B8 \\uB4F1\\uACFC \\uAC19\\uC740 \\uD558\\uB4DC\\uC6E8\\uC5B4\\uC801 \\uCE21\\uBA74\\uACFC \\uC6B4\\uC601\\uCCB4\\uC81C\\uC640 \\uAC19\\uC740 \\uC18C\\uD504\\uD2B8\\uC6E8\\uC5B4\\uC801 \\uCE21\\uBA74\\uC744 \\uD3EC\\uD568\\uD55C\\uB2E4. \\uCEF4\\uD4E8\\uD130 \\uC544\\uD0A4\\uD14D\\uCC98\\uB294 \\uC131\\uB2A5, \\uD6A8\\uC728\\uC131, \\uD655\\uC7A5\\uC131, \\uC2E0\\uB8B0\\uC131, \\uBCF4\\uC548\\uC131 \\uB4F1 \\uB2E4\\uC591\\uD55C \\uC694\\uC18C\\uB97C \\uACE0\\uB824\\uD558\\uC5EC \\uC124\\uACC4\\uB418\\uBA70, \\uC774\\uB97C \\uD1B5\\uD574 \\uCEF4\\uD4E8\\uD130 \\uC2DC\\uC2A4\\uD15C\\uC774 \\uD6A8\\uC728\\uC801\\uC73C\\uB85C \\uB3D9\\uC791\\uD558\\uB3C4\\uB85D \\uBCF4\\uC7A5\\uD55C\\uB2E4.\"}),(0,n.jsxs)(e.h2,{id:\"\\uCEF4\\uD4E8\\uD130-\\uC544\\uD0A4\\uD14D\\uCC98\\uC758-\\uAD6C\\uC131\\uC694\\uC18C\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uCEF4\\uD4E8\\uD130-\\uC544\\uD0A4\\uD14D\\uCC98\\uC758-\\uAD6C\\uC131\\uC694\\uC18C\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uCEF4\\uD4E8\\uD130 \\uC544\\uD0A4\\uD14D\\uCC98\\uC758 \\uAD6C\\uC131\\uC694\\uC18C\"]}),(0,n.jsx)(e.p,{children:\"\\uCEF4\\uD4E8\\uD130 \\uC544\\uD0A4\\uD14D\\uCC98\\uC758 \\uAD6C\\uC131 \\uC694\\uC18C\\uC5D0\\uB294 \\uB2E4\\uC74C\\uACFC \\uAC19\\uC740 \\uAC83\\uB4E4\\uC774 \\uC788\\uB2E4.\"}),(0,n.jsx)(\"p\",{align:\"center\",children:(0,n.jsx)(\"img\",{width:\"655\",alt:\"image\",src:\"https://user-images.githubusercontent.com/105579811/232283362-fd0fc1a6-1100-4086-94c6-8f68bec04be9.png\"})}),(0,n.jsxs)(e.h3,{id:\"\\uC911\\uC559\\uCC98\\uB9AC\\uC7A5\\uCE58central-processing-unit-cpu\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uC911\\uC559\\uCC98\\uB9AC\\uC7A5\\uCE58central-processing-unit-cpu\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uC911\\uC559\\uCC98\\uB9AC\\uC7A5\\uCE58(Central Processing Unit, CPU)\"]}),(0,n.jsx)(e.p,{children:\"\\uB370\\uC774\\uD130\\uC640 \\uBA85\\uB839\\uC5B4\\uB97C \\uCC98\\uB9AC\\uD558\\uACE0 \\uC81C\\uC5B4\\uD558\\uB294 \\uC5ED\\uD560\\uC744 \\uC218\\uD589\\uD55C\\uB2E4. \\uC0B0\\uC220 \\uB17C\\uB9AC \\uC5F0\\uC0B0\\uC7A5\\uCE58(ALU), \\uB808\\uC9C0\\uC2A4\\uD130 \\uB4F1\\uC758 \\uD558\\uB4DC\\uC6E8\\uC5B4\\uB85C \\uAD6C\\uC131\\uB41C\\uB2E4.\"}),(0,n.jsxs)(e.h3,{id:\"\\uBA54\\uBAA8\\uB9ACmemory\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uBA54\\uBAA8\\uB9ACmemory\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uBA54\\uBAA8\\uB9AC(Memory)\"]}),(0,n.jsx)(e.p,{children:\"\\uD504\\uB85C\\uADF8\\uB7A8\\uACFC \\uB370\\uC774\\uD130\\uB97C \\uC800\\uC7A5\\uD558\\uACE0 \\uC77D\\uC5B4\\uC62C \\uC218 \\uC788\\uB294 \\uACF5\\uAC04\\uC774\\uB2E4. \\uC8FC\\uAE30\\uC5B5\\uC7A5\\uCE58(RAM), \\uBCF4\\uC870\\uAE30\\uC5B5\\uC7A5\\uCE58(\\uD558\\uB4DC\\uB514\\uC2A4\\uD06C, SSD \\uB4F1) \\uB4F1\\uC73C\\uB85C \\uAD6C\\uC131\\uB41C\\uB2E4.\"}),(0,n.jsxs)(e.h3,{id:\"\\uBC84\\uC2A4bus\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uBC84\\uC2A4bus\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uBC84\\uC2A4(Bus)\"]}),(0,n.jsx)(e.p,{children:\"\\uB370\\uC774\\uD130\\uC640 \\uC2E0\\uD638\\uB97C \\uC804\\uC1A1\\uD558\\uB294 \\uACBD\\uB85C\\uC774\\uB2E4. \\uB370\\uC774\\uD130 \\uBC84\\uC2A4, \\uC8FC\\uC18C \\uBC84\\uC2A4, \\uC81C\\uC5B4 \\uBC84\\uC2A4 \\uB4F1\\uC73C\\uB85C \\uAD6C\\uC131\\uB41C\\uB2E4.\"}),(0,n.jsxs)(e.h3,{id:\"\\uC785\\uCD9C\\uB825io-\\uC7A5\\uCE58\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uC785\\uCD9C\\uB825io-\\uC7A5\\uCE58\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uC785\\uCD9C\\uB825(I/O) \\uC7A5\\uCE58\"]}),(0,n.jsx)(e.p,{children:\"\\uC0AC\\uC6A9\\uC790\\uC640 \\uCEF4\\uD4E8\\uD130 \\uC2DC\\uC2A4\\uD15C \\uAC04\\uC758 \\uC0C1\\uD638\\uC791\\uC6A9\\uC744 \\uC704\\uD55C \\uC7A5\\uCE58\\uC774\\uB2E4. \\uBAA8\\uB2C8\\uD130, \\uD0A4\\uBCF4\\uB4DC, \\uB9C8\\uC6B0\\uC2A4, \\uD504\\uB9B0\\uD130, \\uC2A4\\uD53C\\uCEE4 \\uB4F1\\uC774 \\uC788\\uB2E4.\"}),(0,n.jsxs)(e.h3,{id:\"\\uC2DC\\uC2A4\\uD15C-\\uBC84\\uC2A4system-bus\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uC2DC\\uC2A4\\uD15C-\\uBC84\\uC2A4system-bus\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uC2DC\\uC2A4\\uD15C \\uBC84\\uC2A4(System Bus)\"]}),(0,n.jsx)(e.p,{children:\"CPU, \\uBA54\\uBAA8\\uB9AC, \\uC785\\uCD9C\\uB825 \\uC7A5\\uCE58 \\uB4F1\\uC758 \\uC7A5\\uCE58\\uB97C \\uC5F0\\uACB0\\uD558\\uB294 \\uBC84\\uC2A4\\uC774\\uB2E4.\"})]})}function y(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,Object.assign({},i,{children:(0,n.jsx)(l,i)})):l(i)}var N=y;return I(S);})();\n;return Component;"
+  },
+  "_id": "blog/computer/컴퓨터_아키텍처_개요.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/computer/컴퓨터_아키텍처_개요.mdx",
+    "sourceFileName": "컴퓨터_아키텍처_개요.mdx",
+    "sourceFileDir": "blog/computer",
+    "contentType": "mdx",
+    "flattenedPath": "blog/computer/컴퓨터_아키텍처_개요"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "5 min read",
+    "minutes": 4.095,
+    "time": 245700,
+    "words": 819
+  },
+  "slug": "computer/컴퓨터_아키텍처_개요",
+  "path": "blog/computer/컴퓨터_아키텍처_개요",
+  "filePath": "blog/computer/컴퓨터_아키텍처_개요.mdx",
+  "toc": [
+    {
+      "value": "컴퓨터의 구성",
+      "url": "#컴퓨터의-구성",
+      "depth": 2
+    },
+    {
+      "value": "컴퓨터 아키텍처란",
+      "url": "#컴퓨터-아키텍처란",
+      "depth": 2
+    },
+    {
+      "value": "명령어 집합 아키텍처(ISA)",
+      "url": "#명령어-집합-아키텍처isa",
+      "depth": 3
+    },
+    {
+      "value": "시스템 아키텍처(System Architecture)",
+      "url": "#시스템-아키텍처system-architecture",
+      "depth": 3
+    },
+    {
+      "value": "컴퓨터 아키텍처의 구성요소",
+      "url": "#컴퓨터-아키텍처의-구성요소",
+      "depth": 2
+    },
+    {
+      "value": "중앙처리장치(Central Processing Unit, CPU)",
+      "url": "#중앙처리장치central-processing-unit-cpu",
+      "depth": 3
+    },
+    {
+      "value": "메모리(Memory)",
+      "url": "#메모리memory",
+      "depth": 3
+    },
+    {
+      "value": "버스(Bus)",
+      "url": "#버스bus",
+      "depth": 3
+    },
+    {
+      "value": "입출력(I/O) 장치",
+      "url": "#입출력io-장치",
+      "depth": 3
+    },
+    {
+      "value": "시스템 버스(System Bus)",
+      "url": "#시스템-버스system-bus",
+      "depth": 3
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "컴퓨터 구조 개요(Computer Architecture)",
+    "datePublished": "2023-04-16T00:00:00.000Z",
+    "dateModified": "2023-04-16T00:00:00.000Z",
+    "description": "전공공부하면서 같이 공부하는 운영체제",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/computer/컴퓨터_아키텍처_개요"
+  }
+}

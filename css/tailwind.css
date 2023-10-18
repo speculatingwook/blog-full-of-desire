@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-a.no-underline {
-  text-decoration: none;
-}
-
 .task-list-item::before {
   @apply hidden;
 }
@@ -18,8 +14,83 @@ a.no-underline {
   @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
 }
 
+.data-footnote-backref {
+  @apply no-underline;
+}
+
+/*nav bar css*/
+.link-underline {
+  position: relative;
+}
+
+.link-underline:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: linear-gradient(transparent, transparent), linear-gradient(to right, #e91e63, #f44336);
+  transition: width 0.25s ease;
+  -webkit-transition: width 0.25s ease;
+}
+
+.link-underline:hover:after {
+  width: 100%;
+  left: 0;
+  background: linear-gradient(transparent, transparent), linear-gradient(to right, #e91e63, #f44336);
+}
+
 .csl-entry {
   @apply my-5;
+}
+
+a.no-underline {
+  text-decoration: none;
+}
+.leftNav {
+  opacity: 0;
+}
+
+.leftNav.isSticky {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.table-of-contents {
+  position: sticky;
+  display: none;
+}
+.leftNav.isSticky .table-of-contents {
+  display: block;
+}
+
+.underline-magical {
+  @apply bg-gradient-to-r from-primary-500 to-primary-500 bg-no-repeat
+  no-underline [background-position:0_100%]
+  [background-size:100%_0.2em] focus:[background-size:100%_100%] hover:text-white
+  hover:[background-size:100%_100%] motion-safe:transition-all
+  motion-safe:duration-300 dark:from-primary-500 dark:to-primary-500;
+}
+
+.horizontal-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#de1d8d, #de1d8d);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s ease-in-out;
+}
+
+.horizontal-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%;
+}
+
+.horizontal-underline-active {
+  background-size: 100% 3px;
+  background-position: 0 100%;
 }
 
 @layer utilities {
@@ -50,7 +121,9 @@ a.no-underline {
     color: #de1d8d;
     margin: 0 -0.25rem;
     padding: 0 0.25rem;
-    transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition:
+      color 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out;
   }
   .company:hover {
     box-shadow: inset 200px 0 0 0 #de1d8d;
@@ -58,90 +131,10 @@ a.no-underline {
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-@keyframes color-animation {
-  0% {
-    color: #fff0f3;
-  }
-  60% {
-    color: #ff4d6d;
-  }
-  65% {
-    color: #c9184a;
-  }
-  85% {
-    color: #c9184a;
-  }
-  90% {
-    color: #ff4d6d;
-  }
-  93% {
-    color: #ffb3c1;
-  }
-  95% {
-    color: #ffccd5;
-  }
-  97% {
-    color: #fff0f3;
-  }
-  100% {
-    color: white;
-  }
-}
-
-.leftNav {
-  opacity: 0;
-}
-
-.leftNav.isSticky {
-  opacity: 1;
-  transition: 0.5s;
-}
-
-.table-of-contents {
-  position: sticky;
-  display: none;
-}
-.leftNav.isSticky .table-of-contents {
-  display: block;
-}
-
-.text {
-  animation-name: color-animation;
-  animation-duration: 10s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
-/*nav bar css*/
-.link-underline {
-  position: relative;
-}
-
-.link-underline:after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  display: block;
-  margin-top: 5px;
-  right: 0;
-  background: linear-gradient(transparent, transparent), linear-gradient(to right, #e91e63, #f44336);
-  transition: width 0.25s ease;
-  -webkit-transition: width 0.25s ease;
-}
-
-.link-underline:hover:after {
-  width: 100%;
-  left: 0;
-  background: linear-gradient(transparent, transparent), linear-gradient(to right, #e91e63, #f44336);
-}
-
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
-  transition: background-color 600000s 0s, color 600000s 0s;
+  transition:
+    background-color 600000s 0s,
+    color 600000s 0s;
 }

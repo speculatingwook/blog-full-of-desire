@@ -1,0 +1,56 @@
+{
+  "title": "[ Network 기초 ] 1. 네트워크 개요",
+  "date": "2023-07-13T00:00:00.000Z",
+  "tags": ["Network"],
+  "draft": false,
+  "summary": "네트워크 개요",
+  "body": {
+    "raw": "\n## 네트워크 개요\n\n<p align=\"center\">\n  <img\n    width=\"1200\"\n    alt=\"image\"\n    src=\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/1752ae8b-a9d6-4c2e-b34c-8edb3dcb3e20\"\n  />\n</p>\n\n## 네트워크를 공부할 떄 바라봐야 하는 방식\n\n크게 3가지 범주에서 바라봐야 한다.\n`user mode`, `kernel mode`, `hardware`\n위 사진은 OSI 7계층을 기준으로 도식화한 것이다.\n\nDOD 계층\nOSI 모델이 공식화되기 오래 전에 프로토콜 계층화라는 개념이 존재했지만 본격적인 OSI 모델은 1979년에 만들어졌다. TCP/IP와 미 국방성(DoD)의 역사적 관계 때문에 TCP/IP 프로토콜 계층화를 DoD 모델이라고도 한다.\n\n## Socket:\n\n**참고자료**\n[2회 OSI계층과 DoD계층](https://m.cafe.daum.net/mswebmaster/Fib/5?q=D_KkJLW6NS9QQ0&)\n",
+    "code": "var Component=(()=>{var l=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var r in e)c(t,r,{get:e[r],enumerable:!0})},s=(t,e,r,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of p(e))!f.call(t,a)&&a!==r&&c(t,a,{get:()=>e[a],enumerable:!(i=m(e,a))||i.enumerable});return t};var x=(t,e,r)=>(r=t!=null?l(u(t)):{},s(e||!t||!t.__esModule?c(r,\"default\",{value:t,enumerable:!0}):r,t)),k=t=>s(c({},\"__esModule\",{value:!0}),t);var o=g((O,d)=>{d.exports=_jsx_runtime});var j={};b(j,{default:()=>_,frontmatter:()=>D});var n=x(o()),D={title:\"[ Network \\uAE30\\uCD08 ] 1. \\uB124\\uD2B8\\uC6CC\\uD06C \\uAC1C\\uC694\",date:\"2023-07-13\",tags:[\"Network\"],draft:!1,summary:\"\\uB124\\uD2B8\\uC6CC\\uD06C \\uAC1C\\uC694\"};function h(t){let e=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",p:\"p\",code:\"code\",strong:\"strong\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.h2,{id:\"\\uB124\\uD2B8\\uC6CC\\uD06C-\\uAC1C\\uC694\",children:[(0,n.jsx)(e.a,{href:\"#\\uB124\\uD2B8\\uC6CC\\uD06C-\\uAC1C\\uC694\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uB124\\uD2B8\\uC6CC\\uD06C \\uAC1C\\uC694\"]}),(0,n.jsx)(\"p\",{align:\"center\",children:(0,n.jsx)(\"img\",{width:\"1200\",alt:\"image\",src:\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/1752ae8b-a9d6-4c2e-b34c-8edb3dcb3e20\"})}),(0,n.jsxs)(e.h2,{id:\"\\uB124\\uD2B8\\uC6CC\\uD06C\\uB97C-\\uACF5\\uBD80\\uD560-\\uB584-\\uBC14\\uB77C\\uBD10\\uC57C-\\uD558\\uB294-\\uBC29\\uC2DD\",children:[(0,n.jsx)(e.a,{href:\"#\\uB124\\uD2B8\\uC6CC\\uD06C\\uB97C-\\uACF5\\uBD80\\uD560-\\uB584-\\uBC14\\uB77C\\uBD10\\uC57C-\\uD558\\uB294-\\uBC29\\uC2DD\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uB124\\uD2B8\\uC6CC\\uD06C\\uB97C \\uACF5\\uBD80\\uD560 \\uB584 \\uBC14\\uB77C\\uBD10\\uC57C \\uD558\\uB294 \\uBC29\\uC2DD\"]}),(0,n.jsxs)(e.p,{children:[\"\\uD06C\\uAC8C 3\\uAC00\\uC9C0 \\uBC94\\uC8FC\\uC5D0\\uC11C \\uBC14\\uB77C\\uBD10\\uC57C \\uD55C\\uB2E4. \",(0,n.jsx)(e.code,{children:\"user mode\"}),\", \",(0,n.jsx)(e.code,{children:\"kernel mode\"}),\", \",(0,n.jsx)(e.code,{children:\"hardware\"}),\" \\uC704 \\uC0AC\\uC9C4\\uC740 OSI 7\\uACC4\\uCE35\\uC744 \\uAE30\\uC900\\uC73C\\uB85C \\uB3C4\\uC2DD\\uD654\\uD55C \\uAC83\\uC774\\uB2E4.\"]}),(0,n.jsx)(e.p,{children:\"DOD \\uACC4\\uCE35 OSI \\uBAA8\\uB378\\uC774 \\uACF5\\uC2DD\\uD654\\uB418\\uAE30 \\uC624\\uB798 \\uC804\\uC5D0 \\uD504\\uB85C\\uD1A0\\uCF5C \\uACC4\\uCE35\\uD654\\uB77C\\uB294 \\uAC1C\\uB150\\uC774 \\uC874\\uC7AC\\uD588\\uC9C0\\uB9CC \\uBCF8\\uACA9\\uC801\\uC778 OSI \\uBAA8\\uB378\\uC740 1979\\uB144\\uC5D0 \\uB9CC\\uB4E4\\uC5B4\\uC84C\\uB2E4. TCP/IP\\uC640 \\uBBF8 \\uAD6D\\uBC29\\uC131(DoD)\\uC758 \\uC5ED\\uC0AC\\uC801 \\uAD00\\uACC4 \\uB54C\\uBB38\\uC5D0 TCP/IP \\uD504\\uB85C\\uD1A0\\uCF5C \\uACC4\\uCE35\\uD654\\uB97C DoD \\uBAA8\\uB378\\uC774\\uB77C\\uACE0\\uB3C4 \\uD55C\\uB2E4.\"}),(0,n.jsxs)(e.h2,{id:\"socket\",children:[(0,n.jsx)(e.a,{href:\"#socket\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"Socket:\"]}),(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"\\uCC38\\uACE0\\uC790\\uB8CC\"}),\" \",(0,n.jsx)(e.a,{href:\"https://m.cafe.daum.net/mswebmaster/Fib/5?q=D_KkJLW6NS9QQ0&\",children:\"2\\uD68C OSI\\uACC4\\uCE35\\uACFC DoD\\uACC4\\uCE35\"})]})]})}function I(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var _=I;return k(j);})();\n;return Component;"
+  },
+  "_id": "blog/network/network_essential/overview.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/network/network_essential/overview.mdx",
+    "sourceFileName": "overview.mdx",
+    "sourceFileDir": "blog/network/network_essential",
+    "contentType": "mdx",
+    "flattenedPath": "blog/network/network_essential/overview"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.86,
+    "time": 51600,
+    "words": 172
+  },
+  "slug": "network/network_essential/overview",
+  "path": "blog/network/network_essential/overview",
+  "filePath": "blog/network/network_essential/overview.mdx",
+  "toc": [
+    {
+      "value": "네트워크 개요",
+      "url": "#네트워크-개요",
+      "depth": 2
+    },
+    {
+      "value": "네트워크를 공부할 떄 바라봐야 하는 방식",
+      "url": "#네트워크를-공부할-떄-바라봐야-하는-방식",
+      "depth": 2
+    },
+    {
+      "value": "Socket:",
+      "url": "#socket",
+      "depth": 2
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "[ Network 기초 ] 1. 네트워크 개요",
+    "datePublished": "2023-07-13T00:00:00.000Z",
+    "dateModified": "2023-07-13T00:00:00.000Z",
+    "description": "네트워크 개요",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/network/network_essential/overview"
+  }
+}

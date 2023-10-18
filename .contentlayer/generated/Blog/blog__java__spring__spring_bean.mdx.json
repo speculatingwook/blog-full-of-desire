@@ -1,0 +1,66 @@
+{
+  "title": "[ Spring ] Bean",
+  "date": "2023-06-28T00:00:00.000Z",
+  "tags": ["spring", "bean"],
+  "draft": false,
+  "summary": "스프링 bean",
+  "body": {
+    "raw": "\n## Spring Bean?\n\n스프링 IoC 컨테이너가 관리하는 객체\n\n- `스프링 IoC 컨테이너`: 빈을 관리하는 객체\n\n## [빈과 의존성 주입](/blog/java/spring/IOC-DI)\n\n의존성 주입은 객체가 많아지면 복잡해진다.\n따라서 의존성 주입이 필요한 객체들을 스프링에서 빈을 등록한다. 그렇게 되면 스프링 프레임워크에서 관리를 해주게 된다.\n\n## 빈과 싱글턴\n\n객체에 싱글턴 패턴을 적용할 때 단점\n\n- 다형성을 활용하지 못한다.\n- 안정성이 중요한 어플리케이션에서 단위테스트가 힘들어진다.\n\n## 스프링 IoC컨테이너는 빈을 어떻게 관리하는가?\n\n<p align=\"center\">\n  <img\n    alt=\"image\"\n    width=\"600\"\n    src=\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/32e415ac-8b1c-4db7-9aa4-30104f9cd30a\"\n  />\n</p>\n\n1. 객체 생성 + property 설정\n\n   <p align=\"center\">\n     <img\n       alt=\"image\"\n       width=\"600\"\n       src=\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/f927b4b8-22f7-48be-8751-488c50d43b68\"\n     />\n   </p>\n\n2. 의존 설정\n3. 초기화\n4. 사용\n5. 소멸\n\n## 빈 설정시 주의점\n\n**참고자료**\n\n- [[10분 테코톡] 주디의 Spring Bean](https://www.youtube.com/watch?v=3gURJvJw_T4&t=395s)\n",
+    "code": "var Component=(()=>{var o=Object.create;var l=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var m=(i,n)=>()=>(n||i((n={exports:{}}).exports,n),n.exports),f=(i,n)=>{for(var r in n)l(i,r,{get:n[r],enumerable:!0})},d=(i,n,r,a)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let c of g(n))!b.call(i,c)&&c!==r&&l(i,c,{get:()=>n[c],enumerable:!(a=p(n,c))||a.enumerable});return i};var x=(i,n,r)=>(r=i!=null?o(u(i)):{},d(n||!i||!i.__esModule?l(r,\"default\",{value:i,enumerable:!0}):r,i)),w=i=>d(l({},\"__esModule\",{value:!0}),i);var h=m((N,t)=>{t.exports=_jsx_runtime});var k={};f(k,{default:()=>_,frontmatter:()=>I});var e=x(h()),I={title:\"[ Spring ] Bean\",date:\"2023-06-28\",tags:[\"spring\",\"bean\"],draft:!1,summary:\"\\uC2A4\\uD504\\uB9C1 bean\"};function s(i){let n=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",p:\"p\",ul:\"ul\",li:\"li\",code:\"code\",ol:\"ol\",strong:\"strong\"},i.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsxs)(n.h2,{id:\"spring-bean\",children:[(0,e.jsx)(n.a,{href:\"#spring-bean\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,e.jsx)(n.span,{className:\"icon icon-link\"})}),\"Spring Bean?\"]}),(0,e.jsx)(n.p,{children:\"\\uC2A4\\uD504\\uB9C1 IoC \\uCEE8\\uD14C\\uC774\\uB108\\uAC00 \\uAD00\\uB9AC\\uD558\\uB294 \\uAC1D\\uCCB4\"}),(0,e.jsx)(n.ul,{children:(0,e.jsxs)(n.li,{children:[(0,e.jsx)(n.code,{children:\"\\uC2A4\\uD504\\uB9C1 IoC \\uCEE8\\uD14C\\uC774\\uB108\"}),\": \\uBE48\\uC744 \\uAD00\\uB9AC\\uD558\\uB294 \\uAC1D\\uCCB4\"]})}),(0,e.jsxs)(n.h2,{id:\"\\uBE48\\uACFC-\\uC758\\uC874\\uC131-\\uC8FC\\uC785\",children:[(0,e.jsx)(n.a,{href:\"#\\uBE48\\uACFC-\\uC758\\uC874\\uC131-\\uC8FC\\uC785\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,e.jsx)(n.span,{className:\"icon icon-link\"})}),(0,e.jsx)(n.a,{href:\"/blog/java/spring/IOC-DI\",children:\"\\uBE48\\uACFC \\uC758\\uC874\\uC131 \\uC8FC\\uC785\"})]}),(0,e.jsx)(n.p,{children:\"\\uC758\\uC874\\uC131 \\uC8FC\\uC785\\uC740 \\uAC1D\\uCCB4\\uAC00 \\uB9CE\\uC544\\uC9C0\\uBA74 \\uBCF5\\uC7A1\\uD574\\uC9C4\\uB2E4. \\uB530\\uB77C\\uC11C \\uC758\\uC874\\uC131 \\uC8FC\\uC785\\uC774 \\uD544\\uC694\\uD55C \\uAC1D\\uCCB4\\uB4E4\\uC744 \\uC2A4\\uD504\\uB9C1\\uC5D0\\uC11C \\uBE48\\uC744 \\uB4F1\\uB85D\\uD55C\\uB2E4. \\uADF8\\uB807\\uAC8C \\uB418\\uBA74 \\uC2A4\\uD504\\uB9C1 \\uD504\\uB808\\uC784\\uC6CC\\uD06C\\uC5D0\\uC11C \\uAD00\\uB9AC\\uB97C \\uD574\\uC8FC\\uAC8C \\uB41C\\uB2E4.\"}),(0,e.jsxs)(n.h2,{id:\"\\uBE48\\uACFC-\\uC2F1\\uAE00\\uD134\",children:[(0,e.jsx)(n.a,{href:\"#\\uBE48\\uACFC-\\uC2F1\\uAE00\\uD134\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,e.jsx)(n.span,{className:\"icon icon-link\"})}),\"\\uBE48\\uACFC \\uC2F1\\uAE00\\uD134\"]}),(0,e.jsx)(n.p,{children:\"\\uAC1D\\uCCB4\\uC5D0 \\uC2F1\\uAE00\\uD134 \\uD328\\uD134\\uC744 \\uC801\\uC6A9\\uD560 \\uB54C \\uB2E8\\uC810\"}),(0,e.jsxs)(n.ul,{children:[(0,e.jsx)(n.li,{children:\"\\uB2E4\\uD615\\uC131\\uC744 \\uD65C\\uC6A9\\uD558\\uC9C0 \\uBABB\\uD55C\\uB2E4.\"}),(0,e.jsx)(n.li,{children:\"\\uC548\\uC815\\uC131\\uC774 \\uC911\\uC694\\uD55C \\uC5B4\\uD50C\\uB9AC\\uCF00\\uC774\\uC158\\uC5D0\\uC11C \\uB2E8\\uC704\\uD14C\\uC2A4\\uD2B8\\uAC00 \\uD798\\uB4E4\\uC5B4\\uC9C4\\uB2E4.\"})]}),(0,e.jsxs)(n.h2,{id:\"\\uC2A4\\uD504\\uB9C1-ioc\\uCEE8\\uD14C\\uC774\\uB108\\uB294-\\uBE48\\uC744-\\uC5B4\\uB5BB\\uAC8C-\\uAD00\\uB9AC\\uD558\\uB294\\uAC00\",children:[(0,e.jsx)(n.a,{href:\"#\\uC2A4\\uD504\\uB9C1-ioc\\uCEE8\\uD14C\\uC774\\uB108\\uB294-\\uBE48\\uC744-\\uC5B4\\uB5BB\\uAC8C-\\uAD00\\uB9AC\\uD558\\uB294\\uAC00\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,e.jsx)(n.span,{className:\"icon icon-link\"})}),\"\\uC2A4\\uD504\\uB9C1 IoC\\uCEE8\\uD14C\\uC774\\uB108\\uB294 \\uBE48\\uC744 \\uC5B4\\uB5BB\\uAC8C \\uAD00\\uB9AC\\uD558\\uB294\\uAC00?\"]}),(0,e.jsx)(\"p\",{align:\"center\",children:(0,e.jsx)(\"img\",{alt:\"image\",width:\"600\",src:\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/32e415ac-8b1c-4db7-9aa4-30104f9cd30a\"})}),(0,e.jsxs)(n.ol,{children:[(0,e.jsxs)(n.li,{children:[(0,e.jsx)(n.p,{children:\"\\uAC1D\\uCCB4 \\uC0DD\\uC131 + property \\uC124\\uC815\"}),(0,e.jsx)(\"p\",{align:\"center\",children:(0,e.jsx)(\"img\",{alt:\"image\",width:\"600\",src:\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/f927b4b8-22f7-48be-8751-488c50d43b68\"})})]}),(0,e.jsx)(n.li,{children:(0,e.jsx)(n.p,{children:\"\\uC758\\uC874 \\uC124\\uC815\"})}),(0,e.jsx)(n.li,{children:(0,e.jsx)(n.p,{children:\"\\uCD08\\uAE30\\uD654\"})}),(0,e.jsx)(n.li,{children:(0,e.jsx)(n.p,{children:\"\\uC0AC\\uC6A9\"})}),(0,e.jsx)(n.li,{children:(0,e.jsx)(n.p,{children:\"\\uC18C\\uBA78\"})})]}),(0,e.jsxs)(n.h2,{id:\"\\uBE48-\\uC124\\uC815\\uC2DC-\\uC8FC\\uC758\\uC810\",children:[(0,e.jsx)(n.a,{href:\"#\\uBE48-\\uC124\\uC815\\uC2DC-\\uC8FC\\uC758\\uC810\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,e.jsx)(n.span,{className:\"icon icon-link\"})}),\"\\uBE48 \\uC124\\uC815\\uC2DC \\uC8FC\\uC758\\uC810\"]}),(0,e.jsx)(n.p,{children:(0,e.jsx)(n.strong,{children:\"\\uCC38\\uACE0\\uC790\\uB8CC\"})}),(0,e.jsx)(n.ul,{children:(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://www.youtube.com/watch?v=3gURJvJw_T4&t=395s\",children:\"[10\\uBD84 \\uD14C\\uCF54\\uD1A1] \\uC8FC\\uB514\\uC758 Spring Bean\"})})})]})}function j(i={}){let{wrapper:n}=i.components||{};return n?(0,e.jsx)(n,Object.assign({},i,{children:(0,e.jsx)(s,i)})):s(i)}var _=j;return w(k);})();\n;return Component;"
+  },
+  "_id": "blog/java/spring/spring_bean.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/java/spring/spring_bean.mdx",
+    "sourceFileName": "spring_bean.mdx",
+    "sourceFileDir": "blog/java/spring",
+    "contentType": "mdx",
+    "flattenedPath": "blog/java/spring/spring_bean"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "2 min read",
+    "minutes": 1.23,
+    "time": 73800,
+    "words": 246
+  },
+  "slug": "java/spring/spring_bean",
+  "path": "blog/java/spring/spring_bean",
+  "filePath": "blog/java/spring/spring_bean.mdx",
+  "toc": [
+    {
+      "value": "Spring Bean?",
+      "url": "#spring-bean",
+      "depth": 2
+    },
+    {
+      "value": "빈과 의존성 주입",
+      "url": "#빈과-의존성-주입",
+      "depth": 2
+    },
+    {
+      "value": "빈과 싱글턴",
+      "url": "#빈과-싱글턴",
+      "depth": 2
+    },
+    {
+      "value": "스프링 IoC컨테이너는 빈을 어떻게 관리하는가?",
+      "url": "#스프링-ioc컨테이너는-빈을-어떻게-관리하는가",
+      "depth": 2
+    },
+    {
+      "value": "빈 설정시 주의점",
+      "url": "#빈-설정시-주의점",
+      "depth": 2
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "[ Spring ] Bean",
+    "datePublished": "2023-06-28T00:00:00.000Z",
+    "dateModified": "2023-06-28T00:00:00.000Z",
+    "description": "스프링 bean",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/java/spring/spring_bean"
+  }
+}

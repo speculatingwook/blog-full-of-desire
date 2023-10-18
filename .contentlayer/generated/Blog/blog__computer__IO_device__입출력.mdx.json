@@ -1,0 +1,46 @@
+{
+  "title": "I/O(Input & Output)",
+  "date": "2023-04-17T00:00:00.000Z",
+  "tags": ["COMPUTER_SCIENCE", "HARDWARE"],
+  "draft": false,
+  "summary": "전공공부하면서 같이 공부하는 운영체제",
+  "body": {
+    "raw": "\n## 입력과 출력\n\nI/O에 연결되는 장치를 I/O 장치라고 부른다. 또는 주변장치(peripheral device)라고 부르며, 영어로는 peripheral이라고 한다.\n\n<p align=\"center\">\n  <img\n    width=\"459\"\n    alt=\"image\"\n    src=\"https://user-images.githubusercontent.com/105579811/232368448-241013a6-324d-4d55-9b2c-7966b9332e54.png\"\n  />\n</p>\n\n컴퓨터에는 위처럼 I/O 처리를 위한 별도의 거리가 존재한다. I/O 거리도 메모리 거리와 비슷하다.\n컴퓨터가 물리적으로 큰 과거에는 전기적 연결이 한정적인 작은 패키지에 모든 것을 욱여넣기 힘들었기 때문에 I/O 거리를 메모리 거리와 분리하는 것이 타당했다. 더구나 과거에는 메모리 거리에 집이 많지 않았기 때문에, 제한된 주소를 I/O를 지원하느라고 낭비하는 일은 바람직하지 않았다.\n\n32비트나 64비트 컴퓨터가 흔해진 요즘은 메모리 거리의 주소 수가 훨씬 많아졌다. 메모리 거리가 너무 길기 때문에 모든 주소에 집이 있지는 않게 됐고, 그에 따라 빈 주소가 많아졌다. 아무 메모리도 연관되지 않은 주소가 많아졌다는 뜻이다.\n\n따라서 이제는 메모리 거리 중 일부를 I/O 장치에 할당하는 것이 더 타당해졌다. 이는 마치 도시 한구석에 산업 지구를 두는 것과 비슷하다. 그리고 더 많은 부분을 연결이 한정적인 패키지에 구겨 넣어야 하기 때문에 I/O와 메모리가 같은 버스를 사용하는 것이 타당하다.\n\n<p align=\"center\">\n  <img\n    width=\"551\"\n    alt=\"image\"\n    src=\"https://user-images.githubusercontent.com/105579811/232369071-184db809-790b-44d4-831c-84ce7df99617.png\"\n  />\n</p>\n\n많은 컴퓨터에는 설계상 표준 입력/출력 슬롯(slot)이 있어서 일관된 방식으로 I/O 장치를 연결할 수 있다. 위 그림처럼 아무도 사용하지 않는 주소 영역을 몇몇 사용 허가된 지역으로 나눈다. 각 슬롯을 차지한 장치는 자신에게 할당된 주소를 모두 사용할 수 있다. 각 슬롯에는 도심에서 각 슬롯에 어떤 장치가 연결되었는지 파악할 때 사용할 수 있는 인구 조사용 특별 주소가 있다.\n",
+    "code": "var Component=(()=>{var o=Object.create;var i=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var O=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),I=(t,e)=>{for(var r in e)i(t,r,{get:e[r],enumerable:!0})},s=(t,e,r,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of m(e))!g.call(t,a)&&a!==r&&i(t,a,{get:()=>e[a],enumerable:!(c=l(e,a))||c.enumerable});return t};var x=(t,e,r)=>(r=t!=null?o(u(t)):{},s(e||!t||!t.__esModule?i(r,\"default\",{value:t,enumerable:!0}):r,t)),b=t=>s(i({},\"__esModule\",{value:!0}),t);var p=O((M,d)=>{d.exports=_jsx_runtime});var C={};I(C,{default:()=>j,frontmatter:()=>f});var n=x(p()),f={title:\"I/O(Input & Output)\",date:\"2023-04-17\",tags:[\"COMPUTER_SCIENCE\",\"HARDWARE\"],draft:!1,summary:\"\\uC804\\uACF5\\uACF5\\uBD80\\uD558\\uBA74\\uC11C \\uAC19\\uC774 \\uACF5\\uBD80\\uD558\\uB294 \\uC6B4\\uC601\\uCCB4\\uC81C\"};function h(t){let e=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",p:\"p\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.h2,{id:\"\\uC785\\uB825\\uACFC-\\uCD9C\\uB825\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uC785\\uB825\\uACFC-\\uCD9C\\uB825\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uC785\\uB825\\uACFC \\uCD9C\\uB825\"]}),(0,n.jsx)(e.p,{children:\"I/O\\uC5D0 \\uC5F0\\uACB0\\uB418\\uB294 \\uC7A5\\uCE58\\uB97C I/O \\uC7A5\\uCE58\\uB77C\\uACE0 \\uBD80\\uB978\\uB2E4. \\uB610\\uB294 \\uC8FC\\uBCC0\\uC7A5\\uCE58(peripheral device)\\uB77C\\uACE0 \\uBD80\\uB974\\uBA70, \\uC601\\uC5B4\\uB85C\\uB294 peripheral\\uC774\\uB77C\\uACE0 \\uD55C\\uB2E4.\"}),(0,n.jsx)(\"p\",{align:\"center\",children:(0,n.jsx)(\"img\",{width:\"459\",alt:\"image\",src:\"https://user-images.githubusercontent.com/105579811/232368448-241013a6-324d-4d55-9b2c-7966b9332e54.png\"})}),(0,n.jsx)(e.p,{children:\"\\uCEF4\\uD4E8\\uD130\\uC5D0\\uB294 \\uC704\\uCC98\\uB7FC I/O \\uCC98\\uB9AC\\uB97C \\uC704\\uD55C \\uBCC4\\uB3C4\\uC758 \\uAC70\\uB9AC\\uAC00 \\uC874\\uC7AC\\uD55C\\uB2E4. I/O \\uAC70\\uB9AC\\uB3C4 \\uBA54\\uBAA8\\uB9AC \\uAC70\\uB9AC\\uC640 \\uBE44\\uC2B7\\uD558\\uB2E4. \\uCEF4\\uD4E8\\uD130\\uAC00 \\uBB3C\\uB9AC\\uC801\\uC73C\\uB85C \\uD070 \\uACFC\\uAC70\\uC5D0\\uB294 \\uC804\\uAE30\\uC801 \\uC5F0\\uACB0\\uC774 \\uD55C\\uC815\\uC801\\uC778 \\uC791\\uC740 \\uD328\\uD0A4\\uC9C0\\uC5D0 \\uBAA8\\uB4E0 \\uAC83\\uC744 \\uC6B1\\uC5EC\\uB123\\uAE30 \\uD798\\uB4E4\\uC5C8\\uAE30 \\uB54C\\uBB38\\uC5D0 I/O \\uAC70\\uB9AC\\uB97C \\uBA54\\uBAA8\\uB9AC \\uAC70\\uB9AC\\uC640 \\uBD84\\uB9AC\\uD558\\uB294 \\uAC83\\uC774 \\uD0C0\\uB2F9\\uD588\\uB2E4. \\uB354\\uAD6C\\uB098 \\uACFC\\uAC70\\uC5D0\\uB294 \\uBA54\\uBAA8\\uB9AC \\uAC70\\uB9AC\\uC5D0 \\uC9D1\\uC774 \\uB9CE\\uC9C0 \\uC54A\\uC558\\uAE30 \\uB54C\\uBB38\\uC5D0, \\uC81C\\uD55C\\uB41C \\uC8FC\\uC18C\\uB97C I/O\\uB97C \\uC9C0\\uC6D0\\uD558\\uB290\\uB77C\\uACE0 \\uB0AD\\uBE44\\uD558\\uB294 \\uC77C\\uC740 \\uBC14\\uB78C\\uC9C1\\uD558\\uC9C0 \\uC54A\\uC558\\uB2E4.\"}),(0,n.jsx)(e.p,{children:\"32\\uBE44\\uD2B8\\uB098 64\\uBE44\\uD2B8 \\uCEF4\\uD4E8\\uD130\\uAC00 \\uD754\\uD574\\uC9C4 \\uC694\\uC998\\uC740 \\uBA54\\uBAA8\\uB9AC \\uAC70\\uB9AC\\uC758 \\uC8FC\\uC18C \\uC218\\uAC00 \\uD6E8\\uC52C \\uB9CE\\uC544\\uC84C\\uB2E4. \\uBA54\\uBAA8\\uB9AC \\uAC70\\uB9AC\\uAC00 \\uB108\\uBB34 \\uAE38\\uAE30 \\uB54C\\uBB38\\uC5D0 \\uBAA8\\uB4E0 \\uC8FC\\uC18C\\uC5D0 \\uC9D1\\uC774 \\uC788\\uC9C0\\uB294 \\uC54A\\uAC8C \\uB410\\uACE0, \\uADF8\\uC5D0 \\uB530\\uB77C \\uBE48 \\uC8FC\\uC18C\\uAC00 \\uB9CE\\uC544\\uC84C\\uB2E4. \\uC544\\uBB34 \\uBA54\\uBAA8\\uB9AC\\uB3C4 \\uC5F0\\uAD00\\uB418\\uC9C0 \\uC54A\\uC740 \\uC8FC\\uC18C\\uAC00 \\uB9CE\\uC544\\uC84C\\uB2E4\\uB294 \\uB73B\\uC774\\uB2E4.\"}),(0,n.jsx)(e.p,{children:\"\\uB530\\uB77C\\uC11C \\uC774\\uC81C\\uB294 \\uBA54\\uBAA8\\uB9AC \\uAC70\\uB9AC \\uC911 \\uC77C\\uBD80\\uB97C I/O \\uC7A5\\uCE58\\uC5D0 \\uD560\\uB2F9\\uD558\\uB294 \\uAC83\\uC774 \\uB354 \\uD0C0\\uB2F9\\uD574\\uC84C\\uB2E4. \\uC774\\uB294 \\uB9C8\\uCE58 \\uB3C4\\uC2DC \\uD55C\\uAD6C\\uC11D\\uC5D0 \\uC0B0\\uC5C5 \\uC9C0\\uAD6C\\uB97C \\uB450\\uB294 \\uAC83\\uACFC \\uBE44\\uC2B7\\uD558\\uB2E4. \\uADF8\\uB9AC\\uACE0 \\uB354 \\uB9CE\\uC740 \\uBD80\\uBD84\\uC744 \\uC5F0\\uACB0\\uC774 \\uD55C\\uC815\\uC801\\uC778 \\uD328\\uD0A4\\uC9C0\\uC5D0 \\uAD6C\\uACA8 \\uB123\\uC5B4\\uC57C \\uD558\\uAE30 \\uB54C\\uBB38\\uC5D0 I/O\\uC640 \\uBA54\\uBAA8\\uB9AC\\uAC00 \\uAC19\\uC740 \\uBC84\\uC2A4\\uB97C \\uC0AC\\uC6A9\\uD558\\uB294 \\uAC83\\uC774 \\uD0C0\\uB2F9\\uD558\\uB2E4.\"}),(0,n.jsx)(\"p\",{align:\"center\",children:(0,n.jsx)(\"img\",{width:\"551\",alt:\"image\",src:\"https://user-images.githubusercontent.com/105579811/232369071-184db809-790b-44d4-831c-84ce7df99617.png\"})}),(0,n.jsx)(e.p,{children:\"\\uB9CE\\uC740 \\uCEF4\\uD4E8\\uD130\\uC5D0\\uB294 \\uC124\\uACC4\\uC0C1 \\uD45C\\uC900 \\uC785\\uB825/\\uCD9C\\uB825 \\uC2AC\\uB86F(slot)\\uC774 \\uC788\\uC5B4\\uC11C \\uC77C\\uAD00\\uB41C \\uBC29\\uC2DD\\uC73C\\uB85C I/O \\uC7A5\\uCE58\\uB97C \\uC5F0\\uACB0\\uD560 \\uC218 \\uC788\\uB2E4. \\uC704 \\uADF8\\uB9BC\\uCC98\\uB7FC \\uC544\\uBB34\\uB3C4 \\uC0AC\\uC6A9\\uD558\\uC9C0 \\uC54A\\uB294 \\uC8FC\\uC18C \\uC601\\uC5ED\\uC744 \\uBA87\\uBA87 \\uC0AC\\uC6A9 \\uD5C8\\uAC00\\uB41C \\uC9C0\\uC5ED\\uC73C\\uB85C \\uB098\\uB208\\uB2E4. \\uAC01 \\uC2AC\\uB86F\\uC744 \\uCC28\\uC9C0\\uD55C \\uC7A5\\uCE58\\uB294 \\uC790\\uC2E0\\uC5D0\\uAC8C \\uD560\\uB2F9\\uB41C \\uC8FC\\uC18C\\uB97C \\uBAA8\\uB450 \\uC0AC\\uC6A9\\uD560 \\uC218 \\uC788\\uB2E4. \\uAC01 \\uC2AC\\uB86F\\uC5D0\\uB294 \\uB3C4\\uC2EC\\uC5D0\\uC11C \\uAC01 \\uC2AC\\uB86F\\uC5D0 \\uC5B4\\uB5A4 \\uC7A5\\uCE58\\uAC00 \\uC5F0\\uACB0\\uB418\\uC5C8\\uB294\\uC9C0 \\uD30C\\uC545\\uD560 \\uB54C \\uC0AC\\uC6A9\\uD560 \\uC218 \\uC788\\uB294 \\uC778\\uAD6C \\uC870\\uC0AC\\uC6A9 \\uD2B9\\uBCC4 \\uC8FC\\uC18C\\uAC00 \\uC788\\uB2E4.\"})]})}function _(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var j=_;return b(C);})();\n;return Component;"
+  },
+  "_id": "blog/computer/IO_device/입출력.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/computer/IO_device/입출력.mdx",
+    "sourceFileName": "입출력.mdx",
+    "sourceFileDir": "blog/computer/IO_device",
+    "contentType": "mdx",
+    "flattenedPath": "blog/computer/IO_device/입출력"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "3 min read",
+    "minutes": 2.815,
+    "time": 168900,
+    "words": 563
+  },
+  "slug": "computer/IO_device/입출력",
+  "path": "blog/computer/IO_device/입출력",
+  "filePath": "blog/computer/IO_device/입출력.mdx",
+  "toc": [
+    {
+      "value": "입력과 출력",
+      "url": "#입력과-출력",
+      "depth": 2
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "I/O(Input & Output)",
+    "datePublished": "2023-04-17T00:00:00.000Z",
+    "dateModified": "2023-04-17T00:00:00.000Z",
+    "description": "전공공부하면서 같이 공부하는 운영체제",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/computer/IO_device/입출력"
+  }
+}

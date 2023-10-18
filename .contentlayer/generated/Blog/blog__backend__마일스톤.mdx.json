@@ -1,0 +1,71 @@
+{
+  "title": "백엔드 마일스톤",
+  "date": "2023-05-23T00:00:00.000Z",
+  "tags": ["백엔드 마일스톤"],
+  "draft": false,
+  "summary": "우아한 테크코스에서 가져온 백엔드 개발자의 마일스톤",
+  "body": {
+    "raw": "\n# 백엔드 마일스톤\n\n## 0. 웹 기초 개념\n\n---\n\n[intro]()\n\n[DataStructures & Algorithms](https://blog-full-of-desire.vercel.app/tags/computer_architecture)\n\n[SSH]()\n\n[HTTP/HTTPs and APIs]()\n\n[Character Encodings]()\n\n## [1. Programming basic]()\n\n---\n\n[intro]()\n\n[JAVA](https://blog-full-of-desire.vercel.app/tags/java)\n\n[Tools]()\n\n[JDK]()\n\n[Testing]()\n\n[Principle]()\n\n## [2. Web basic]()\n\n---\n\n[intro]()\n\n[Common Topics]()\n\n[Spring Framework](https://blog-full-of-desire.vercel.app/tags/spring)\n\n## [3. Web project]()\n\n---\n\n[intro]()\n\n[Software Development Process]()\n\n[Common Topics]()\n\n[Web Architecture Components]()\n\n[Advanced Testing]()\n\n## [4. Getting Deeper]()\n\n---\n\n[intro]()\n\n[Framework]()\n\n[Design]()\n\n[Refactoring Legacy Code]()\n\n[Common Topics]()\n\n[More Web Architecture Components](https://www.notion.so/9e532fb0c6944fe6a39fa77e67f5d14d)\n\n별첨\n\n[코딩테스트 준비]()\n\n---\n\n[tomcat 구현하기]()\n",
+    "code": "var Component=(()=>{var s=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var b=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),u=(n,e)=>{for(var i in e)c(n,i,{get:e[i],enumerable:!0})},d=(n,e,i,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let h of f(e))!g.call(n,h)&&h!==i&&c(n,h,{get:()=>e[h],enumerable:!(a=p(e,h))||a.enumerable});return n};var x=(n,e,i)=>(i=n!=null?s(m(n)):{},d(e||!n||!n.__esModule?c(i,\"default\",{value:n,enumerable:!0}):i,n)),j=n=>d(c({},\"__esModule\",{value:!0}),n);var t=b((A,l)=>{l.exports=_jsx_runtime});var k={};u(k,{default:()=>C,frontmatter:()=>w});var r=x(t()),w={title:\"\\uBC31\\uC5D4\\uB4DC \\uB9C8\\uC77C\\uC2A4\\uD1A4\",date:\"2023-05-23\",tags:[\"\\uBC31\\uC5D4\\uB4DC \\uB9C8\\uC77C\\uC2A4\\uD1A4\"],draft:!1,summary:\"\\uC6B0\\uC544\\uD55C \\uD14C\\uD06C\\uCF54\\uC2A4\\uC5D0\\uC11C \\uAC00\\uC838\\uC628 \\uBC31\\uC5D4\\uB4DC \\uAC1C\\uBC1C\\uC790\\uC758 \\uB9C8\\uC77C\\uC2A4\\uD1A4\"};function o(n){let e=Object.assign({h1:\"h1\",a:\"a\",span:\"span\",h2:\"h2\",hr:\"hr\",p:\"p\"},n.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsxs)(e.h1,{id:\"\\uBC31\\uC5D4\\uB4DC-\\uB9C8\\uC77C\\uC2A4\\uD1A4\",children:[(0,r.jsx)(e.a,{href:\"#\\uBC31\\uC5D4\\uB4DC-\\uB9C8\\uC77C\\uC2A4\\uD1A4\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,r.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uBC31\\uC5D4\\uB4DC \\uB9C8\\uC77C\\uC2A4\\uD1A4\"]}),(0,r.jsxs)(e.h2,{id:\"0-\\uC6F9-\\uAE30\\uCD08-\\uAC1C\\uB150\",children:[(0,r.jsx)(e.a,{href:\"#0-\\uC6F9-\\uAE30\\uCD08-\\uAC1C\\uB150\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,r.jsx)(e.span,{className:\"icon icon-link\"})}),\"0. \\uC6F9 \\uAE30\\uCD08 \\uAC1C\\uB150\"]}),(0,r.jsx)(e.hr,{}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"intro\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"https://blog-full-of-desire.vercel.app/tags/computer_architecture\",children:\"DataStructures & Algorithms\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"SSH\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"HTTP/HTTPs and APIs\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"Character Encodings\"})}),(0,r.jsxs)(e.h2,{id:\"1-programming-basic\",children:[(0,r.jsx)(e.a,{href:\"#1-programming-basic\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,r.jsx)(e.span,{className:\"icon icon-link\"})}),(0,r.jsx)(e.a,{href:\"\",children:\"1. Programming basic\"})]}),(0,r.jsx)(e.hr,{}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"intro\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"https://blog-full-of-desire.vercel.app/tags/java\",children:\"JAVA\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"Tools\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"JDK\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"Testing\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"Principle\"})}),(0,r.jsxs)(e.h2,{id:\"2-web-basic\",children:[(0,r.jsx)(e.a,{href:\"#2-web-basic\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,r.jsx)(e.span,{className:\"icon icon-link\"})}),(0,r.jsx)(e.a,{href:\"\",children:\"2. Web basic\"})]}),(0,r.jsx)(e.hr,{}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"intro\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"Common Topics\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"https://blog-full-of-desire.vercel.app/tags/spring\",children:\"Spring Framework\"})}),(0,r.jsxs)(e.h2,{id:\"3-web-project\",children:[(0,r.jsx)(e.a,{href:\"#3-web-project\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,r.jsx)(e.span,{className:\"icon icon-link\"})}),(0,r.jsx)(e.a,{href:\"\",children:\"3. Web project\"})]}),(0,r.jsx)(e.hr,{}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"intro\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"Software Development Process\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"Common Topics\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"Web Architecture Components\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"Advanced Testing\"})}),(0,r.jsxs)(e.h2,{id:\"4-getting-deeper\",children:[(0,r.jsx)(e.a,{href:\"#4-getting-deeper\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,r.jsx)(e.span,{className:\"icon icon-link\"})}),(0,r.jsx)(e.a,{href:\"\",children:\"4. Getting Deeper\"})]}),(0,r.jsx)(e.hr,{}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"intro\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"Framework\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"Design\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"Refactoring Legacy Code\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"Common Topics\"})}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"https://www.notion.so/9e532fb0c6944fe6a39fa77e67f5d14d\",children:\"More Web Architecture Components\"})}),(0,r.jsx)(e.p,{children:\"\\uBCC4\\uCCA8\"}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"\\uCF54\\uB529\\uD14C\\uC2A4\\uD2B8 \\uC900\\uBE44\"})}),(0,r.jsx)(e.hr,{}),(0,r.jsx)(e.p,{children:(0,r.jsx)(e.a,{href:\"\",children:\"tomcat \\uAD6C\\uD604\\uD558\\uAE30\"})})]})}function T(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,Object.assign({},n,{children:(0,r.jsx)(o,n)})):o(n)}var C=T;return j(k);})();\n;return Component;"
+  },
+  "_id": "blog/backend/마일스톤.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/backend/마일스톤.mdx",
+    "sourceFileName": "마일스톤.mdx",
+    "sourceFileDir": "blog/backend",
+    "contentType": "mdx",
+    "flattenedPath": "blog/backend/마일스톤"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.46,
+    "time": 27600,
+    "words": 92
+  },
+  "slug": "backend/마일스톤",
+  "path": "blog/backend/마일스톤",
+  "filePath": "blog/backend/마일스톤.mdx",
+  "toc": [
+    {
+      "value": "백엔드 마일스톤",
+      "url": "#백엔드-마일스톤",
+      "depth": 1
+    },
+    {
+      "value": "0. 웹 기초 개념",
+      "url": "#0-웹-기초-개념",
+      "depth": 2
+    },
+    {
+      "value": "1. Programming basic",
+      "url": "#1-programming-basic",
+      "depth": 2
+    },
+    {
+      "value": "2. Web basic",
+      "url": "#2-web-basic",
+      "depth": 2
+    },
+    {
+      "value": "3. Web project",
+      "url": "#3-web-project",
+      "depth": 2
+    },
+    {
+      "value": "4. Getting Deeper",
+      "url": "#4-getting-deeper",
+      "depth": 2
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "백엔드 마일스톤",
+    "datePublished": "2023-05-23T00:00:00.000Z",
+    "dateModified": "2023-05-23T00:00:00.000Z",
+    "description": "우아한 테크코스에서 가져온 백엔드 개발자의 마일스톤",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/backend/마일스톤"
+  }
+}

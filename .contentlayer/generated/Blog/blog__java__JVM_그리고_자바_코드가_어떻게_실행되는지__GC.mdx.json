@@ -1,0 +1,81 @@
+{
+  "title": "[ JAVA ] GC(Garbage Collection), Java GC",
+  "date": "2023-06-12T00:00:00.000Z",
+  "tags": ["JAVA"],
+  "draft": false,
+  "summary": "GC의 정의와 Java GC 알고리즘에 대해 알아봅시다.",
+  "body": {
+    "raw": "\n## 가비지 컬렉션의 정의\n\n- Garbage Collection은 자동 메모리 관리의 한 형태이며 결과적으로 성능에 영향을 미침\n\n  - Garbage는 더 이상 사용(참조)되지 않는 메모리\n\n- 프로그래머가 메모리 할당/해제 등 수동 관리의 부담을 덜어줌\n\n  - 비슷한 기술로는 스택 할당, 영역 추론, 메모리 소유권 등이 있음\n\n- 일반적으로 네트워크 소켓, DB핸들, 윈도우, 파일 디스크립터 등과 같은 리소스는 GC처리되지 않음 보통 이와 같은 것들은 다른 방법들로(destructures)로\n\n## 가비지 컬렉터가 처리하는 Heap 영역\n\n## Generation GC Process\n\n## GC의 장단점\n\n## GC Roots\n\n## GC Reference Counting\n\n## Heap 영역을 제외한 GC 처리 영역\n\n## GC 종류\n",
+    "code": "var Component=(()=>{var o=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var f=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),x=(i,e)=>{for(var a in e)r(i,a,{get:e[a],enumerable:!0})},l=(i,e,a,d)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let c of u(e))!m.call(i,c)&&c!==a&&r(i,c,{get:()=>e[c],enumerable:!(d=p(e,c))||d.enumerable});return i};var C=(i,e,a)=>(a=i!=null?o(g(i)):{},l(e||!i||!i.__esModule?r(a,\"default\",{value:i,enumerable:!0}):a,i)),G=i=>l(r({},\"__esModule\",{value:!0}),i);var h=f((_,t)=>{t.exports=_jsx_runtime});var N={};x(N,{default:()=>I,frontmatter:()=>b});var n=C(h()),b={title:\"[ JAVA ] GC(Garbage Collection), Java GC\",date:\"2023-06-12\",tags:[\"JAVA\"],draft:!1,summary:\"GC\\uC758 \\uC815\\uC758\\uC640 Java GC \\uC54C\\uACE0\\uB9AC\\uC998\\uC5D0 \\uB300\\uD574 \\uC54C\\uC544\\uBD05\\uC2DC\\uB2E4.\"};function s(i){let e=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",ul:\"ul\",li:\"li\",p:\"p\"},i.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.h2,{id:\"\\uAC00\\uBE44\\uC9C0-\\uCEEC\\uB809\\uC158\\uC758-\\uC815\\uC758\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uAC00\\uBE44\\uC9C0-\\uCEEC\\uB809\\uC158\\uC758-\\uC815\\uC758\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uAC00\\uBE44\\uC9C0 \\uCEEC\\uB809\\uC158\\uC758 \\uC815\\uC758\"]}),(0,n.jsxs)(e.ul,{children:[(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.p,{children:\"Garbage Collection\\uC740 \\uC790\\uB3D9 \\uBA54\\uBAA8\\uB9AC \\uAD00\\uB9AC\\uC758 \\uD55C \\uD615\\uD0DC\\uC774\\uBA70 \\uACB0\\uACFC\\uC801\\uC73C\\uB85C \\uC131\\uB2A5\\uC5D0 \\uC601\\uD5A5\\uC744 \\uBBF8\\uCE68\"}),(0,n.jsx)(e.ul,{children:(0,n.jsx)(e.li,{children:\"Garbage\\uB294 \\uB354 \\uC774\\uC0C1 \\uC0AC\\uC6A9(\\uCC38\\uC870)\\uB418\\uC9C0 \\uC54A\\uB294 \\uBA54\\uBAA8\\uB9AC\"})})]}),(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.p,{children:\"\\uD504\\uB85C\\uADF8\\uB798\\uBA38\\uAC00 \\uBA54\\uBAA8\\uB9AC \\uD560\\uB2F9/\\uD574\\uC81C \\uB4F1 \\uC218\\uB3D9 \\uAD00\\uB9AC\\uC758 \\uBD80\\uB2F4\\uC744 \\uB35C\\uC5B4\\uC90C\"}),(0,n.jsx)(e.ul,{children:(0,n.jsx)(e.li,{children:\"\\uBE44\\uC2B7\\uD55C \\uAE30\\uC220\\uB85C\\uB294 \\uC2A4\\uD0DD \\uD560\\uB2F9, \\uC601\\uC5ED \\uCD94\\uB860, \\uBA54\\uBAA8\\uB9AC \\uC18C\\uC720\\uAD8C \\uB4F1\\uC774 \\uC788\\uC74C\"})})]}),(0,n.jsx)(e.li,{children:(0,n.jsx)(e.p,{children:\"\\uC77C\\uBC18\\uC801\\uC73C\\uB85C \\uB124\\uD2B8\\uC6CC\\uD06C \\uC18C\\uCF13, DB\\uD578\\uB4E4, \\uC708\\uB3C4\\uC6B0, \\uD30C\\uC77C \\uB514\\uC2A4\\uD06C\\uB9BD\\uD130 \\uB4F1\\uACFC \\uAC19\\uC740 \\uB9AC\\uC18C\\uC2A4\\uB294 GC\\uCC98\\uB9AC\\uB418\\uC9C0 \\uC54A\\uC74C \\uBCF4\\uD1B5 \\uC774\\uC640 \\uAC19\\uC740 \\uAC83\\uB4E4\\uC740 \\uB2E4\\uB978 \\uBC29\\uBC95\\uB4E4\\uB85C(destructures)\\uB85C\"})})]}),(0,n.jsxs)(e.h2,{id:\"\\uAC00\\uBE44\\uC9C0-\\uCEEC\\uB809\\uD130\\uAC00-\\uCC98\\uB9AC\\uD558\\uB294-heap-\\uC601\\uC5ED\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uAC00\\uBE44\\uC9C0-\\uCEEC\\uB809\\uD130\\uAC00-\\uCC98\\uB9AC\\uD558\\uB294-heap-\\uC601\\uC5ED\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uAC00\\uBE44\\uC9C0 \\uCEEC\\uB809\\uD130\\uAC00 \\uCC98\\uB9AC\\uD558\\uB294 Heap \\uC601\\uC5ED\"]}),(0,n.jsxs)(e.h2,{id:\"generation-gc-process\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#generation-gc-process\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"Generation GC Process\"]}),(0,n.jsxs)(e.h2,{id:\"gc\\uC758-\\uC7A5\\uB2E8\\uC810\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#gc\\uC758-\\uC7A5\\uB2E8\\uC810\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"GC\\uC758 \\uC7A5\\uB2E8\\uC810\"]}),(0,n.jsxs)(e.h2,{id:\"gc-roots\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#gc-roots\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"GC Roots\"]}),(0,n.jsxs)(e.h2,{id:\"gc-reference-counting\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#gc-reference-counting\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"GC Reference Counting\"]}),(0,n.jsxs)(e.h2,{id:\"heap-\\uC601\\uC5ED\\uC744-\\uC81C\\uC678\\uD55C-gc-\\uCC98\\uB9AC-\\uC601\\uC5ED\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#heap-\\uC601\\uC5ED\\uC744-\\uC81C\\uC678\\uD55C-gc-\\uCC98\\uB9AC-\\uC601\\uC5ED\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"Heap \\uC601\\uC5ED\\uC744 \\uC81C\\uC678\\uD55C GC \\uCC98\\uB9AC \\uC601\\uC5ED\"]}),(0,n.jsxs)(e.h2,{id:\"gc-\\uC885\\uB958\",children:[(0,n.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#gc-\\uC885\\uB958\",tabIndex:\"-1\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"GC \\uC885\\uB958\"]})]})}function k(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,Object.assign({},i,{children:(0,n.jsx)(s,i)})):s(i)}var I=k;return G(N);})();\n;return Component;"
+  },
+  "_id": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/GC.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/GC.mdx",
+    "sourceFileName": "GC.mdx",
+    "sourceFileDir": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지",
+    "contentType": "mdx",
+    "flattenedPath": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/GC"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "2 min read",
+    "minutes": 1.03,
+    "time": 61800,
+    "words": 206
+  },
+  "slug": "java/JVM_그리고_자바_코드가_어떻게_실행되는지/GC",
+  "path": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/GC",
+  "filePath": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/GC.mdx",
+  "toc": [
+    {
+      "value": "가비지 컬렉션의 정의",
+      "url": "#가비지-컬렉션의-정의",
+      "depth": 2
+    },
+    {
+      "value": "가비지 컬렉터가 처리하는 Heap 영역",
+      "url": "#가비지-컬렉터가-처리하는-heap-영역",
+      "depth": 2
+    },
+    {
+      "value": "Generation GC Process",
+      "url": "#generation-gc-process",
+      "depth": 2
+    },
+    {
+      "value": "GC의 장단점",
+      "url": "#gc의-장단점",
+      "depth": 2
+    },
+    {
+      "value": "GC Roots",
+      "url": "#gc-roots",
+      "depth": 2
+    },
+    {
+      "value": "GC Reference Counting",
+      "url": "#gc-reference-counting",
+      "depth": 2
+    },
+    {
+      "value": "Heap 영역을 제외한 GC 처리 영역",
+      "url": "#heap-영역을-제외한-gc-처리-영역",
+      "depth": 2
+    },
+    {
+      "value": "GC 종류",
+      "url": "#gc-종류",
+      "depth": 2
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "[ JAVA ] GC(Garbage Collection), Java GC",
+    "datePublished": "2023-06-12T00:00:00.000Z",
+    "dateModified": "2023-06-12T00:00:00.000Z",
+    "description": "GC의 정의와 Java GC 알고리즘에 대해 알아봅시다.",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/GC"
+  }
+}

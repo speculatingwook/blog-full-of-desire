@@ -1,0 +1,167 @@
+---
+title: '[ Algorithm ] 올바른 해시 알고리즘을 고르는 방법, 해시 함수의 종류'
+date: '2023-09-08'
+tags: ['ALGORITHM', 'HASH']
+draft: false
+summary: pope 강의를 듣고 필요한 부분을 정리하는 글
+---
+
+## 우리가 집중해야 하는 부분
+
+해시 함수를 발명하는 경우는 흔하지 않다. 이미 수많은 사람들이 만들고 측정하고 사용하고 검증한 함수들이 있다. 그리고 보통 내가 사용하는 데이터는 아주 특별하지 않아서 그냥 원래 나와있는 해시 함수들을 적절히 잘 사용하면 된다.
+
+따라서 우리가 집중해야 하는 부분은
+
+- `어떤 연산들이 좋은 해시 함수를 만드는가?`
+- `어디에 어떤 해시 함수를 사용해야 하는가?`
+
+이다.
+
+## 올바른 해시 함수를 고르는 법
+
+1. 실제로 가지고 있는 데이터로 테스트하면서 측정을 한다.
+
+- 속도
+- 해시 충돌 수
+- 메모리(보통 크게 중요하지 않음)
+- 균일성 측정(실무에서는 잘 안함)
+
+2. 구글 신님께 물어본다.
+
+- 내 데이터들이 일반적인 데이터인 경우
+
+<p align="center">
+  <img
+    width="511"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/37572b5c-8051-4054-a030-7a239980d755"
+  />
+</p>
+
+어떤 사람이 해시 함수를 테스트함
+
+테스트에서 사용한 키들
+
+1. 소문자 영어단어 216,553개
+2. 정수(1~216,533)
+3. 무작위로 뽑은 216,543개의 GUID
+
+## Lose Lose 해시 함수
+
+```java
+public class LoseLoseHash {
+    public static int loseLoseHash(String input) {
+        int hash = 0;
+        for (int i = 0; i < input.length(); i++) {
+            hash += input.charAt(i);
+        }
+        return hash;
+    }
+
+    public static void main(String[] args) {
+        String key = "example"; // 해싱하고자 하는 문자열
+        int hashCode = loseLoseHash(key);
+        System.out.println("해시 코드: " + hashCode);
+    }
+}
+```
+
+<p align="center">
+  <img
+    width="744"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/644466ff-560d-4609-8af4-3dfa43ccbc15"
+  />
+</p>
+
+- 프로그래밍 책에서 간단히 소개하려고 만든 코드
+- java만 부호없는 정수형이 없어서 쓸데없는 짓을 해야 함
+- 매우 간단하지만 충돌이 많다.
+
+## Murmur 해시 함수
+
+Murmur 해시 함수는 빠르고 고품질의 해시 함수 중 하나로 널리 사용된다. 아래는 Murmur3 해시 함수를 자바로 구현한 예제이다.
+
+```java
+public class Murmur3Hash {
+    public static int murmur3Hash(byte[] data, int seed) {
+        int m = 0x5bd1e995;
+        int r = 24;
+        int length = data.length;
+        int h = seed ^ length;
+
+        int currentIndex = 0;
+
+        while (length >= 4) {
+            int k = data[currentIndex++] & 0xFF |
+                    (data[currentIndex++] & 0xFF) << 8 |
+                    (data[currentIndex++] & 0xFF) << 16 |
+                    (data[currentIndex++] & 0xFF) << 24;
+
+            k *= m;
+            k ^= k >>> r;
+            k *= m;
+
+            h *= m;
+            h ^= k;
+
+            length -= 4;
+        }
+
+        switch (length) {
+            case 3:
+                h ^= (data[currentIndex + 2] & 0xFF) << 16;
+            case 2:
+                h ^= (data[currentIndex + 1] & 0xFF) << 8;
+            case 1:
+                h ^= (data[currentIndex] & 0xFF);
+                h *= m;
+        }
+
+        h ^= h >>> 13;
+        h *= m;
+        h ^= h >>> 15;
+
+        return h;
+    }
+
+    public static void main(String[] args) {
+        String key = "example"; // 해싱하고자 하는 문자열
+        byte[] data = key.getBytes();
+        int seed = 0; // 해시 시드 (임의의 값)
+
+        int hashCode = murmur3Hash(data, seed);
+        System.out.println("해시 코드: " + hashCode);
+    }
+}
+```
+
+## FNV-1 해시
+
+FNV-1(Fowler-Noll-Vo) 해시 함수는 매우 단순하면서도 효과적인 해시 함수 중 하나이다. 이 함수는 입력 데이터를 순회하며 해시 값을 계산한다.
+
+```java
+public class FNV1Hash {
+    public static int fnv1Hash(byte[] data) {
+        final int FNV_OFFSET_BASIS = 0x811C9DC5;
+        final int FNV_PRIME = 0x01000193;
+
+        int hash = FNV_OFFSET_BASIS;
+
+        for (byte b : data) {
+            hash ^= (int) b & 0xFF;
+            hash *= FNV_PRIME;
+        }
+
+        return hash;
+    }
+
+    public static void main(String[] args) {
+        String key = "example"; // 해싱하고자 하는 문자열
+        byte[] data = key.getBytes();
+
+        int hashCode = fnv1Hash(data);
+        System.out.println("해시 코드: " + hashCode);
+    }
+}
+```

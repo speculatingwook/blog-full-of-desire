@@ -1,0 +1,40 @@
+{
+  "title": "[ JAVA ] 클래스 로더와 클래스 로딩",
+  "date": "2023-06-10T00:00:00.000Z",
+  "tags": ["JAVA"],
+  "draft": false,
+  "summary": "자바라는 언어에 대한 글",
+  "body": {
+    "raw": "\n**_출처_**\n\n- [JVM Architecture, 제대로 이해하기]\n",
+    "code": "var Component=(()=>{var u=Object.create;var c=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var f=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var r in t)c(e,r,{get:t[r],enumerable:!0})},i=(e,t,r,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let s of x(t))!h.call(e,s)&&s!==r&&c(e,s,{get:()=>t[s],enumerable:!(o=d(t,s))||o.enumerable});return e};var _=(e,t,r)=>(r=e!=null?u(g(e)):{},i(t||!e||!e.__esModule?c(r,\"default\",{value:e,enumerable:!0}):r,e)),p=e=>i(c({},\"__esModule\",{value:!0}),e);var l=f((y,a)=>{a.exports=_jsx_runtime});var V={};j(V,{default:()=>J,frontmatter:()=>A});var n=_(l()),A={title:\"[ JAVA ] \\uD074\\uB798\\uC2A4 \\uB85C\\uB354\\uC640 \\uD074\\uB798\\uC2A4 \\uB85C\\uB529\",date:\"2023-06-10\",tags:[\"JAVA\"],draft:!1,summary:\"\\uC790\\uBC14\\uB77C\\uB294 \\uC5B8\\uC5B4\\uC5D0 \\uB300\\uD55C \\uAE00\"};function m(e){let t=Object.assign({p:\"p\",strong:\"strong\",em:\"em\",ul:\"ul\",li:\"li\"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:(0,n.jsx)(t.strong,{children:(0,n.jsx)(t.em,{children:\"\\uCD9C\\uCC98\"})})}),(0,n.jsx)(t.ul,{children:(0,n.jsx)(t.li,{children:\"[JVM Architecture, \\uC81C\\uB300\\uB85C \\uC774\\uD574\\uD558\\uAE30]\"})})]})}function M(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,Object.assign({},e,{children:(0,n.jsx)(m,e)})):m(e)}var J=M;return p(V);})();\n;return Component;"
+  },
+  "_id": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/클래스로더와_클래스로딩.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/클래스로더와_클래스로딩.mdx",
+    "sourceFileName": "클래스로더와_클래스로딩.mdx",
+    "sourceFileDir": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지",
+    "contentType": "mdx",
+    "flattenedPath": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/클래스로더와_클래스로딩"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.06,
+    "time": 3600,
+    "words": 12
+  },
+  "slug": "java/JVM_그리고_자바_코드가_어떻게_실행되는지/클래스로더와_클래스로딩",
+  "path": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/클래스로더와_클래스로딩",
+  "filePath": "blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/클래스로더와_클래스로딩.mdx",
+  "toc": [],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "[ JAVA ] 클래스 로더와 클래스 로딩",
+    "datePublished": "2023-06-10T00:00:00.000Z",
+    "dateModified": "2023-06-10T00:00:00.000Z",
+    "description": "자바라는 언어에 대한 글",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/java/JVM_그리고_자바_코드가_어떻게_실행되는지/클래스로더와_클래스로딩"
+  }
+}

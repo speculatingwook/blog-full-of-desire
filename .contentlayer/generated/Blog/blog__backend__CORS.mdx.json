@@ -1,0 +1,91 @@
+{
+  "title": "[Network] CORS",
+  "date": "2023-06-23T00:00:00.000Z",
+  "tags": ["CORS"],
+  "draft": false,
+  "summary": null,
+  "body": {
+    "raw": "\n## SOP(Same Origin Policy)\n\n다른 출처의 리소소를 사용하는 것에 제한하는 보안방식\n\n<p align=\"center\">\n  <img\n    width=\"684\"\n    alt=\"image\"\n    src=\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/85de5cad-a77b-4749-91c0-3b83d1b37e72\"\n  />\n</p>\n\n- `출처(origin)`: 프로토콜과 호스트까지\n\n만약 다른 출처에서 요청을 보내온다면 해킹의 가능성이 있기 때문에 막아야 함. 다시 말해 Cross Origin을 차단함.\n그렇다면 다른 출처의 리소스가 필요하다면 어떻게 해야 할까? -> CORS\n\n## CORS(Cross-Origin Resource Sharing)\n\n다른 출처의 자원을 공유한다!\n\n교차 출처 리소스 공유(CORS)는 추가 HTTP 헤더를 사용하여, 한 출처에서 실행중인 웹 애플리케이션이 다른 출처의 선택한 자원에 접근할 수 있는 권한을 부여하도록 브라우저에 알려주는 체제이다.\n\n## CORS 접근제어 시나리오\n\n- 프리플라이트 요청(Preflight Request)\n- 단순 요청(Simple Request)\n- 인증정보 포함 요청(Credentialed Request)\n\n## Preflight\n\n<p align=\"center\">\n  <img\n    width=\"547\"\n    alt=\"image\"\n    src=\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/0ec95a19-7e8f-4191-9567-a89000ad5c09\"\n  />\n  <img\n    width=\"275\"\n    alt=\"image\"\n    src=\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/abaaf0a5-1abb-4d65-8b92-f9f0a3b3f1c8\"\n  />\n</p>\n\n1. OPTIONS 메서드를 통해 다른 도메인의 리소스에 요청이 가능한 지 확인 작업\n2. 요청이 가능하다면 실제 요청(Actual Request)을 보낸다.\n\n### Preflight Request\n\n- Origin: 요청 출처\n- Access-Control-Request-Method: 실제 요청의 메서드\n- Access-Control-Request-Headers: 실제 요청의 추가 헤더\n\n<p align=\"center\">\n  <img\n    width=\"468\"\n    alt=\"image\"\n    src=\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/9409d6f6-3f46-4e8b-afb2-bb4f5468f25b\"\n  />\n</p>\n\n### Preflight Response\n\n- Access-Control-Allow-Origin: 서버 측 허가 출처\n- Access-Control-Allow-Methods: 서버 측 허가 메서드\n- Access-Control-Allow-Headers: 서버 측 허가 헤더\n- Access-Control-Max-Age: Preflight 응답 캐시 기간\n\n<p align=\"center\">\n  <img\n    width=\"472\"\n    alt=\"image\"\n    src=\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/b37d07f2-1a68-4ff4-b8b2-5d3f81d660c7\"\n  />\n</p>\n\n매번 응답을 하면 리소스적으로는 비효율적임. 따라서 preflight를 캐싱해둔다.\n\n### Preflight Response가 가져야 하는 특징\n\n- 응답 코드는 200대여야 한다.\n- 응답 바디는 비어있는 것이 좋다.\n\n## Simple Request\n\nPreflight 요청 없이 바로 요청을 날린다.\n다음 조건을 모두 만족해야 한다.\n\n- GET, POST, HEAD 메서스\n\n- Content-Type\n\n  - A. application/x-www-form-urlencoded\n  - B. multipart/form-data\n  - C. text/plain\n\n- 헤더는 Accept, Accept-Language, Content-Language, Content-Type만 허용된다.\n\n## Preflight를 하는 이유\n\nCORS를 모르는 서버를 위해 있다.\n\n## Credentialed Request\n\n인증 관련 헤더를 포함할 때 사용하는 요청이다.\n\n- 클라이언트측\n  - credentials: include\n- 서버 측\n  - Access-Control-Allow-Credentials: true(Access-Control-Allow-Origin: \\*은 안된다.)\n\n\\***\\*출처\\*\\***\n\n- [나봄의 CORS](https://www.youtube.com/watch?v=-2TgkKYmJt4&list=WL&index=22&t=81s)\n",
+    "code": "var Component=(()=>{var o=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var m=(l,e)=>()=>(e||l((e={exports:{}}).exports,e),e.exports),b=(l,e)=>{for(var n in e)c(l,n,{get:e[n],enumerable:!0})},s=(l,e,n,t)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of g(e))!f.call(l,r)&&r!==n&&c(l,r,{get:()=>e[r],enumerable:!(t=p(e,r))||t.enumerable});return l};var C=(l,e,n)=>(n=l!=null?o(u(l)):{},s(e||!l||!l.__esModule?c(n,\"default\",{value:l,enumerable:!0}):n,l)),w=l=>s(c({},\"__esModule\",{value:!0}),l);var a=m((q,d)=>{d.exports=_jsx_runtime});var A={};b(A,{default:()=>R,frontmatter:()=>x});var i=C(a()),x={title:\"[Network] CORS\",date:\"2023-06-23\",tags:[\"CORS\"],draft:!1,summary:null};function h(l){let e=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",p:\"p\",ul:\"ul\",li:\"li\",code:\"code\",ol:\"ol\",h3:\"h3\",strong:\"strong\"},l.components);return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsxs)(e.h2,{id:\"sopsame-origin-policy\",children:[(0,i.jsx)(e.a,{href:\"#sopsame-origin-policy\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"SOP(Same Origin Policy)\"]}),(0,i.jsx)(e.p,{children:\"\\uB2E4\\uB978 \\uCD9C\\uCC98\\uC758 \\uB9AC\\uC18C\\uC18C\\uB97C \\uC0AC\\uC6A9\\uD558\\uB294 \\uAC83\\uC5D0 \\uC81C\\uD55C\\uD558\\uB294 \\uBCF4\\uC548\\uBC29\\uC2DD\"}),(0,i.jsx)(\"p\",{align:\"center\",children:(0,i.jsx)(\"img\",{width:\"684\",alt:\"image\",src:\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/85de5cad-a77b-4749-91c0-3b83d1b37e72\"})}),(0,i.jsx)(e.ul,{children:(0,i.jsxs)(e.li,{children:[(0,i.jsx)(e.code,{children:\"\\uCD9C\\uCC98(origin)\"}),\": \\uD504\\uB85C\\uD1A0\\uCF5C\\uACFC \\uD638\\uC2A4\\uD2B8\\uAE4C\\uC9C0\"]})}),(0,i.jsx)(e.p,{children:\"\\uB9CC\\uC57D \\uB2E4\\uB978 \\uCD9C\\uCC98\\uC5D0\\uC11C \\uC694\\uCCAD\\uC744 \\uBCF4\\uB0B4\\uC628\\uB2E4\\uBA74 \\uD574\\uD0B9\\uC758 \\uAC00\\uB2A5\\uC131\\uC774 \\uC788\\uAE30 \\uB54C\\uBB38\\uC5D0 \\uB9C9\\uC544\\uC57C \\uD568. \\uB2E4\\uC2DC \\uB9D0\\uD574 Cross Origin\\uC744 \\uCC28\\uB2E8\\uD568. \\uADF8\\uB807\\uB2E4\\uBA74 \\uB2E4\\uB978 \\uCD9C\\uCC98\\uC758 \\uB9AC\\uC18C\\uC2A4\\uAC00 \\uD544\\uC694\\uD558\\uB2E4\\uBA74 \\uC5B4\\uB5BB\\uAC8C \\uD574\\uC57C \\uD560\\uAE4C? -> CORS\"}),(0,i.jsxs)(e.h2,{id:\"corscross-origin-resource-sharing\",children:[(0,i.jsx)(e.a,{href:\"#corscross-origin-resource-sharing\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"CORS(Cross-Origin Resource Sharing)\"]}),(0,i.jsx)(e.p,{children:\"\\uB2E4\\uB978 \\uCD9C\\uCC98\\uC758 \\uC790\\uC6D0\\uC744 \\uACF5\\uC720\\uD55C\\uB2E4!\"}),(0,i.jsx)(e.p,{children:\"\\uAD50\\uCC28 \\uCD9C\\uCC98 \\uB9AC\\uC18C\\uC2A4 \\uACF5\\uC720(CORS)\\uB294 \\uCD94\\uAC00 HTTP \\uD5E4\\uB354\\uB97C \\uC0AC\\uC6A9\\uD558\\uC5EC, \\uD55C \\uCD9C\\uCC98\\uC5D0\\uC11C \\uC2E4\\uD589\\uC911\\uC778 \\uC6F9 \\uC560\\uD50C\\uB9AC\\uCF00\\uC774\\uC158\\uC774 \\uB2E4\\uB978 \\uCD9C\\uCC98\\uC758 \\uC120\\uD0DD\\uD55C \\uC790\\uC6D0\\uC5D0 \\uC811\\uADFC\\uD560 \\uC218 \\uC788\\uB294 \\uAD8C\\uD55C\\uC744 \\uBD80\\uC5EC\\uD558\\uB3C4\\uB85D \\uBE0C\\uB77C\\uC6B0\\uC800\\uC5D0 \\uC54C\\uB824\\uC8FC\\uB294 \\uCCB4\\uC81C\\uC774\\uB2E4.\"}),(0,i.jsxs)(e.h2,{id:\"cors-\\uC811\\uADFC\\uC81C\\uC5B4-\\uC2DC\\uB098\\uB9AC\\uC624\",children:[(0,i.jsx)(e.a,{href:\"#cors-\\uC811\\uADFC\\uC81C\\uC5B4-\\uC2DC\\uB098\\uB9AC\\uC624\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"CORS \\uC811\\uADFC\\uC81C\\uC5B4 \\uC2DC\\uB098\\uB9AC\\uC624\"]}),(0,i.jsxs)(e.ul,{children:[(0,i.jsx)(e.li,{children:\"\\uD504\\uB9AC\\uD50C\\uB77C\\uC774\\uD2B8 \\uC694\\uCCAD(Preflight Request)\"}),(0,i.jsx)(e.li,{children:\"\\uB2E8\\uC21C \\uC694\\uCCAD(Simple Request)\"}),(0,i.jsx)(e.li,{children:\"\\uC778\\uC99D\\uC815\\uBCF4 \\uD3EC\\uD568 \\uC694\\uCCAD(Credentialed Request)\"})]}),(0,i.jsxs)(e.h2,{id:\"preflight\",children:[(0,i.jsx)(e.a,{href:\"#preflight\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"Preflight\"]}),(0,i.jsxs)(\"p\",{align:\"center\",children:[(0,i.jsx)(\"img\",{width:\"547\",alt:\"image\",src:\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/0ec95a19-7e8f-4191-9567-a89000ad5c09\"}),(0,i.jsx)(\"img\",{width:\"275\",alt:\"image\",src:\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/abaaf0a5-1abb-4d65-8b92-f9f0a3b3f1c8\"})]}),(0,i.jsxs)(e.ol,{children:[(0,i.jsx)(e.li,{children:\"OPTIONS \\uBA54\\uC11C\\uB4DC\\uB97C \\uD1B5\\uD574 \\uB2E4\\uB978 \\uB3C4\\uBA54\\uC778\\uC758 \\uB9AC\\uC18C\\uC2A4\\uC5D0 \\uC694\\uCCAD\\uC774 \\uAC00\\uB2A5\\uD55C \\uC9C0 \\uD655\\uC778 \\uC791\\uC5C5\"}),(0,i.jsx)(e.li,{children:\"\\uC694\\uCCAD\\uC774 \\uAC00\\uB2A5\\uD558\\uB2E4\\uBA74 \\uC2E4\\uC81C \\uC694\\uCCAD(Actual Request)\\uC744 \\uBCF4\\uB0B8\\uB2E4.\"})]}),(0,i.jsxs)(e.h3,{id:\"preflight-request\",children:[(0,i.jsx)(e.a,{href:\"#preflight-request\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"Preflight Request\"]}),(0,i.jsxs)(e.ul,{children:[(0,i.jsx)(e.li,{children:\"Origin: \\uC694\\uCCAD \\uCD9C\\uCC98\"}),(0,i.jsx)(e.li,{children:\"Access-Control-Request-Method: \\uC2E4\\uC81C \\uC694\\uCCAD\\uC758 \\uBA54\\uC11C\\uB4DC\"}),(0,i.jsx)(e.li,{children:\"Access-Control-Request-Headers: \\uC2E4\\uC81C \\uC694\\uCCAD\\uC758 \\uCD94\\uAC00 \\uD5E4\\uB354\"})]}),(0,i.jsx)(\"p\",{align:\"center\",children:(0,i.jsx)(\"img\",{width:\"468\",alt:\"image\",src:\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/9409d6f6-3f46-4e8b-afb2-bb4f5468f25b\"})}),(0,i.jsxs)(e.h3,{id:\"preflight-response\",children:[(0,i.jsx)(e.a,{href:\"#preflight-response\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"Preflight Response\"]}),(0,i.jsxs)(e.ul,{children:[(0,i.jsx)(e.li,{children:\"Access-Control-Allow-Origin: \\uC11C\\uBC84 \\uCE21 \\uD5C8\\uAC00 \\uCD9C\\uCC98\"}),(0,i.jsx)(e.li,{children:\"Access-Control-Allow-Methods: \\uC11C\\uBC84 \\uCE21 \\uD5C8\\uAC00 \\uBA54\\uC11C\\uB4DC\"}),(0,i.jsx)(e.li,{children:\"Access-Control-Allow-Headers: \\uC11C\\uBC84 \\uCE21 \\uD5C8\\uAC00 \\uD5E4\\uB354\"}),(0,i.jsx)(e.li,{children:\"Access-Control-Max-Age: Preflight \\uC751\\uB2F5 \\uCE90\\uC2DC \\uAE30\\uAC04\"})]}),(0,i.jsx)(\"p\",{align:\"center\",children:(0,i.jsx)(\"img\",{width:\"472\",alt:\"image\",src:\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/b37d07f2-1a68-4ff4-b8b2-5d3f81d660c7\"})}),(0,i.jsx)(e.p,{children:\"\\uB9E4\\uBC88 \\uC751\\uB2F5\\uC744 \\uD558\\uBA74 \\uB9AC\\uC18C\\uC2A4\\uC801\\uC73C\\uB85C\\uB294 \\uBE44\\uD6A8\\uC728\\uC801\\uC784. \\uB530\\uB77C\\uC11C preflight\\uB97C \\uCE90\\uC2F1\\uD574\\uB454\\uB2E4.\"}),(0,i.jsxs)(e.h3,{id:\"preflight-response\\uAC00-\\uAC00\\uC838\\uC57C-\\uD558\\uB294-\\uD2B9\\uC9D5\",children:[(0,i.jsx)(e.a,{href:\"#preflight-response\\uAC00-\\uAC00\\uC838\\uC57C-\\uD558\\uB294-\\uD2B9\\uC9D5\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"Preflight Response\\uAC00 \\uAC00\\uC838\\uC57C \\uD558\\uB294 \\uD2B9\\uC9D5\"]}),(0,i.jsxs)(e.ul,{children:[(0,i.jsx)(e.li,{children:\"\\uC751\\uB2F5 \\uCF54\\uB4DC\\uB294 200\\uB300\\uC5EC\\uC57C \\uD55C\\uB2E4.\"}),(0,i.jsx)(e.li,{children:\"\\uC751\\uB2F5 \\uBC14\\uB514\\uB294 \\uBE44\\uC5B4\\uC788\\uB294 \\uAC83\\uC774 \\uC88B\\uB2E4.\"})]}),(0,i.jsxs)(e.h2,{id:\"simple-request\",children:[(0,i.jsx)(e.a,{href:\"#simple-request\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"Simple Request\"]}),(0,i.jsx)(e.p,{children:\"Preflight \\uC694\\uCCAD \\uC5C6\\uC774 \\uBC14\\uB85C \\uC694\\uCCAD\\uC744 \\uB0A0\\uB9B0\\uB2E4. \\uB2E4\\uC74C \\uC870\\uAC74\\uC744 \\uBAA8\\uB450 \\uB9CC\\uC871\\uD574\\uC57C \\uD55C\\uB2E4.\"}),(0,i.jsxs)(e.ul,{children:[(0,i.jsx)(e.li,{children:(0,i.jsx)(e.p,{children:\"GET, POST, HEAD \\uBA54\\uC11C\\uC2A4\"})}),(0,i.jsxs)(e.li,{children:[(0,i.jsx)(e.p,{children:\"Content-Type\"}),(0,i.jsxs)(e.ul,{children:[(0,i.jsx)(e.li,{children:\"A. application/x-www-form-urlencoded\"}),(0,i.jsx)(e.li,{children:\"B. multipart/form-data\"}),(0,i.jsx)(e.li,{children:\"C. text/plain\"})]})]}),(0,i.jsx)(e.li,{children:(0,i.jsx)(e.p,{children:\"\\uD5E4\\uB354\\uB294 Accept, Accept-Language, Content-Language, Content-Type\\uB9CC \\uD5C8\\uC6A9\\uB41C\\uB2E4.\"})})]}),(0,i.jsxs)(e.h2,{id:\"preflight\\uB97C-\\uD558\\uB294-\\uC774\\uC720\",children:[(0,i.jsx)(e.a,{href:\"#preflight\\uB97C-\\uD558\\uB294-\\uC774\\uC720\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"Preflight\\uB97C \\uD558\\uB294 \\uC774\\uC720\"]}),(0,i.jsx)(e.p,{children:\"CORS\\uB97C \\uBAA8\\uB974\\uB294 \\uC11C\\uBC84\\uB97C \\uC704\\uD574 \\uC788\\uB2E4.\"}),(0,i.jsxs)(e.h2,{id:\"credentialed-request\",children:[(0,i.jsx)(e.a,{href:\"#credentialed-request\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"Credentialed Request\"]}),(0,i.jsx)(e.p,{children:\"\\uC778\\uC99D \\uAD00\\uB828 \\uD5E4\\uB354\\uB97C \\uD3EC\\uD568\\uD560 \\uB54C \\uC0AC\\uC6A9\\uD558\\uB294 \\uC694\\uCCAD\\uC774\\uB2E4.\"}),(0,i.jsxs)(e.ul,{children:[(0,i.jsxs)(e.li,{children:[\"\\uD074\\uB77C\\uC774\\uC5B8\\uD2B8\\uCE21\",(0,i.jsx)(e.ul,{children:(0,i.jsx)(e.li,{children:\"credentials: include\"})})]}),(0,i.jsxs)(e.li,{children:[\"\\uC11C\\uBC84 \\uCE21\",(0,i.jsx)(e.ul,{children:(0,i.jsx)(e.li,{children:\"Access-Control-Allow-Credentials: true(Access-Control-Allow-Origin: *\\uC740 \\uC548\\uB41C\\uB2E4.)\"})})]})]}),(0,i.jsxs)(e.p,{children:[\"*\",(0,i.jsx)(e.strong,{children:\"*\\uCD9C\\uCC98**\"})]}),(0,i.jsx)(e.ul,{children:(0,i.jsx)(e.li,{children:(0,i.jsx)(e.a,{href:\"https://www.youtube.com/watch?v=-2TgkKYmJt4&list=WL&index=22&t=81s\",children:\"\\uB098\\uBD04\\uC758 CORS\"})})})]})}function O(l={}){let{wrapper:e}=l.components||{};return e?(0,i.jsx)(e,Object.assign({},l,{children:(0,i.jsx)(h,l)})):h(l)}var R=O;return w(A);})();\n;return Component;"
+  },
+  "_id": "blog/backend/CORS.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/backend/CORS.mdx",
+    "sourceFileName": "CORS.mdx",
+    "sourceFileDir": "blog/backend",
+    "contentType": "mdx",
+    "flattenedPath": "blog/backend/CORS"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "3 min read",
+    "minutes": 2.87,
+    "time": 172200,
+    "words": 574
+  },
+  "slug": "backend/CORS",
+  "path": "blog/backend/CORS",
+  "filePath": "blog/backend/CORS.mdx",
+  "toc": [
+    {
+      "value": "SOP(Same Origin Policy)",
+      "url": "#sopsame-origin-policy",
+      "depth": 2
+    },
+    {
+      "value": "CORS(Cross-Origin Resource Sharing)",
+      "url": "#corscross-origin-resource-sharing",
+      "depth": 2
+    },
+    {
+      "value": "CORS 접근제어 시나리오",
+      "url": "#cors-접근제어-시나리오",
+      "depth": 2
+    },
+    {
+      "value": "Preflight",
+      "url": "#preflight",
+      "depth": 2
+    },
+    {
+      "value": "Preflight Request",
+      "url": "#preflight-request",
+      "depth": 3
+    },
+    {
+      "value": "Preflight Response",
+      "url": "#preflight-response",
+      "depth": 3
+    },
+    {
+      "value": "Preflight Response가 가져야 하는 특징",
+      "url": "#preflight-response가-가져야-하는-특징",
+      "depth": 3
+    },
+    {
+      "value": "Simple Request",
+      "url": "#simple-request",
+      "depth": 2
+    },
+    {
+      "value": "Preflight를 하는 이유",
+      "url": "#preflight를-하는-이유",
+      "depth": 2
+    },
+    {
+      "value": "Credentialed Request",
+      "url": "#credentialed-request",
+      "depth": 2
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "[Network] CORS",
+    "datePublished": "2023-06-23T00:00:00.000Z",
+    "dateModified": "2023-06-23T00:00:00.000Z",
+    "description": null,
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/backend/CORS"
+  }
+}

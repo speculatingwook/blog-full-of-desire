@@ -1,0 +1,46 @@
+{
+  "title": "[ Algorithm ] 체크섬과 CRC",
+  "date": "2023-09-08T00:00:00.000Z",
+  "tags": ["ALGORITHM", "HASH"],
+  "draft": false,
+  "summary": "pope 강의를 듣고 필요한 부분을 정리하는 글",
+  "body": {
+    "raw": "\n## 체크섬(checksum)\n\n여러 데이터로부터 도출한 작은 크기의 데이터 하나이다.\n보통 데이터에 있는 모든 바이트를 어떤 방식으로든 합한다.\n\n해시 함수와 매우 비슷한 개념이다. 만약 출력값의 크기가 고정되어 있으면 해시함수이다.\n\n<p align=\"center\">\n  <img\n    width=\"793\"\n    alt=\"image\"\n    src=\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/d269989f-513f-45a7-a786-fcccee6cc29a\"\n  />\n</p>\n\n저장 혹은 전송중에 발생한 오류를 찾아낸다. 처음 데이터를 저장할 때 체크섬을 계산해서 그것도 저장하고, 나중에 데이터를 읽을 때 다시 체크섬을 계산한다. 또한, 처음에 저장해둔 체크섬과 다르면 오류가 난 것이다.\n\n주민번호 유효성 검사, 신용카드 번호의 유효성 검사, ISBN의 유효성 검사에 사용된다.\n",
+    "code": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),x=(n,e)=>{for(var c in e)s(n,c,{get:e[c],enumerable:!0})},i=(n,e,c,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of p(e))!f.call(n,a)&&a!==c&&s(n,a,{get:()=>e[a],enumerable:!(r=m(e,a))||r.enumerable});return n};var j=(n,e,c)=>(c=n!=null?d(u(n)):{},i(e||!n||!n.__esModule?s(c,\"default\",{value:n,enumerable:!0}):c,n)),_=n=>i(s({},\"__esModule\",{value:!0}),n);var h=g((A,o)=>{o.exports=_jsx_runtime});var M={};x(M,{default:()=>C,frontmatter:()=>b});var t=j(h()),b={title:\"[ Algorithm ] \\uCCB4\\uD06C\\uC12C\\uACFC CRC\",date:\"2023-09-08\",tags:[\"ALGORITHM\",\"HASH\"],draft:!1,summary:\"pope \\uAC15\\uC758\\uB97C \\uB4E3\\uACE0 \\uD544\\uC694\\uD55C \\uBD80\\uBD84\\uC744 \\uC815\\uB9AC\\uD558\\uB294 \\uAE00\"};function l(n){let e=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",p:\"p\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.h2,{id:\"\\uCCB4\\uD06C\\uC12Cchecksum\",children:[(0,t.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uCCB4\\uD06C\\uC12Cchecksum\",tabIndex:\"-1\",children:(0,t.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uCCB4\\uD06C\\uC12C(checksum)\"]}),(0,t.jsx)(e.p,{children:\"\\uC5EC\\uB7EC \\uB370\\uC774\\uD130\\uB85C\\uBD80\\uD130 \\uB3C4\\uCD9C\\uD55C \\uC791\\uC740 \\uD06C\\uAE30\\uC758 \\uB370\\uC774\\uD130 \\uD558\\uB098\\uC774\\uB2E4. \\uBCF4\\uD1B5 \\uB370\\uC774\\uD130\\uC5D0 \\uC788\\uB294 \\uBAA8\\uB4E0 \\uBC14\\uC774\\uD2B8\\uB97C \\uC5B4\\uB5A4 \\uBC29\\uC2DD\\uC73C\\uB85C\\uB4E0 \\uD569\\uD55C\\uB2E4.\"}),(0,t.jsx)(e.p,{children:\"\\uD574\\uC2DC \\uD568\\uC218\\uC640 \\uB9E4\\uC6B0 \\uBE44\\uC2B7\\uD55C \\uAC1C\\uB150\\uC774\\uB2E4. \\uB9CC\\uC57D \\uCD9C\\uB825\\uAC12\\uC758 \\uD06C\\uAE30\\uAC00 \\uACE0\\uC815\\uB418\\uC5B4 \\uC788\\uC73C\\uBA74 \\uD574\\uC2DC\\uD568\\uC218\\uC774\\uB2E4.\"}),(0,t.jsx)(\"p\",{align:\"center\",children:(0,t.jsx)(\"img\",{width:\"793\",alt:\"image\",src:\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/d269989f-513f-45a7-a786-fcccee6cc29a\"})}),(0,t.jsx)(e.p,{children:\"\\uC800\\uC7A5 \\uD639\\uC740 \\uC804\\uC1A1\\uC911\\uC5D0 \\uBC1C\\uC0DD\\uD55C \\uC624\\uB958\\uB97C \\uCC3E\\uC544\\uB0B8\\uB2E4. \\uCC98\\uC74C \\uB370\\uC774\\uD130\\uB97C \\uC800\\uC7A5\\uD560 \\uB54C \\uCCB4\\uD06C\\uC12C\\uC744 \\uACC4\\uC0B0\\uD574\\uC11C \\uADF8\\uAC83\\uB3C4 \\uC800\\uC7A5\\uD558\\uACE0, \\uB098\\uC911\\uC5D0 \\uB370\\uC774\\uD130\\uB97C \\uC77D\\uC744 \\uB54C \\uB2E4\\uC2DC \\uCCB4\\uD06C\\uC12C\\uC744 \\uACC4\\uC0B0\\uD55C\\uB2E4. \\uB610\\uD55C, \\uCC98\\uC74C\\uC5D0 \\uC800\\uC7A5\\uD574\\uB454 \\uCCB4\\uD06C\\uC12C\\uACFC \\uB2E4\\uB974\\uBA74 \\uC624\\uB958\\uAC00 \\uB09C \\uAC83\\uC774\\uB2E4.\"}),(0,t.jsx)(e.p,{children:\"\\uC8FC\\uBBFC\\uBC88\\uD638 \\uC720\\uD6A8\\uC131 \\uAC80\\uC0AC, \\uC2E0\\uC6A9\\uCE74\\uB4DC \\uBC88\\uD638\\uC758 \\uC720\\uD6A8\\uC131 \\uAC80\\uC0AC, ISBN\\uC758 \\uC720\\uD6A8\\uC131 \\uAC80\\uC0AC\\uC5D0 \\uC0AC\\uC6A9\\uB41C\\uB2E4.\"})]})}function k(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(l,n)})):l(n)}var C=k;return _(M);})();\n;return Component;"
+  },
+  "_id": "blog/data-structure-algorithm/해시알고리즘/체크섬과_CRC.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/data-structure-algorithm/해시알고리즘/체크섬과_CRC.mdx",
+    "sourceFileName": "체크섬과_CRC.mdx",
+    "sourceFileDir": "blog/data-structure-algorithm/해시알고리즘",
+    "contentType": "mdx",
+    "flattenedPath": "blog/data-structure-algorithm/해시알고리즘/체크섬과_CRC"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "2 min read",
+    "minutes": 1.075,
+    "time": 64500,
+    "words": 215
+  },
+  "slug": "data-structure-algorithm/해시알고리즘/체크섬과_CRC",
+  "path": "blog/data-structure-algorithm/해시알고리즘/체크섬과_CRC",
+  "filePath": "blog/data-structure-algorithm/해시알고리즘/체크섬과_CRC.mdx",
+  "toc": [
+    {
+      "value": "체크섬(checksum)",
+      "url": "#체크섬checksum",
+      "depth": 2
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "[ Algorithm ] 체크섬과 CRC",
+    "datePublished": "2023-09-08T00:00:00.000Z",
+    "dateModified": "2023-09-08T00:00:00.000Z",
+    "description": "pope 강의를 듣고 필요한 부분을 정리하는 글",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/data-structure-algorithm/해시알고리즘/체크섬과_CRC"
+  }
+}

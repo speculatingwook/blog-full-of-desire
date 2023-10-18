@@ -1,0 +1,184 @@
+---
+title: 'aws를 사용하는 현직자에게 들은 람다'
+date: '2023-05-11'
+tags: ['AWS', 'lambda', 'INFRA']
+draft: false
+summary: '람다 찍먹'
+---
+
+<p align="center">
+  <img
+    width="978"
+    alt="image"
+    src="https://github.com/EarthDefenseCorps/earth-defense-corps-backend/assets/105579811/899275b2-46c7-437f-bd17-bd5e012a5a72"
+  />
+</p>
+
+경희대학교 캠퍼스타운에서 AWS training session이 있어서 두번정도 갔다 왔다. 저번에는 실제 aws에서 종사하고 계신 개발자분께 aws에 대해 배웠고, 이번에는 네이버에서 종사하시는 분께 lambda와 cloud9에 대해 가볍게 배우고 왔다.(감사함다)
+
+## cloud9과 Faas
+
+<p align="center">
+  <img
+    width="708"
+    alt="image"
+    src="https://github.com/EarthDefenseCorps/earth-defense-corps-backend/assets/105579811/11212769-1a49-4652-ab48-2eb3462f34ad"
+  />
+</p>
+
+## 클라우드의 특징
+
+- **확장성** : 필요에 따라 자원을 쉽게 추가하거나 제거 → 비즈니스에 따라 유연하게 대처
+- **신뢰성** : 다수의 서버를 사용하기 때문에 단일 장애점이 없음. 데이터의 백업과 복구
+- **보안성** : 클라우드 제공업체의 대규모 보안 시스템 사용. 상황에 따른 책임
+- **접근성** : 어디서든 인터넷에 연결된 장소에서 접근이 가능 → 업무 효율성
+- **비용 절감** : 초기 투자비용이 적고, 유지보수 비용이 저렴함 → 효율적인 비용 관리가 가능
+
+> on-premise 는..
+>
+> - 데이터 저장 위치. 외부에 데이터를 저장하는 것을 꺼려하는 기업
+> - 구성 및 확장 복잡함 (Processing, Storage, 장비 이중화..)
+> - 점차 고사양의 서버 스팩 요구
+
+## Serverless 특징
+
+- 클라우드 환경에서 서버를 직접 관리하지 않음
+
+<p align="center">
+  <img
+    width="708"
+    alt="image"
+    src="https://github.com/EarthDefenseCorps/earth-defense-corps-backend/assets/105579811/f9b2339a-9f69-437d-967e-e72e93b0009f"
+  />
+</p>
+
+- 서버 자원을 이용하여 코드를 실행하는 방식
+- 비용과 시간을 절약할 수 있음
+- Function as a Service(FaaS) 기반으로 유연하고 효율적인 서비스 제공
+
+<p align="center">
+  <img
+    width="536"
+    alt="image"
+    src="https://github.com/EarthDefenseCorps/earth-defense-corps-backend/assets/105579811/59376e5e-95d7-4f63-bed3-00ccef407c0e"
+  />
+</p>
+
+## Hello World in Cloud
+
+1. **Provisioning**
+
+   1. 시스템OS, 자원, 할당등
+
+2. **Python library 설치**
+
+   1. 기본 제공한 Python 버전이 정해져 있음
+   2. dJango, Flask, FastAPI 등의 library 설치
+
+3. **WebService App 실행**
+
+   1. flask 의 경고문구 (wsgi)
+
+4. **Network 설정**
+   1. cloud 에서 실행한 웹 서비스에 대한 접근 설정
+   2. inbound port 설정
+
+- AWS → Cloud9 → **Create environment**
+- form 입력 후 **Create**
+
+<p align="center">
+  <img
+    width="711"
+    alt="image"
+    src="https://github.com/EarthDefenseCorps/earth-defense-corps-backend/assets/105579811/2d5a02ea-fcb2-4323-9ec5-a9bcbb355df4"
+  />
+</p>
+
+- 하단 terminal 에서
+
+```bash
+pip install flask
+```
+
+- root 경로에 main.py 생성 후 아래 코드 작성
+
+<p align="center">
+  <img
+    width="233"
+    alt="image"
+    src="https://github.com/EarthDefenseCorps/earth-defense-corps-backend/assets/105579811/ba562b8d-1215-4f40-8b4d-d94cfd7461ba"
+  />
+</p>
+
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "hello~\n"
+
+@app.route("/hello/<name>")
+def hello_world(name):
+    return f"hello~, {name}!\n"
+
+if __name__ == '__main__':
+    app.run()
+```
+
+- 실행
+
+```bash
+python main.py
+```
+
+> 참고
+
+<p align="center">
+  <img
+    width="709"
+    alt="image"
+    src="https://github.com/EarthDefenseCorps/earth-defense-corps-backend/assets/105579811/d80b6293-394d-42a9-a6f4-fd7dfa02550d"
+  />
+</p>
+
+<aside>
+❓ WSGI
+
+<img
+  width="647"
+  alt="image"
+  src="https://github.com/EarthDefenseCorps/earth-defense-corps-backend/assets/105579811/2d54b136-c8ee-4fd2-a853-8bfa1f56358d"
+/>
+
+flask 는 테스트를 위한 개발용 WSGI 서버 자체를 내장하고 있음
+
+</aside>
+
+- 외부에서 접근 가능하도록 host 를 0.0.0.0 으로 설정
+- port 변경 가능
+
+```bash
+app.run(host="0.0.0.0", port="8080")
+```
+
+- 외부에서 접근 가능하도록 Network 설정
+
+  - AWS → EC2
+  - 좌측 메뉴 : 인스턴스 → 인스턴스 목록에서 ID클릭 → 하단 보안 탭 → 보안그룹 클릭
+  - 인바운드 규칙 편집 → 규칙 추가 → 아래와 같이 입력 후 → 규칙 저장
+
+  <p align="center">
+    <img
+      width="679"
+      alt="image"
+      src="https://github.com/EarthDefenseCorps/earth-defense-corps-backend/assets/105579811/fbd8912b-7445-4ff9-b0b3-a9979cc59992"
+    />
+  </p>
+
+  - 좌측 메뉴 : 인스턴스 → 인스턴스 목록에서 체크
+  - 퍼블릭 IPv4 주소 복사 ( 또는 퍼블릭 IPv4 DNS 복사 )
+  - 브라우저에서
+    - http://(복사한 ip):8080
+    - http://(복사한 ip):8080/hello/aws

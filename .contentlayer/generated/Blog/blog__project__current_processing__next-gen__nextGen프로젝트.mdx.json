@@ -1,0 +1,56 @@
+{
+  "title": "nextgen 수행계획서 작성, 피드백",
+  "date": "2023-06-25T00:00:00.000Z",
+  "tags": ["nextgen"],
+  "draft": true,
+  "summary": "nextgen 프로젝트에 1차 합격하였습니다. 그리고 멘토링 기록",
+  "body": {
+    "raw": "\n## 청년주도 사업 nextgen 프로젝트 합격!\n\n서류 합격으로 최종으로 합격한줄 알았습니다.. 매달 300만원씩 지원해준다고 해서 설렜는데,, 직접 들어가서 확인해보니 아니었습니다..\n\n## 여기서 상위 20%를 뽑는다고??\n\n아니,, 25팀중에서 5팀만이 9월부터 380만원씩 지원해준답니다.. 그래서 그 전까지 최대한 그럴듯한 결과물을 만들어서 제출해야 합니다.\n\n## 수행계획서 멘토링 과정\n\n지난 일요일,\n",
+    "code": "var Component=(()=>{var l=Object.create;var i=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var g=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),f=(e,n)=>{for(var a in n)i(e,a,{get:n[a],enumerable:!0})},s=(e,n,a,c)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of m(n))!u.call(e,r)&&r!==a&&i(e,r,{get:()=>n[r],enumerable:!(c=x(n,r))||c.enumerable});return e};var j=(e,n,a)=>(a=e!=null?l(p(e)):{},s(n||!e||!e.__esModule?i(a,\"default\",{value:e,enumerable:!0}):a,e)),_=e=>s(i({},\"__esModule\",{value:!0}),e);var o=g((y,d)=>{d.exports=_jsx_runtime});var M={};f(M,{default:()=>I,frontmatter:()=>b});var t=j(o()),b={title:\"nextgen \\uC218\\uD589\\uACC4\\uD68D\\uC11C \\uC791\\uC131, \\uD53C\\uB4DC\\uBC31\",date:\"2023-06-25\",tags:[\"nextgen\"],draft:!0,summary:\"nextgen \\uD504\\uB85C\\uC81D\\uD2B8\\uC5D0 1\\uCC28 \\uD569\\uACA9\\uD558\\uC600\\uC2B5\\uB2C8\\uB2E4. \\uADF8\\uB9AC\\uACE0 \\uBA58\\uD1A0\\uB9C1 \\uAE30\\uB85D\"};function h(e){let n=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",p:\"p\"},e.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(n.h2,{id:\"\\uCCAD\\uB144\\uC8FC\\uB3C4-\\uC0AC\\uC5C5-nextgen-\\uD504\\uB85C\\uC81D\\uD2B8-\\uD569\\uACA9\",children:[(0,t.jsx)(n.a,{\"aria-hidden\":\"true\",href:\"#\\uCCAD\\uB144\\uC8FC\\uB3C4-\\uC0AC\\uC5C5-nextgen-\\uD504\\uB85C\\uC81D\\uD2B8-\\uD569\\uACA9\",tabIndex:\"-1\",children:(0,t.jsx)(n.span,{className:\"icon icon-link\"})}),\"\\uCCAD\\uB144\\uC8FC\\uB3C4 \\uC0AC\\uC5C5 nextgen \\uD504\\uB85C\\uC81D\\uD2B8 \\uD569\\uACA9!\"]}),(0,t.jsx)(n.p,{children:\"\\uC11C\\uB958 \\uD569\\uACA9\\uC73C\\uB85C \\uCD5C\\uC885\\uC73C\\uB85C \\uD569\\uACA9\\uD55C\\uC904 \\uC54C\\uC558\\uC2B5\\uB2C8\\uB2E4.. \\uB9E4\\uB2EC 300\\uB9CC\\uC6D0\\uC529 \\uC9C0\\uC6D0\\uD574\\uC900\\uB2E4\\uACE0 \\uD574\\uC11C \\uC124\\uB81C\\uB294\\uB370,, \\uC9C1\\uC811 \\uB4E4\\uC5B4\\uAC00\\uC11C \\uD655\\uC778\\uD574\\uBCF4\\uB2C8 \\uC544\\uB2C8\\uC5C8\\uC2B5\\uB2C8\\uB2E4..\"}),(0,t.jsxs)(n.h2,{id:\"\\uC5EC\\uAE30\\uC11C-\\uC0C1\\uC704-20\\uB97C-\\uBF51\\uB294\\uB2E4\\uACE0\",children:[(0,t.jsx)(n.a,{\"aria-hidden\":\"true\",href:\"#\\uC5EC\\uAE30\\uC11C-\\uC0C1\\uC704-20\\uB97C-\\uBF51\\uB294\\uB2E4\\uACE0\",tabIndex:\"-1\",children:(0,t.jsx)(n.span,{className:\"icon icon-link\"})}),\"\\uC5EC\\uAE30\\uC11C \\uC0C1\\uC704 20%\\uB97C \\uBF51\\uB294\\uB2E4\\uACE0??\"]}),(0,t.jsx)(n.p,{children:\"\\uC544\\uB2C8,, 25\\uD300\\uC911\\uC5D0\\uC11C 5\\uD300\\uB9CC\\uC774 9\\uC6D4\\uBD80\\uD130 380\\uB9CC\\uC6D0\\uC529 \\uC9C0\\uC6D0\\uD574\\uC900\\uB2F5\\uB2C8\\uB2E4.. \\uADF8\\uB798\\uC11C \\uADF8 \\uC804\\uAE4C\\uC9C0 \\uCD5C\\uB300\\uD55C \\uADF8\\uB7F4\\uB4EF\\uD55C \\uACB0\\uACFC\\uBB3C\\uC744 \\uB9CC\\uB4E4\\uC5B4\\uC11C \\uC81C\\uCD9C\\uD574\\uC57C \\uD569\\uB2C8\\uB2E4.\"}),(0,t.jsxs)(n.h2,{id:\"\\uC218\\uD589\\uACC4\\uD68D\\uC11C-\\uBA58\\uD1A0\\uB9C1-\\uACFC\\uC815\",children:[(0,t.jsx)(n.a,{\"aria-hidden\":\"true\",href:\"#\\uC218\\uD589\\uACC4\\uD68D\\uC11C-\\uBA58\\uD1A0\\uB9C1-\\uACFC\\uC815\",tabIndex:\"-1\",children:(0,t.jsx)(n.span,{className:\"icon icon-link\"})}),\"\\uC218\\uD589\\uACC4\\uD68D\\uC11C \\uBA58\\uD1A0\\uB9C1 \\uACFC\\uC815\"]}),(0,t.jsx)(n.p,{children:\"\\uC9C0\\uB09C \\uC77C\\uC694\\uC77C,\"})]})}function k(e={}){let{wrapper:n}=e.components||{};return n?(0,t.jsx)(n,Object.assign({},e,{children:(0,t.jsx)(h,e)})):h(e)}var I=k;return _(M);})();\n;return Component;"
+  },
+  "_id": "blog/project/current_processing/next-gen/nextGen프로젝트.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/project/current_processing/next-gen/nextGen프로젝트.mdx",
+    "sourceFileName": "nextGen프로젝트.mdx",
+    "sourceFileDir": "blog/project/current_processing/next-gen",
+    "contentType": "mdx",
+    "flattenedPath": "blog/project/current_processing/next-gen/nextGen프로젝트"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.745,
+    "time": 44700,
+    "words": 149
+  },
+  "slug": "project/current_processing/next-gen/nextGen프로젝트",
+  "path": "blog/project/current_processing/next-gen/nextGen프로젝트",
+  "filePath": "blog/project/current_processing/next-gen/nextGen프로젝트.mdx",
+  "toc": [
+    {
+      "value": "청년주도 사업 nextgen 프로젝트 합격!",
+      "url": "#청년주도-사업-nextgen-프로젝트-합격",
+      "depth": 2
+    },
+    {
+      "value": "여기서 상위 20%를 뽑는다고??",
+      "url": "#여기서-상위-20를-뽑는다고",
+      "depth": 2
+    },
+    {
+      "value": "수행계획서 멘토링 과정",
+      "url": "#수행계획서-멘토링-과정",
+      "depth": 2
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "nextgen 수행계획서 작성, 피드백",
+    "datePublished": "2023-06-25T00:00:00.000Z",
+    "dateModified": "2023-06-25T00:00:00.000Z",
+    "description": "nextgen 프로젝트에 1차 합격하였습니다. 그리고 멘토링 기록",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/project/current_processing/next-gen/nextGen프로젝트"
+  }
+}

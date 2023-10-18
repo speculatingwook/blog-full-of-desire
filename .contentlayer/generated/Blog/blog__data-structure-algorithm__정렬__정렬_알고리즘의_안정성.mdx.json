@@ -1,0 +1,61 @@
+{
+  "title": "[ Algorithm ] 정렬 알고리즘의 안정성",
+  "date": "2023-07-20T00:00:00.000Z",
+  "tags": ["ALGORITHM", "SORTING"],
+  "draft": false,
+  "summary": "pope 강의를 듣고 필요한 부분을 정리하는 글",
+  "body": {
+    "raw": "\n## 정렬 알고리즘의 안정성\n\n- safety가 아니라 stable이다.\n- 똑같은 key를 가진 데이터들의 순서가 바뀌지 않느냐의 여부\n\n## 안정성이 중요한 이유\n\n똑같은 값이 바뀌는게 문제가 없다고 생길 수도 있지만, 버그가 생길 수도 있다.\n\n## 안정성을 잘 모르는 이유\n\n- 같은 키를 가진 데이터의 순서가 바뀌어도 문제가 아닌 경우가 보통\n- 그래서 잘 모르고 생각을 안하는 경우가 많음\n- 심지어는 이렇게 잘못 생각하기도 함\n  - '모든 정렬 알고리즘은 같은 키를 가진 데이터의 순서를 안 바꾼다.'\n- 이 때문에 버그가 나도 못 고치는 경우가 있음\n\n- 팩트\n  - 어떤 정렬 알고리즘은 안정성을 보장\n  - 어떤 정렬 알고리즘은 보장하지 않음\n\n## 안정성이 문제가 되는 경우\n\n1. 정렬의 기준이 되는 정렬 키(sort key)와 실제 데이터가 다름\n\n<p align=\"center\">\n  <img\n    width=\"546\"\n    alt=\"image\"\n    src=\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/47f012fe-6654-41fd-9ac7-403236fd2122\"\n  />\n</p>\n\n2. 구조체/클래스의 일부 멤버만 정렬 키로 사용\n\n<p align=\"center\">\n  <img\n    width=\"634\"\n    alt=\"image\"\n    src=\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/464f6fcf-9690-4d40-bda1-967dce609600\"\n  />\n</p>\n",
+    "code": "var Component=(()=>{var o=Object.create;var c=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var g=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),x=(n,e)=>{for(var l in e)c(n,l,{get:e[l],enumerable:!0})},a=(n,e,l,d)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of u(e))!m.call(n,r)&&r!==l&&c(n,r,{get:()=>e[r],enumerable:!(d=p(e,r))||d.enumerable});return n};var b=(n,e,l)=>(l=n!=null?o(f(n)):{},a(e||!n||!n.__esModule?c(l,\"default\",{value:n,enumerable:!0}):l,n)),k=n=>a(c({},\"__esModule\",{value:!0}),n);var h=g((N,t)=>{t.exports=_jsx_runtime});var w={};x(w,{default:()=>I,frontmatter:()=>j});var i=b(h()),j={title:\"[ Algorithm ] \\uC815\\uB82C \\uC54C\\uACE0\\uB9AC\\uC998\\uC758 \\uC548\\uC815\\uC131\",date:\"2023-07-20\",tags:[\"ALGORITHM\",\"SORTING\"],draft:!1,summary:\"pope \\uAC15\\uC758\\uB97C \\uB4E3\\uACE0 \\uD544\\uC694\\uD55C \\uBD80\\uBD84\\uC744 \\uC815\\uB9AC\\uD558\\uB294 \\uAE00\"};function s(n){let e=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",ul:\"ul\",li:\"li\",p:\"p\",ol:\"ol\"},n.components);return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsxs)(e.h2,{id:\"\\uC815\\uB82C-\\uC54C\\uACE0\\uB9AC\\uC998\\uC758-\\uC548\\uC815\\uC131\",children:[(0,i.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uC815\\uB82C-\\uC54C\\uACE0\\uB9AC\\uC998\\uC758-\\uC548\\uC815\\uC131\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uC815\\uB82C \\uC54C\\uACE0\\uB9AC\\uC998\\uC758 \\uC548\\uC815\\uC131\"]}),(0,i.jsxs)(e.ul,{children:[(0,i.jsx)(e.li,{children:\"safety\\uAC00 \\uC544\\uB2C8\\uB77C stable\\uC774\\uB2E4.\"}),(0,i.jsx)(e.li,{children:\"\\uB611\\uAC19\\uC740 key\\uB97C \\uAC00\\uC9C4 \\uB370\\uC774\\uD130\\uB4E4\\uC758 \\uC21C\\uC11C\\uAC00 \\uBC14\\uB00C\\uC9C0 \\uC54A\\uB290\\uB0D0\\uC758 \\uC5EC\\uBD80\"})]}),(0,i.jsxs)(e.h2,{id:\"\\uC548\\uC815\\uC131\\uC774-\\uC911\\uC694\\uD55C-\\uC774\\uC720\",children:[(0,i.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uC548\\uC815\\uC131\\uC774-\\uC911\\uC694\\uD55C-\\uC774\\uC720\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uC548\\uC815\\uC131\\uC774 \\uC911\\uC694\\uD55C \\uC774\\uC720\"]}),(0,i.jsx)(e.p,{children:\"\\uB611\\uAC19\\uC740 \\uAC12\\uC774 \\uBC14\\uB00C\\uB294\\uAC8C \\uBB38\\uC81C\\uAC00 \\uC5C6\\uB2E4\\uACE0 \\uC0DD\\uAE38 \\uC218\\uB3C4 \\uC788\\uC9C0\\uB9CC, \\uBC84\\uADF8\\uAC00 \\uC0DD\\uAE38 \\uC218\\uB3C4 \\uC788\\uB2E4.\"}),(0,i.jsxs)(e.h2,{id:\"\\uC548\\uC815\\uC131\\uC744-\\uC798-\\uBAA8\\uB974\\uB294-\\uC774\\uC720\",children:[(0,i.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uC548\\uC815\\uC131\\uC744-\\uC798-\\uBAA8\\uB974\\uB294-\\uC774\\uC720\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uC548\\uC815\\uC131\\uC744 \\uC798 \\uBAA8\\uB974\\uB294 \\uC774\\uC720\"]}),(0,i.jsxs)(e.ul,{children:[(0,i.jsx)(e.li,{children:(0,i.jsx)(e.p,{children:\"\\uAC19\\uC740 \\uD0A4\\uB97C \\uAC00\\uC9C4 \\uB370\\uC774\\uD130\\uC758 \\uC21C\\uC11C\\uAC00 \\uBC14\\uB00C\\uC5B4\\uB3C4 \\uBB38\\uC81C\\uAC00 \\uC544\\uB2CC \\uACBD\\uC6B0\\uAC00 \\uBCF4\\uD1B5\"})}),(0,i.jsx)(e.li,{children:(0,i.jsx)(e.p,{children:\"\\uADF8\\uB798\\uC11C \\uC798 \\uBAA8\\uB974\\uACE0 \\uC0DD\\uAC01\\uC744 \\uC548\\uD558\\uB294 \\uACBD\\uC6B0\\uAC00 \\uB9CE\\uC74C\"})}),(0,i.jsxs)(e.li,{children:[(0,i.jsx)(e.p,{children:\"\\uC2EC\\uC9C0\\uC5B4\\uB294 \\uC774\\uB807\\uAC8C \\uC798\\uBABB \\uC0DD\\uAC01\\uD558\\uAE30\\uB3C4 \\uD568\"}),(0,i.jsx)(e.ul,{children:(0,i.jsx)(e.li,{children:\"'\\uBAA8\\uB4E0 \\uC815\\uB82C \\uC54C\\uACE0\\uB9AC\\uC998\\uC740 \\uAC19\\uC740 \\uD0A4\\uB97C \\uAC00\\uC9C4 \\uB370\\uC774\\uD130\\uC758 \\uC21C\\uC11C\\uB97C \\uC548 \\uBC14\\uAFBC\\uB2E4.'\"})})]}),(0,i.jsx)(e.li,{children:(0,i.jsx)(e.p,{children:\"\\uC774 \\uB54C\\uBB38\\uC5D0 \\uBC84\\uADF8\\uAC00 \\uB098\\uB3C4 \\uBABB \\uACE0\\uCE58\\uB294 \\uACBD\\uC6B0\\uAC00 \\uC788\\uC74C\"})}),(0,i.jsxs)(e.li,{children:[(0,i.jsx)(e.p,{children:\"\\uD329\\uD2B8\"}),(0,i.jsxs)(e.ul,{children:[(0,i.jsx)(e.li,{children:\"\\uC5B4\\uB5A4 \\uC815\\uB82C \\uC54C\\uACE0\\uB9AC\\uC998\\uC740 \\uC548\\uC815\\uC131\\uC744 \\uBCF4\\uC7A5\"}),(0,i.jsx)(e.li,{children:\"\\uC5B4\\uB5A4 \\uC815\\uB82C \\uC54C\\uACE0\\uB9AC\\uC998\\uC740 \\uBCF4\\uC7A5\\uD558\\uC9C0 \\uC54A\\uC74C\"})]})]})]}),(0,i.jsxs)(e.h2,{id:\"\\uC548\\uC815\\uC131\\uC774-\\uBB38\\uC81C\\uAC00-\\uB418\\uB294-\\uACBD\\uC6B0\",children:[(0,i.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uC548\\uC815\\uC131\\uC774-\\uBB38\\uC81C\\uAC00-\\uB418\\uB294-\\uACBD\\uC6B0\",tabIndex:\"-1\",children:(0,i.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uC548\\uC815\\uC131\\uC774 \\uBB38\\uC81C\\uAC00 \\uB418\\uB294 \\uACBD\\uC6B0\"]}),(0,i.jsx)(e.ol,{children:(0,i.jsx)(e.li,{children:\"\\uC815\\uB82C\\uC758 \\uAE30\\uC900\\uC774 \\uB418\\uB294 \\uC815\\uB82C \\uD0A4(sort key)\\uC640 \\uC2E4\\uC81C \\uB370\\uC774\\uD130\\uAC00 \\uB2E4\\uB984\"})}),(0,i.jsx)(\"p\",{align:\"center\",children:(0,i.jsx)(\"img\",{width:\"546\",alt:\"image\",src:\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/47f012fe-6654-41fd-9ac7-403236fd2122\"})}),(0,i.jsx)(e.ol,{start:\"2\",children:(0,i.jsx)(e.li,{children:\"\\uAD6C\\uC870\\uCCB4/\\uD074\\uB798\\uC2A4\\uC758 \\uC77C\\uBD80 \\uBA64\\uBC84\\uB9CC \\uC815\\uB82C \\uD0A4\\uB85C \\uC0AC\\uC6A9\"})}),(0,i.jsx)(\"p\",{align:\"center\",children:(0,i.jsx)(\"img\",{width:\"634\",alt:\"image\",src:\"https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/464f6fcf-9690-4d40-bda1-967dce609600\"})})]})}function _(n={}){let{wrapper:e}=n.components||{};return e?(0,i.jsx)(e,Object.assign({},n,{children:(0,i.jsx)(s,n)})):s(n)}var I=_;return k(w);})();\n;return Component;"
+  },
+  "_id": "blog/data-structure-algorithm/정렬/정렬_알고리즘의_안정성.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/data-structure-algorithm/정렬/정렬_알고리즘의_안정성.mdx",
+    "sourceFileName": "정렬_알고리즘의_안정성.mdx",
+    "sourceFileDir": "blog/data-structure-algorithm/정렬",
+    "contentType": "mdx",
+    "flattenedPath": "blog/data-structure-algorithm/정렬/정렬_알고리즘의_안정성"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "2 min read",
+    "minutes": 1.49,
+    "time": 89400,
+    "words": 298
+  },
+  "slug": "data-structure-algorithm/정렬/정렬_알고리즘의_안정성",
+  "path": "blog/data-structure-algorithm/정렬/정렬_알고리즘의_안정성",
+  "filePath": "blog/data-structure-algorithm/정렬/정렬_알고리즘의_안정성.mdx",
+  "toc": [
+    {
+      "value": "정렬 알고리즘의 안정성",
+      "url": "#정렬-알고리즘의-안정성",
+      "depth": 2
+    },
+    {
+      "value": "안정성이 중요한 이유",
+      "url": "#안정성이-중요한-이유",
+      "depth": 2
+    },
+    {
+      "value": "안정성을 잘 모르는 이유",
+      "url": "#안정성을-잘-모르는-이유",
+      "depth": 2
+    },
+    {
+      "value": "안정성이 문제가 되는 경우",
+      "url": "#안정성이-문제가-되는-경우",
+      "depth": 2
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "[ Algorithm ] 정렬 알고리즘의 안정성",
+    "datePublished": "2023-07-20T00:00:00.000Z",
+    "dateModified": "2023-07-20T00:00:00.000Z",
+    "description": "pope 강의를 듣고 필요한 부분을 정리하는 글",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/data-structure-algorithm/정렬/정렬_알고리즘의_안정성"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "title": "[ Algorithm ] 정렬 알고리즘 비교",
+  "date": "2023-07-20T00:00:00.000Z",
+  "tags": ["ALGORITHM", "SORTING"],
+  "draft": false,
+  "summary": "pope 강의를 듣고 필요한 부분을 정리하는 글",
+  "body": {
+    "raw": "\n## 정렬 알고리즘의 비교\n\n| 정렬 알고리즘 | 평균             | 최악             | 메모리  | 안정성 |\n| ------------- | ---------------- | ---------------- | ------- | ------ |\n| 버블 정렬     | O(N<sup>2</sup>) | O(N<sup>2</sup>) | O(1)    | O      |\n| 선택 정렬     | O(N<sup>2</sup>) | O(N<sup>2</sup>) | O(1)    | X      |\n| 삽입 정렬     | O(N<sup>2</sup>) | O(N<sup>2</sup>) | O(1)    | O      |\n| 퀵 정렬       | O(NlogN)         | O(N<sup>2</sup>) | O(logN) | X      |\n| 병합 정렬     | O(NlogN)         | O(NlogN)         | O(N)    | O      |\n| 힙 정렬       | O(NlogN)         | O(NlogN)         | O(1)    | X      |\n\n## 상황에 따른 정렬 알고리즘 선택\n\n### 기본 - 퀵정렬\n\n- C도 qsort() 함수를 기본 제공\n\n### 간단히 구현할 때 - 버블 정렬\n\n- 구현이 매우 쉬움\n- 10년 안써도 까먹을 수 없음\n\n### 어떠한 경우에도 느려지면 안 될 때 - 병합 또는 힙 정렬\n\n- 평균은 퀵 정렬보다 느림\n- 최악의 경우 여전히 O(NlogN)\n\n### 특수한 상황에 적합한 정렬 알고리즘\n\n- 예: 기수(radix) 정렬\n\n## 정렬 알고리즘 정리\n\n- [버블 정렬](/blog/data-structure-algorithm/정렬/버블정렬)\n- [삽입 정렬](/blog/data-structure-algorithm/정렬/삽입정렬)\n- [퀵 정렬](/blog/data-structure-algorithm/정렬/퀵정렬)\n- [병합 정렬](/blog/data-structure-algorithm/정렬/병합정렬)\n- [선택 정렬](/blog/data-structure-algorithm/정렬/선택정렬)\n",
+    "code": "var Component=(()=>{var o=Object.create;var l=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var A=Object.getOwnPropertyNames;var E=Object.getPrototypeOf,N=Object.prototype.hasOwnProperty;var C=(i,d)=>()=>(d||i((d={exports:{}}).exports,d),d.exports),O=(i,d)=>{for(var n in d)l(i,n,{get:d[n],enumerable:!0})},t=(i,d,n,h)=>{if(d&&typeof d==\"object\"||typeof d==\"function\")for(let r of A(d))!N.call(i,r)&&r!==n&&l(i,r,{get:()=>d[r],enumerable:!(h=u(d,r))||h.enumerable});return i};var m=(i,d,n)=>(n=i!=null?o(E(i)):{},t(d||!i||!i.__esModule?l(n,\"default\",{value:i,enumerable:!0}):n,i)),g=i=>t(l({},\"__esModule\",{value:!0}),i);var a=C((I,c)=>{c.exports=_jsx_runtime});var B={};O(B,{default:()=>f,frontmatter:()=>p});var e=m(a()),p={title:\"[ Algorithm ] \\uC815\\uB82C \\uC54C\\uACE0\\uB9AC\\uC998 \\uBE44\\uAD50\",date:\"2023-07-20\",tags:[\"ALGORITHM\",\"SORTING\"],draft:!1,summary:\"pope \\uAC15\\uC758\\uB97C \\uB4E3\\uACE0 \\uD544\\uC694\\uD55C \\uBD80\\uBD84\\uC744 \\uC815\\uB9AC\\uD558\\uB294 \\uAE00\"};function s(i){let d=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",table:\"table\",thead:\"thead\",tr:\"tr\",th:\"th\",tbody:\"tbody\",td:\"td\",h3:\"h3\",ul:\"ul\",li:\"li\"},i.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsxs)(d.h2,{id:\"\\uC815\\uB82C-\\uC54C\\uACE0\\uB9AC\\uC998\\uC758-\\uBE44\\uAD50\",children:[(0,e.jsx)(d.a,{href:\"#\\uC815\\uB82C-\\uC54C\\uACE0\\uB9AC\\uC998\\uC758-\\uBE44\\uAD50\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,e.jsx)(d.span,{className:\"icon icon-link\"})}),\"\\uC815\\uB82C \\uC54C\\uACE0\\uB9AC\\uC998\\uC758 \\uBE44\\uAD50\"]}),(0,e.jsxs)(d.table,{children:[(0,e.jsx)(d.thead,{children:(0,e.jsxs)(d.tr,{children:[(0,e.jsx)(d.th,{children:\"\\uC815\\uB82C \\uC54C\\uACE0\\uB9AC\\uC998\"}),(0,e.jsx)(d.th,{children:\"\\uD3C9\\uADE0\"}),(0,e.jsx)(d.th,{children:\"\\uCD5C\\uC545\"}),(0,e.jsx)(d.th,{children:\"\\uBA54\\uBAA8\\uB9AC\"}),(0,e.jsx)(d.th,{children:\"\\uC548\\uC815\\uC131\"})]})}),(0,e.jsxs)(d.tbody,{children:[(0,e.jsxs)(d.tr,{children:[(0,e.jsx)(d.td,{children:\"\\uBC84\\uBE14 \\uC815\\uB82C\"}),(0,e.jsxs)(d.td,{children:[\"O(N\",(0,e.jsx)(\"sup\",{children:\"2\"}),\")\"]}),(0,e.jsxs)(d.td,{children:[\"O(N\",(0,e.jsx)(\"sup\",{children:\"2\"}),\")\"]}),(0,e.jsx)(d.td,{children:\"O(1)\"}),(0,e.jsx)(d.td,{children:\"O\"})]}),(0,e.jsxs)(d.tr,{children:[(0,e.jsx)(d.td,{children:\"\\uC120\\uD0DD \\uC815\\uB82C\"}),(0,e.jsxs)(d.td,{children:[\"O(N\",(0,e.jsx)(\"sup\",{children:\"2\"}),\")\"]}),(0,e.jsxs)(d.td,{children:[\"O(N\",(0,e.jsx)(\"sup\",{children:\"2\"}),\")\"]}),(0,e.jsx)(d.td,{children:\"O(1)\"}),(0,e.jsx)(d.td,{children:\"X\"})]}),(0,e.jsxs)(d.tr,{children:[(0,e.jsx)(d.td,{children:\"\\uC0BD\\uC785 \\uC815\\uB82C\"}),(0,e.jsxs)(d.td,{children:[\"O(N\",(0,e.jsx)(\"sup\",{children:\"2\"}),\")\"]}),(0,e.jsxs)(d.td,{children:[\"O(N\",(0,e.jsx)(\"sup\",{children:\"2\"}),\")\"]}),(0,e.jsx)(d.td,{children:\"O(1)\"}),(0,e.jsx)(d.td,{children:\"O\"})]}),(0,e.jsxs)(d.tr,{children:[(0,e.jsx)(d.td,{children:\"\\uD035 \\uC815\\uB82C\"}),(0,e.jsx)(d.td,{children:\"O(NlogN)\"}),(0,e.jsxs)(d.td,{children:[\"O(N\",(0,e.jsx)(\"sup\",{children:\"2\"}),\")\"]}),(0,e.jsx)(d.td,{children:\"O(logN)\"}),(0,e.jsx)(d.td,{children:\"X\"})]}),(0,e.jsxs)(d.tr,{children:[(0,e.jsx)(d.td,{children:\"\\uBCD1\\uD569 \\uC815\\uB82C\"}),(0,e.jsx)(d.td,{children:\"O(NlogN)\"}),(0,e.jsx)(d.td,{children:\"O(NlogN)\"}),(0,e.jsx)(d.td,{children:\"O(N)\"}),(0,e.jsx)(d.td,{children:\"O\"})]}),(0,e.jsxs)(d.tr,{children:[(0,e.jsx)(d.td,{children:\"\\uD799 \\uC815\\uB82C\"}),(0,e.jsx)(d.td,{children:\"O(NlogN)\"}),(0,e.jsx)(d.td,{children:\"O(NlogN)\"}),(0,e.jsx)(d.td,{children:\"O(1)\"}),(0,e.jsx)(d.td,{children:\"X\"})]})]})]}),(0,e.jsxs)(d.h2,{id:\"\\uC0C1\\uD669\\uC5D0-\\uB530\\uB978-\\uC815\\uB82C-\\uC54C\\uACE0\\uB9AC\\uC998-\\uC120\\uD0DD\",children:[(0,e.jsx)(d.a,{href:\"#\\uC0C1\\uD669\\uC5D0-\\uB530\\uB978-\\uC815\\uB82C-\\uC54C\\uACE0\\uB9AC\\uC998-\\uC120\\uD0DD\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,e.jsx)(d.span,{className:\"icon icon-link\"})}),\"\\uC0C1\\uD669\\uC5D0 \\uB530\\uB978 \\uC815\\uB82C \\uC54C\\uACE0\\uB9AC\\uC998 \\uC120\\uD0DD\"]}),(0,e.jsxs)(d.h3,{id:\"\\uAE30\\uBCF8---\\uD035\\uC815\\uB82C\",children:[(0,e.jsx)(d.a,{href:\"#\\uAE30\\uBCF8---\\uD035\\uC815\\uB82C\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,e.jsx)(d.span,{className:\"icon icon-link\"})}),\"\\uAE30\\uBCF8 - \\uD035\\uC815\\uB82C\"]}),(0,e.jsx)(d.ul,{children:(0,e.jsx)(d.li,{children:\"C\\uB3C4 qsort() \\uD568\\uC218\\uB97C \\uAE30\\uBCF8 \\uC81C\\uACF5\"})}),(0,e.jsxs)(d.h3,{id:\"\\uAC04\\uB2E8\\uD788-\\uAD6C\\uD604\\uD560-\\uB54C---\\uBC84\\uBE14-\\uC815\\uB82C\",children:[(0,e.jsx)(d.a,{href:\"#\\uAC04\\uB2E8\\uD788-\\uAD6C\\uD604\\uD560-\\uB54C---\\uBC84\\uBE14-\\uC815\\uB82C\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,e.jsx)(d.span,{className:\"icon icon-link\"})}),\"\\uAC04\\uB2E8\\uD788 \\uAD6C\\uD604\\uD560 \\uB54C - \\uBC84\\uBE14 \\uC815\\uB82C\"]}),(0,e.jsxs)(d.ul,{children:[(0,e.jsx)(d.li,{children:\"\\uAD6C\\uD604\\uC774 \\uB9E4\\uC6B0 \\uC26C\\uC6C0\"}),(0,e.jsx)(d.li,{children:\"10\\uB144 \\uC548\\uC368\\uB3C4 \\uAE4C\\uBA39\\uC744 \\uC218 \\uC5C6\\uC74C\"})]}),(0,e.jsxs)(d.h3,{id:\"\\uC5B4\\uB5A0\\uD55C-\\uACBD\\uC6B0\\uC5D0\\uB3C4-\\uB290\\uB824\\uC9C0\\uBA74-\\uC548-\\uB420-\\uB54C---\\uBCD1\\uD569-\\uB610\\uB294-\\uD799-\\uC815\\uB82C\",children:[(0,e.jsx)(d.a,{href:\"#\\uC5B4\\uB5A0\\uD55C-\\uACBD\\uC6B0\\uC5D0\\uB3C4-\\uB290\\uB824\\uC9C0\\uBA74-\\uC548-\\uB420-\\uB54C---\\uBCD1\\uD569-\\uB610\\uB294-\\uD799-\\uC815\\uB82C\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,e.jsx)(d.span,{className:\"icon icon-link\"})}),\"\\uC5B4\\uB5A0\\uD55C \\uACBD\\uC6B0\\uC5D0\\uB3C4 \\uB290\\uB824\\uC9C0\\uBA74 \\uC548 \\uB420 \\uB54C - \\uBCD1\\uD569 \\uB610\\uB294 \\uD799 \\uC815\\uB82C\"]}),(0,e.jsxs)(d.ul,{children:[(0,e.jsx)(d.li,{children:\"\\uD3C9\\uADE0\\uC740 \\uD035 \\uC815\\uB82C\\uBCF4\\uB2E4 \\uB290\\uB9BC\"}),(0,e.jsx)(d.li,{children:\"\\uCD5C\\uC545\\uC758 \\uACBD\\uC6B0 \\uC5EC\\uC804\\uD788 O(NlogN)\"})]}),(0,e.jsxs)(d.h3,{id:\"\\uD2B9\\uC218\\uD55C-\\uC0C1\\uD669\\uC5D0-\\uC801\\uD569\\uD55C-\\uC815\\uB82C-\\uC54C\\uACE0\\uB9AC\\uC998\",children:[(0,e.jsx)(d.a,{href:\"#\\uD2B9\\uC218\\uD55C-\\uC0C1\\uD669\\uC5D0-\\uC801\\uD569\\uD55C-\\uC815\\uB82C-\\uC54C\\uACE0\\uB9AC\\uC998\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,e.jsx)(d.span,{className:\"icon icon-link\"})}),\"\\uD2B9\\uC218\\uD55C \\uC0C1\\uD669\\uC5D0 \\uC801\\uD569\\uD55C \\uC815\\uB82C \\uC54C\\uACE0\\uB9AC\\uC998\"]}),(0,e.jsx)(d.ul,{children:(0,e.jsx)(d.li,{children:\"\\uC608: \\uAE30\\uC218(radix) \\uC815\\uB82C\"})}),(0,e.jsxs)(d.h2,{id:\"\\uC815\\uB82C-\\uC54C\\uACE0\\uB9AC\\uC998-\\uC815\\uB9AC\",children:[(0,e.jsx)(d.a,{href:\"#\\uC815\\uB82C-\\uC54C\\uACE0\\uB9AC\\uC998-\\uC815\\uB9AC\",\"aria-hidden\":\"true\",tabIndex:\"-1\",children:(0,e.jsx)(d.span,{className:\"icon icon-link\"})}),\"\\uC815\\uB82C \\uC54C\\uACE0\\uB9AC\\uC998 \\uC815\\uB9AC\"]}),(0,e.jsxs)(d.ul,{children:[(0,e.jsx)(d.li,{children:(0,e.jsx)(d.a,{href:\"/blog/data-structure-algorithm/%EC%A0%95%EB%A0%AC/%EB%B2%84%EB%B8%94%EC%A0%95%EB%A0%AC\",children:\"\\uBC84\\uBE14 \\uC815\\uB82C\"})}),(0,e.jsx)(d.li,{children:(0,e.jsx)(d.a,{href:\"/blog/data-structure-algorithm/%EC%A0%95%EB%A0%AC/%EC%82%BD%EC%9E%85%EC%A0%95%EB%A0%AC\",children:\"\\uC0BD\\uC785 \\uC815\\uB82C\"})}),(0,e.jsx)(d.li,{children:(0,e.jsx)(d.a,{href:\"/blog/data-structure-algorithm/%EC%A0%95%EB%A0%AC/%ED%80%B5%EC%A0%95%EB%A0%AC\",children:\"\\uD035 \\uC815\\uB82C\"})}),(0,e.jsx)(d.li,{children:(0,e.jsx)(d.a,{href:\"/blog/data-structure-algorithm/%EC%A0%95%EB%A0%AC/%EB%B3%91%ED%95%A9%EC%A0%95%EB%A0%AC\",children:\"\\uBCD1\\uD569 \\uC815\\uB82C\"})}),(0,e.jsx)(d.li,{children:(0,e.jsx)(d.a,{href:\"/blog/data-structure-algorithm/%EC%A0%95%EB%A0%AC/%EC%84%A0%ED%83%9D%EC%A0%95%EB%A0%AC\",children:\"\\uC120\\uD0DD \\uC815\\uB82C\"})})]})]})}function b(i={}){let{wrapper:d}=i.components||{};return d?(0,e.jsx)(d,Object.assign({},i,{children:(0,e.jsx)(s,i)})):s(i)}var f=b;return g(B);})();\n;return Component;"
+  },
+  "_id": "blog/data-structure-algorithm/정렬/정렬 알고리즘 비교.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/data-structure-algorithm/정렬/정렬 알고리즘 비교.mdx",
+    "sourceFileName": "정렬 알고리즘 비교.mdx",
+    "sourceFileDir": "blog/data-structure-algorithm/정렬",
+    "contentType": "mdx",
+    "flattenedPath": "blog/data-structure-algorithm/정렬/정렬 알고리즘 비교"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "2 min read",
+    "minutes": 1.41,
+    "time": 84600,
+    "words": 282
+  },
+  "slug": "data-structure-algorithm/정렬/정렬 알고리즘 비교",
+  "path": "blog/data-structure-algorithm/정렬/정렬 알고리즘 비교",
+  "filePath": "blog/data-structure-algorithm/정렬/정렬 알고리즘 비교.mdx",
+  "toc": [
+    {
+      "value": "정렬 알고리즘의 비교",
+      "url": "#정렬-알고리즘의-비교",
+      "depth": 2
+    },
+    {
+      "value": "상황에 따른 정렬 알고리즘 선택",
+      "url": "#상황에-따른-정렬-알고리즘-선택",
+      "depth": 2
+    },
+    {
+      "value": "기본 - 퀵정렬",
+      "url": "#기본---퀵정렬",
+      "depth": 3
+    },
+    {
+      "value": "간단히 구현할 때 - 버블 정렬",
+      "url": "#간단히-구현할-때---버블-정렬",
+      "depth": 3
+    },
+    {
+      "value": "어떠한 경우에도 느려지면 안 될 때 - 병합 또는 힙 정렬",
+      "url": "#어떠한-경우에도-느려지면-안-될-때---병합-또는-힙-정렬",
+      "depth": 3
+    },
+    {
+      "value": "특수한 상황에 적합한 정렬 알고리즘",
+      "url": "#특수한-상황에-적합한-정렬-알고리즘",
+      "depth": 3
+    },
+    {
+      "value": "정렬 알고리즘 정리",
+      "url": "#정렬-알고리즘-정리",
+      "depth": 2
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "[ Algorithm ] 정렬 알고리즘 비교",
+    "datePublished": "2023-07-20T00:00:00.000Z",
+    "dateModified": "2023-07-20T00:00:00.000Z",
+    "description": "pope 강의를 듣고 필요한 부분을 정리하는 글",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/data-structure-algorithm/정렬/정렬 알고리즘 비교"
+  }
+}

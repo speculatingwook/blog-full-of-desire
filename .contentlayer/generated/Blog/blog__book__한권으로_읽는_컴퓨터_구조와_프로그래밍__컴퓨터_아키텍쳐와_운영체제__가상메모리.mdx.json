@@ -1,0 +1,46 @@
+{
+  "title": "가상메모리",
+  "date": "2023-05-23T00:00:00.000Z",
+  "tags": ["COMPUTER_SCIENCE", "ARCHITECTURE", "한권으로_읽는_컴퓨터_구조와_프로그래밍"],
+  "draft": false,
+  "summary": "전공공부하면서 같이 공부하는 운영체제",
+  "body": {
+    "raw": "\n## 가상메모리\n\n<p align=\"center\">\n  <img\n    width=\"567\"\n    alt=\"image\"\n    src=\"https://github.com/EarthDefenseCorps/earth-defense-corps-backend/assets/105579811/0523c36d-ce2e-46a0-8d28-b73045b9e78f\"\n  />\n</p>\n\n운영체제는 희소한 하드웨어 자원을 사용하려고 경합하는 프로그램들 사이의 자원 분배를 관리한다. 메모리도 역시 OS가 관리하는 자원이다. OS는 MMU를 사용해 사용자 프로그램에게 `가상메모리(virtual memory)`를 제공한다.\n\nMMU는 프로그램의 가상 주소를 물리 메모리 주소로 변환해준다. 하지만 가상메모리는 그 이상이다. 페이지폴트 메커니즘으로 인해 프로그램은 필요한 만큼 많은 메모리가 있다고 생각할 수 있다.\n\n요청받은 메모리가 사용가능한 메모리의 크기보다 크게 되면 OS는 현재 필요하지 않은 메모리 페이지를 더 느리지만 더 용량이 큰 대용량 저장장치인 디스크로 옮긴다.(`swap out`) 이런 스왑 아웃한 페이지에 프로그램이 접근하면 운영체제는 필요한 메모리 공간을 확보하고 요청받은 페이지를 다시 메모리로 불러온다.\n\n이런 식으로 페이지를 처리하는 것을 `요구불 페이징(demand paging)`이라고 부른다.\n\n스와핑이 일어나면 시스템 성능이 크게 저하된다. 하지만 메모리가 부족해서 실행도 못하는거보다는 느리더라도 스와핑을 통해 프로그램을 실행하는 편이 더 낫다. 가상 메모리 시스템은 성능 저하를 막기 위한 다양한 기법을 활용한다. 이런 기법 중 하나는 페이지 접근을 추적해서 스왑 아웃할 페이지를 결정하는 `최소 최근 사용(LRU, least recently used)` 알고리즘이다. 이 알고리즘을 사용하면 최근에 가장 자주 사용된 페이지는 물리 메모리에 그대로 남겨두고 최근에 가장 덜 사용한 페이지를 스왑 아웃한다.\n",
+    "code": "var Component=(()=>{var l=Object.create;var a=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,_=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),g=(n,e)=>{for(var c in e)a(n,c,{get:e[c],enumerable:!0})},d=(n,e,c,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of m(e))!_.call(n,r)&&r!==c&&a(n,r,{get:()=>e[r],enumerable:!(s=p(e,r))||s.enumerable});return n};var x=(n,e,c)=>(c=n!=null?l(u(n)):{},d(e||!n||!n.__esModule?a(c,\"default\",{value:n,enumerable:!0}):c,n)),C=n=>d(a({},\"__esModule\",{value:!0}),n);var o=f((U,i)=>{i.exports=_jsx_runtime});var E={};g(E,{default:()=>j,frontmatter:()=>M});var t=x(o()),M={title:\"\\uAC00\\uC0C1\\uBA54\\uBAA8\\uB9AC\",date:\"2023-05-23\",tags:[\"COMPUTER_SCIENCE\",\"ARCHITECTURE\",\"\\uD55C\\uAD8C\\uC73C\\uB85C_\\uC77D\\uB294_\\uCEF4\\uD4E8\\uD130_\\uAD6C\\uC870\\uC640_\\uD504\\uB85C\\uADF8\\uB798\\uBC0D\"],draft:!1,summary:\"\\uC804\\uACF5\\uACF5\\uBD80\\uD558\\uBA74\\uC11C \\uAC19\\uC774 \\uACF5\\uBD80\\uD558\\uB294 \\uC6B4\\uC601\\uCCB4\\uC81C\"};function h(n){let e=Object.assign({h2:\"h2\",a:\"a\",span:\"span\",p:\"p\",code:\"code\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.h2,{id:\"\\uAC00\\uC0C1\\uBA54\\uBAA8\\uB9AC\",children:[(0,t.jsx)(e.a,{\"aria-hidden\":\"true\",href:\"#\\uAC00\\uC0C1\\uBA54\\uBAA8\\uB9AC\",tabIndex:\"-1\",children:(0,t.jsx)(e.span,{className:\"icon icon-link\"})}),\"\\uAC00\\uC0C1\\uBA54\\uBAA8\\uB9AC\"]}),(0,t.jsx)(\"p\",{align:\"center\",children:(0,t.jsx)(\"img\",{width:\"567\",alt:\"image\",src:\"https://github.com/EarthDefenseCorps/earth-defense-corps-backend/assets/105579811/0523c36d-ce2e-46a0-8d28-b73045b9e78f\"})}),(0,t.jsxs)(e.p,{children:[\"\\uC6B4\\uC601\\uCCB4\\uC81C\\uB294 \\uD76C\\uC18C\\uD55C \\uD558\\uB4DC\\uC6E8\\uC5B4 \\uC790\\uC6D0\\uC744 \\uC0AC\\uC6A9\\uD558\\uB824\\uACE0 \\uACBD\\uD569\\uD558\\uB294 \\uD504\\uB85C\\uADF8\\uB7A8\\uB4E4 \\uC0AC\\uC774\\uC758 \\uC790\\uC6D0 \\uBD84\\uBC30\\uB97C \\uAD00\\uB9AC\\uD55C\\uB2E4. \\uBA54\\uBAA8\\uB9AC\\uB3C4 \\uC5ED\\uC2DC OS\\uAC00 \\uAD00\\uB9AC\\uD558\\uB294 \\uC790\\uC6D0\\uC774\\uB2E4. OS\\uB294 MMU\\uB97C \\uC0AC\\uC6A9\\uD574 \\uC0AC\\uC6A9\\uC790 \\uD504\\uB85C\\uADF8\\uB7A8\\uC5D0\\uAC8C \",(0,t.jsx)(e.code,{children:\"\\uAC00\\uC0C1\\uBA54\\uBAA8\\uB9AC(virtual memory)\"}),\"\\uB97C \\uC81C\\uACF5\\uD55C\\uB2E4.\"]}),(0,t.jsx)(e.p,{children:\"MMU\\uB294 \\uD504\\uB85C\\uADF8\\uB7A8\\uC758 \\uAC00\\uC0C1 \\uC8FC\\uC18C\\uB97C \\uBB3C\\uB9AC \\uBA54\\uBAA8\\uB9AC \\uC8FC\\uC18C\\uB85C \\uBCC0\\uD658\\uD574\\uC900\\uB2E4. \\uD558\\uC9C0\\uB9CC \\uAC00\\uC0C1\\uBA54\\uBAA8\\uB9AC\\uB294 \\uADF8 \\uC774\\uC0C1\\uC774\\uB2E4. \\uD398\\uC774\\uC9C0\\uD3F4\\uD2B8 \\uBA54\\uCEE4\\uB2C8\\uC998\\uC73C\\uB85C \\uC778\\uD574 \\uD504\\uB85C\\uADF8\\uB7A8\\uC740 \\uD544\\uC694\\uD55C \\uB9CC\\uD07C \\uB9CE\\uC740 \\uBA54\\uBAA8\\uB9AC\\uAC00 \\uC788\\uB2E4\\uACE0 \\uC0DD\\uAC01\\uD560 \\uC218 \\uC788\\uB2E4.\"}),(0,t.jsxs)(e.p,{children:[\"\\uC694\\uCCAD\\uBC1B\\uC740 \\uBA54\\uBAA8\\uB9AC\\uAC00 \\uC0AC\\uC6A9\\uAC00\\uB2A5\\uD55C \\uBA54\\uBAA8\\uB9AC\\uC758 \\uD06C\\uAE30\\uBCF4\\uB2E4 \\uD06C\\uAC8C \\uB418\\uBA74 OS\\uB294 \\uD604\\uC7AC \\uD544\\uC694\\uD558\\uC9C0 \\uC54A\\uC740 \\uBA54\\uBAA8\\uB9AC \\uD398\\uC774\\uC9C0\\uB97C \\uB354 \\uB290\\uB9AC\\uC9C0\\uB9CC \\uB354 \\uC6A9\\uB7C9\\uC774 \\uD070 \\uB300\\uC6A9\\uB7C9 \\uC800\\uC7A5\\uC7A5\\uCE58\\uC778 \\uB514\\uC2A4\\uD06C\\uB85C \\uC62E\\uAE34\\uB2E4.(\",(0,t.jsx)(e.code,{children:\"swap out\"}),\") \\uC774\\uB7F0 \\uC2A4\\uC651 \\uC544\\uC6C3\\uD55C \\uD398\\uC774\\uC9C0\\uC5D0 \\uD504\\uB85C\\uADF8\\uB7A8\\uC774 \\uC811\\uADFC\\uD558\\uBA74 \\uC6B4\\uC601\\uCCB4\\uC81C\\uB294 \\uD544\\uC694\\uD55C \\uBA54\\uBAA8\\uB9AC \\uACF5\\uAC04\\uC744 \\uD655\\uBCF4\\uD558\\uACE0 \\uC694\\uCCAD\\uBC1B\\uC740 \\uD398\\uC774\\uC9C0\\uB97C \\uB2E4\\uC2DC \\uBA54\\uBAA8\\uB9AC\\uB85C \\uBD88\\uB7EC\\uC628\\uB2E4.\"]}),(0,t.jsxs)(e.p,{children:[\"\\uC774\\uB7F0 \\uC2DD\\uC73C\\uB85C \\uD398\\uC774\\uC9C0\\uB97C \\uCC98\\uB9AC\\uD558\\uB294 \\uAC83\\uC744 \",(0,t.jsx)(e.code,{children:\"\\uC694\\uAD6C\\uBD88 \\uD398\\uC774\\uC9D5(demand paging)\"}),\"\\uC774\\uB77C\\uACE0 \\uBD80\\uB978\\uB2E4.\"]}),(0,t.jsxs)(e.p,{children:[\"\\uC2A4\\uC640\\uD551\\uC774 \\uC77C\\uC5B4\\uB098\\uBA74 \\uC2DC\\uC2A4\\uD15C \\uC131\\uB2A5\\uC774 \\uD06C\\uAC8C \\uC800\\uD558\\uB41C\\uB2E4. \\uD558\\uC9C0\\uB9CC \\uBA54\\uBAA8\\uB9AC\\uAC00 \\uBD80\\uC871\\uD574\\uC11C \\uC2E4\\uD589\\uB3C4 \\uBABB\\uD558\\uB294\\uAC70\\uBCF4\\uB2E4\\uB294 \\uB290\\uB9AC\\uB354\\uB77C\\uB3C4 \\uC2A4\\uC640\\uD551\\uC744 \\uD1B5\\uD574 \\uD504\\uB85C\\uADF8\\uB7A8\\uC744 \\uC2E4\\uD589\\uD558\\uB294 \\uD3B8\\uC774 \\uB354 \\uB0AB\\uB2E4. \\uAC00\\uC0C1 \\uBA54\\uBAA8\\uB9AC \\uC2DC\\uC2A4\\uD15C\\uC740 \\uC131\\uB2A5 \\uC800\\uD558\\uB97C \\uB9C9\\uAE30 \\uC704\\uD55C \\uB2E4\\uC591\\uD55C \\uAE30\\uBC95\\uC744 \\uD65C\\uC6A9\\uD55C\\uB2E4. \\uC774\\uB7F0 \\uAE30\\uBC95 \\uC911 \\uD558\\uB098\\uB294 \\uD398\\uC774\\uC9C0 \\uC811\\uADFC\\uC744 \\uCD94\\uC801\\uD574\\uC11C \\uC2A4\\uC651 \\uC544\\uC6C3\\uD560 \\uD398\\uC774\\uC9C0\\uB97C \\uACB0\\uC815\\uD558\\uB294 \",(0,t.jsx)(e.code,{children:\"\\uCD5C\\uC18C \\uCD5C\\uADFC \\uC0AC\\uC6A9(LRU, least recently used)\"}),\" \\uC54C\\uACE0\\uB9AC\\uC998\\uC774\\uB2E4. \\uC774 \\uC54C\\uACE0\\uB9AC\\uC998\\uC744 \\uC0AC\\uC6A9\\uD558\\uBA74 \\uCD5C\\uADFC\\uC5D0 \\uAC00\\uC7A5 \\uC790\\uC8FC \\uC0AC\\uC6A9\\uB41C \\uD398\\uC774\\uC9C0\\uB294 \\uBB3C\\uB9AC \\uBA54\\uBAA8\\uB9AC\\uC5D0 \\uADF8\\uB300\\uB85C \\uB0A8\\uACA8\\uB450\\uACE0 \\uCD5C\\uADFC\\uC5D0 \\uAC00\\uC7A5 \\uB35C \\uC0AC\\uC6A9\\uD55C \\uD398\\uC774\\uC9C0\\uB97C \\uC2A4\\uC651 \\uC544\\uC6C3\\uD55C\\uB2E4.\"]})]})}function b(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(h,n)})):h(n)}var j=b;return C(E);})();\n;return Component;"
+  },
+  "_id": "blog/book/한권으로_읽는_컴퓨터_구조와_프로그래밍/컴퓨터_아키텍쳐와_운영체제/가상메모리.mdx",
+  "_raw": {
+    "sourceFilePath": "blog/book/한권으로_읽는_컴퓨터_구조와_프로그래밍/컴퓨터_아키텍쳐와_운영체제/가상메모리.mdx",
+    "sourceFileName": "가상메모리.mdx",
+    "sourceFileDir": "blog/book/한권으로_읽는_컴퓨터_구조와_프로그래밍/컴퓨터_아키텍쳐와_운영체제",
+    "contentType": "mdx",
+    "flattenedPath": "blog/book/한권으로_읽는_컴퓨터_구조와_프로그래밍/컴퓨터_아키텍쳐와_운영체제/가상메모리"
+  },
+  "type": "Blog",
+  "readingTime": {
+    "text": "3 min read",
+    "minutes": 2.635,
+    "time": 158100,
+    "words": 527
+  },
+  "slug": "book/한권으로_읽는_컴퓨터_구조와_프로그래밍/컴퓨터_아키텍쳐와_운영체제/가상메모리",
+  "path": "blog/book/한권으로_읽는_컴퓨터_구조와_프로그래밍/컴퓨터_아키텍쳐와_운영체제/가상메모리",
+  "filePath": "blog/book/한권으로_읽는_컴퓨터_구조와_프로그래밍/컴퓨터_아키텍쳐와_운영체제/가상메모리.mdx",
+  "toc": [
+    {
+      "value": "가상메모리",
+      "url": "#가상메모리",
+      "depth": 2
+    }
+  ],
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "가상메모리",
+    "datePublished": "2023-05-23T00:00:00.000Z",
+    "dateModified": "2023-05-23T00:00:00.000Z",
+    "description": "전공공부하면서 같이 공부하는 운영체제",
+    "image": "/static/images/rose.png",
+    "url": "https://blog-full-of-desire.vercel.app//blog/book/한권으로_읽는_컴퓨터_구조와_프로그래밍/컴퓨터_아키텍쳐와_운영체제/가상메모리"
+  }
+}
