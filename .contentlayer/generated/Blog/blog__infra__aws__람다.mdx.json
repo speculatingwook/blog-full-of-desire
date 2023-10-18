@@ -1,7 +1,11 @@
 {
   "title": "aws를 사용하는 현직자에게 들은 람다",
   "date": "2023-05-11T00:00:00.000Z",
-  "tags": ["AWS", "lambda", "INFRA"],
+  "tags": [
+    "AWS",
+    "lambda",
+    "INFRA"
+  ],
   "draft": false,
   "summary": "람다 찍먹",
   "body": {

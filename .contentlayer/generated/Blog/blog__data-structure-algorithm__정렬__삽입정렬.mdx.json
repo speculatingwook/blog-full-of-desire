@@ -1,7 +1,10 @@
 {
   "title": "[ Algorithm ] Insertion Sort(삽입 정렬)",
   "date": "2023-08-28T00:00:00.000Z",
-  "tags": ["ALGORITHM", "SORTING"],
+  "tags": [
+    "ALGORITHM",
+    "SORTING"
+  ],
   "draft": false,
   "summary": "pope 강의를 듣고 필요한 부분을 정리하는 글",
   "body": {

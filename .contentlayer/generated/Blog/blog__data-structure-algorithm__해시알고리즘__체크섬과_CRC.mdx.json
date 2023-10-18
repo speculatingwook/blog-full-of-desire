@@ -1,7 +1,10 @@
 {
   "title": "[ Algorithm ] 체크섬과 CRC",
   "date": "2023-09-08T00:00:00.000Z",
-  "tags": ["ALGORITHM", "HASH"],
+  "tags": [
+    "ALGORITHM",
+    "HASH"
+  ],
   "draft": false,
   "summary": "pope 강의를 듣고 필요한 부분을 정리하는 글",
   "body": {

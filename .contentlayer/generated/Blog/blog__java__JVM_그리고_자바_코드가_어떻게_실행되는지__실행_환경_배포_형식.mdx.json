@@ -1,7 +1,9 @@
 {
   "title": "[ JAVA ] Java 개발, 실행 환경(JDK, JRE, JVM) 및 배포 형식(JAR, EAR)",
   "date": "2023-04-22T00:00:00.000Z",
-  "tags": ["JAVA"],
+  "tags": [
+    "JAVA"
+  ],
   "draft": false,
   "summary": "자바라는 언어에 대한 글",
   "body": {

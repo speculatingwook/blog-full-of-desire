@@ -1,7 +1,9 @@
 {
   "title": "[ JAVA ] 바이트코드(bytecode)",
   "date": "2023-04-22T00:00:00.000Z",
-  "tags": ["JAVA"],
+  "tags": [
+    "JAVA"
+  ],
   "draft": false,
   "summary": "자바의 바이트 코드",
   "body": {

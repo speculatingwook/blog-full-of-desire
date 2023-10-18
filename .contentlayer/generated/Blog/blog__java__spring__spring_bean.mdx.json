@@ -1,7 +1,10 @@
 {
   "title": "[ Spring ] Bean",
   "date": "2023-06-28T00:00:00.000Z",
-  "tags": ["spring", "bean"],
+  "tags": [
+    "spring",
+    "bean"
+  ],
   "draft": false,
   "summary": "스프링 bean",
   "body": {

@@ -1,7 +1,10 @@
 {
   "title": "Pipelining",
   "date": "2023-04-13T00:00:00.000Z",
-  "tags": ["COMPUTER_ARCHITECTURE", "COMPUTER_SCIENCE"],
+  "tags": [
+    "COMPUTER_ARCHITECTURE",
+    "COMPUTER_SCIENCE"
+  ],
   "draft": false,
   "summary": "컴퓨터 아키텍처 개념",
   "body": {

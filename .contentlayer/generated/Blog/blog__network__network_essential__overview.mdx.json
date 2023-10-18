@@ -1,7 +1,9 @@
 {
   "title": "[ Network 기초 ] 1. 네트워크 개요",
   "date": "2023-07-13T00:00:00.000Z",
-  "tags": ["Network"],
+  "tags": [
+    "Network"
+  ],
   "draft": false,
   "summary": "네트워크 개요",
   "body": {

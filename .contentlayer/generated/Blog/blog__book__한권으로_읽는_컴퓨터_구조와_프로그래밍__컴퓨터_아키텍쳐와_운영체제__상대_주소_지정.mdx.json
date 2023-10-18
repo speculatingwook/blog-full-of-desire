@@ -1,7 +1,11 @@
 {
   "title": "상대 주소 지정",
   "date": "2023-04-17T00:00:00.000Z",
-  "tags": ["COMPUTER_SCIENCE", "ARCHITECTURE", "한권으로_읽는_컴퓨터_구조와_프로그래밍"],
+  "tags": [
+    "COMPUTER_SCIENCE",
+    "ARCHITECTURE",
+    "한권으로_읽는_컴퓨터_구조와_프로그래밍"
+  ],
   "draft": false,
   "summary": "전공공부하면서 같이 공부하는 운영체제",
   "body": {

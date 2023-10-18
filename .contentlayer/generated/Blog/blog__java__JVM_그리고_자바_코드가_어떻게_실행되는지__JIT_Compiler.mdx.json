@@ -1,7 +1,9 @@
 {
   "title": "[ JAVA ] Just-In-Time (JIT) 컴파일러 이해하기",
   "date": "2023-04-22T00:00:00.000Z",
-  "tags": ["JAVA"],
+  "tags": [
+    "JAVA"
+  ],
   "draft": false,
   "summary": "자바의 JIT 컴파일러",
   "body": {

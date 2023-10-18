@@ -1,7 +1,11 @@
 {
   "title": "[ Pintos ] m1 mac에서 pintos 돌리기",
   "date": "2023-07-04T00:00:00.000Z",
-  "tags": ["operating-system", "side-project", "pintos"],
+  "tags": [
+    "operating-system",
+    "side-project",
+    "pintos"
+  ],
   "draft": false,
   "summary": "하,,,,,,",
   "body": {

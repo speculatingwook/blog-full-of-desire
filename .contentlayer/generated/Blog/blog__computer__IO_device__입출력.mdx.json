@@ -1,7 +1,10 @@
 {
   "title": "I/O(Input & Output)",
   "date": "2023-04-17T00:00:00.000Z",
-  "tags": ["COMPUTER_SCIENCE", "HARDWARE"],
+  "tags": [
+    "COMPUTER_SCIENCE",
+    "HARDWARE"
+  ],
   "draft": false,
   "summary": "전공공부하면서 같이 공부하는 운영체제",
   "body": {
