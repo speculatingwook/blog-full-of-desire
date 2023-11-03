@@ -1,0 +1,304 @@
+---
+title: '[ Tomcat ] 톰캣 구현 미션 (1)'
+date: '2023-10-30'
+tags: ['Tomcat']
+draft: false
+summary: 고양이 길들이기 step 1
+---
+
+이번 GDSC의 스터디로 진행하게 된 tomcat 구현 미션이다. [여기서](https://github.com/speculatingwook/jwp-dashboard-http-mission) fork, clone 하면 되고, 내가 스터디를 구상했지만, 나도 공부하기 위해 연 것도 있으므로, 미션진행을 하려고 한다.
+
+## 미션
+
+> 1. GET /index.html 응답하기
+>    인덱스 페이지(http://localhost:8080/index.html)에 접근할 수 있도록 만들자.
+>    Http11ProcessorTest 테스트 클래스의 모든 테스트를 통과하면 된다.
+
+<p align="center">
+  <img
+    width="756"
+    alt="image"
+    src="https://github.com/speculatingwook/jwp-dashboard-http-mission/assets/105579811/51aad9b8-fd39-4eed-81cd-c7fdad713dd7"
+  />
+</p>
+
+구조는 이렇다.
+`Application` 클래스부터 살펴보자.
+
+### Application.java
+
+```java
+public class Application {
+
+    private static final Logger log = LoggerFactory.getLogger(Application.class);
+
+    public static void main(String[] args) {
+        log.info("web server start.");
+        final var tomcat = new Tomcat();
+        tomcat.start();
+    }
+}
+```
+
+음 Tomcat이라는 객체를 선언한 후, tomcat 객체 안의 start 함수를 불러와서 실행한다. Tomcat 객체를 보자.
+
+### Tomcat.java
+
+```java
+public class Tomcat {
+
+    private static final Logger log = LoggerFactory.getLogger(Tomcat.class);
+
+    public void start() {
+        var connector = new Connector();
+        connector.start();
+
+        try {
+            // make the application wait until we press any key.
+            System.in.read();
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        } finally {
+            log.info("web server stop.");
+            connector.stop();
+        }
+    }
+}
+```
+
+`start()`에서 `Connector`를 불러와서 실행한다. 그리고 애러가 있다면 출력하고, connector를 정지시킨다.
+그러면 `Connector`를 보자.
+
+### Connector.java
+
+```java
+public class Connector implements Runnable {
+
+    private static final Logger log = LoggerFactory.getLogger(Connector.class);
+
+    private static final int DEFAULT_PORT = 8080;
+    private static final int DEFAULT_ACCEPT_COUNT = 100;
+
+    private final ServerSocket serverSocket;
+    private boolean stopped;
+
+    public Connector() {
+        this(DEFAULT_PORT, DEFAULT_ACCEPT_COUNT);
+    }
+
+    public Connector(final int port, final int acceptCount) {
+        this.serverSocket = createServerSocket(port, acceptCount);
+        this.stopped = false;
+    }
+
+    private ServerSocket createServerSocket(final int port, final int acceptCount) {
+        try {
+            final int checkedPort = checkPort(port);
+            final int checkedAcceptCount = checkAcceptCount(acceptCount);
+            return new ServerSocket(checkedPort, checkedAcceptCount);
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
+    public void start() {
+        var thread = new Thread(this);
+        thread.setDaemon(true);
+        thread.start();
+        stopped = false;
+    }
+
+    @Override
+    public void run() {
+        while (!stopped) {
+            connect();
+        }
+    }
+
+    private void connect() {
+        try {
+            process(serverSocket.accept());
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+
+    private void process(final Socket connection) {
+        if (connection == null) {
+            return;
+        }
+        log.info("connect host: {}, port: {}", connection.getInetAddress(), connection.getPort());
+        var processor = new Http11Processor(connection);
+        new Thread(processor).start();
+    }
+
+    public void stop() {
+        stopped = true;
+        try {
+            serverSocket.close();
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+
+    private int checkPort(final int port) {
+        final var MIN_PORT = 1;
+        final var MAX_PORT = 65535;
+
+        if (port < MIN_PORT || MAX_PORT < port) {
+            return DEFAULT_PORT;
+        }
+        return port;
+    }
+
+    private int checkAcceptCount(final int acceptCount) {
+        return Math.max(acceptCount, DEFAULT_ACCEPT_COUNT);
+    }
+}
+```
+
+생성자부터 살펴보자
+
+```java
+ public Connector(final int port, final int acceptCount) {
+        this.serverSocket = createServerSocket(port, acceptCount);
+        this.stopped = false;
+    }
+
+    private ServerSocket createServerSocket(final int port, final int acceptCount) {
+        try {
+            final int checkedPort = checkPort(port);
+            final int checkedAcceptCount = checkAcceptCount(acceptCount);
+            return new ServerSocket(checkedPort, checkedAcceptCount);
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+```
+
+생성자를 호출하게 괴면 ServerSocket을 생성한다. `checkAcceptCount()`는 주어진 acceptCount 값을 확인하고 필요한 경우 수정하여 반환하는 메서드이다. 이 메서드는 Connector 클래스에서 사용되는 유틸리티 메서드로, 클라이언트 연결 요청을 수락하기 위한 최대 동시 연결 수를 제한하는 데 사용된다.
+
+ServerSocket은 Java에서 네트워크 서버 애플리케이션을 개발할 때 사용되는 클래스이다.([ServerSocket 내부 구현 코드](blog/network/tomcat/ServerSocket))
+
+이제 `start()`를 살펴보자
+
+```java
+    public void start() {
+        var thread = new Thread(this);
+        thread.setDaemon(true);
+        thread.start();
+        stopped = false;
+    }
+```
+
+데몬 스레드(Daemon Thread)는 백그라운드에서 실행되는 스레드로, 일반 스레드(유저 스레드)의 작업을 지원하거나 백그라운드 작업을 처리하는 데 사용된다. 데몬 스레드는 일반 스레드가 모두 종료되면 자동으로 종료된다.([Thread 내부 구현 코드](blog/network/Thread))
+
+그리고 어떻게 실행되는지 모르겠지만 일단 다음 나머지 코드로 가보자
+
+```java
+
+    @Override
+    public void run() {
+        while (!stopped) {
+            connect();
+        }
+    }
+
+    private void connect() {
+        try {
+            process(serverSocket.accept());
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+
+    private void process(final Socket connection) {
+        if (connection == null) {
+            return;
+        }
+        log.info("connect host: {}, port: {}", connection.getInetAddress(), connection.getPort());
+        var processor = new Http11Processor(connection);
+        new Thread(processor).start();
+    }
+```
+
+`run()`을 오버라이드 후, `connect()`, `process()`로 인해 실행된다.
+
+마지막으로 Http11Processor를 보자
+
+### Http11Processor.java
+
+```java
+
+public class Http11Processor implements Runnable, Processor {
+
+    private static final Logger log = LoggerFactory.getLogger(Http11Processor.class);
+
+    private final Socket connection;
+
+    public Http11Processor(final Socket connection) {
+        this.connection = connection;
+    }
+
+    @Override
+    public void run() {
+        process(connection);
+    }
+
+    @Override
+    public void process(final Socket connection) {
+        try (final var inputStream = connection.getInputStream();
+             final var outputStream = connection.getOutputStream()) {
+
+            final var responseBody = "Hello world!";
+
+            final var response = String.join("\r\n",
+                    "HTTP/1.1 200 OK ",
+                    "Content-Type: text/html;charset=utf-8 ",
+                    "Content-Length: " + responseBody.getBytes().length + " ",
+                    "",
+                    responseBody);
+
+            outputStream.write(response.getBytes());
+            outputStream.flush();
+        } catch (IOException | UncheckedServletException e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+}
+
+```
+
+아 여기서 `process()`가 실행된다. Socket 객체에서 `getInputStream()`, `getOutputStream()`이 있는데, 역할에 대해 간단히 알아보자.
+
+#### `getInputStream()`
+
+```java
+Socket clientSocket = // 소켓 생성 및 연결
+InputStream inputStream = clientSocket.getInputStream();
+byte[] data = new byte[1024];
+int bytesRead = inputStream.read(data);
+```
+
+getInputStream() 메서드는 Socket 객체에서 입력 스트림(입력 데이터를 읽는 데 사용되는 스트림)을 가져올 때 사용된다.
+
+입력 스트림은 클라이언트에서 서버로 오는 데이터를 읽는 데 사용된다. 이 메서드를 호출하면 서버 소켓은 클라이언트로부터 오는 데이터를 읽을 수 있는 스트림을 반환한다.
+
+InputStream 객체를 반환하며, 이 객체를 통해 read() 메서드를 호출하여 바이트 단위로 데이터를 읽을 수 있다.
+
+#### `getOutputStream()`
+
+```java
+Socket clientSocket = // 소켓 생성 및 연결
+OutputStream outputStream = clientSocket.getOutputStream();
+byte[] data = "Hello, Client!".getBytes();
+outputStream.write(data);
+```
+
+getOutputStream() 메서드는 Socket 객체에서 출력 스트림(출력 데이터를 보내는 데 사용되는 스트림)을 가져올 때 사용된다.
+
+출력 스트림은 서버에서 클라이언트로 데이터를 보내는 데 사용된다. 이 메서드를 호출하면 서버 소켓은 클라이언트에 데이터를 보내는 데 사용할 출력 스트림을 반환한다.
+
+OutputStream 객체를 반환하며, 이 객체를 통해 write() 메서드를 호출하여 데이터를 클라이언트로 보낼 수 있다.
+
+outputStream.flush() 메서드는 OutputStream을 사용하여 데이터를 보낼 때 데이터를 즉시 전송하도록 요청하는 메서드이다. outputStream.flush()를 호출하지 않으면, 데이터가 출력 버퍼에만 남아있을 수 있으며, 이것은 실시간 통신에서 문제를 일으킬 수 있다. 그래서 flush() 메서드를 사용하여 데이터를 더 빨리 전송하고 출력 버퍼를 비우는 것이 중요하다.
