@@ -18,9 +18,77 @@ summary:
 
 메서드는 맡은 일이 적을수록(잘게 쪼갤수록), 재사용성이 높고 디버깅에 용이하다. depth(깊이)를 너무 깊게 두지 말자. 이해하기 힘들어 죽겠다.
 
+### 나쁜 예시
+
+```java
+public void processOrder(Order order) {
+    if (orderIsValid(order)) {
+        if (order.getTotalPrice() > 100) {
+            applyDiscount(order);
+            saveOrder(order);
+        } else {
+            saveOrder(order);
+        }
+    }
+}
+```
+
+### 좋은 예시
+
+```java
+public void processOrder(Order order) {
+    validateOrder(order);
+    calculateTotalPrice(order);
+    applyDiscount(order);
+    saveOrder(order);
+}
+```
+
+이렇게 쓰지 말자!!
+
 ## 2. else 키워드를 쓰지 않는다.
 
 조건문은 복제의 원인이 되기도 한다. 또한 가독성도 좋지 않다.
+
+### 나쁜 예시
+
+```java
+public String getGrade(int score) {
+    if (score >= 90) {
+        return "A";
+    } else {
+        if (score >= 80) {
+            return "B";
+        } else {
+            if (score >= 70) {
+                return "C";
+            } else {
+                return "D";
+            }
+        }
+    }
+}
+
+```
+
+보기만 해도 어지럽다. 이렇게 쓰지 말자
+
+### 좋은 예시
+
+```java
+public String getGrade(int score) {
+    if (score >= 90) {
+        return "A";
+    }
+    if (score >= 80) {
+        return "B";
+    }
+    if (score >= 70) {
+        return "C";
+    }
+    return "D";
+}
+```
 
 ### 왜?
 
@@ -53,6 +121,14 @@ summary:
 ## 5. 줄여쓰지 않는다.
 
 가독성이 향상된다. 이전에 협업을 할 기회가 있었는데, 한 개발자분이 함수 이름을 축약해서 사용하셨었다. 그런데 이름이 너무 추상화되어서 이해를 하는데 10분이 넘게 걸린 기억이 있다. 너무 긴것도 오히려 가독성을 해치지만, 제발 축약해서 쓰지 말자.
+
+```java
+public void updUsrPrf(String un, String em, String pn, String ha) {
+    // 코드 내용 생략
+}
+```
+
+와, 보기만 해도 어지럽다. 제발.. 코드 내용이 간단해도 이해하는데 시간이 너무 오래 걸린다.
 
 ## 6. 모든 entity를 작게 유지한다.
 
