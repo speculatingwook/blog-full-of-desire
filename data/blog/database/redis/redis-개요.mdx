@@ -1,0 +1,131 @@
+---
+title: '[Redis] Redis'
+date: '2023-11-15'
+tags: ['Database', 'Redis']
+draft: false
+summary: Redis 개요
+---
+
+## In-memory DB로서의 Redis
+
+- Remote Dictionary Server
+- Storage: 데이터 저장소(데이터 관점)
+- Database: 전통적인 DBMS의 역할을 수행(영속성 관점)
+- Middleware: 어플리케이션이 이용할 수 있는 유용한 기능을 제공하는 소프트웨어
+
+### Redis로 할 수 있는 것
+
+- 아주 빠른 데이터 저장소로 활용
+- 분산된 서버들간의 커뮤니케이션(동기화, 작업 분할 등)
+- 내장된 자료구조를 활용한 기능 구현
+
+## In-memory DB?
+
+<p align="center">
+  <img
+    width="326"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/55836bf7-911c-4c92-a7dc-6dba2a055dd5"
+  />
+</p>
+
+- 데이터를 디스크에 저장하지 않음
+- 휘발성인 RAM에 저장
+- 빠른 속도
+
+<p align="center">
+  <img
+    width="282"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/406c96ff-0389-4c2b-a880-57581241105c"
+  />
+</p>
+
+### 결론
+
+- 빠른 속도와 휘발성의 절충
+- 용도에 맞게 DB와 Redis를 사용
+- 혼합해서 사용(Cache)
+- Redis의 영속성 확보(백업 등)
+
+## Key-value로서의 Redis
+
+### key - value store?
+
+- 특정 값을 key로 해서 그와 연관된 데이터를 value로 저장(Map과 같음)
+- 가장 단순한 데이터 저장 방식
+- 단순한 만큼 빠르고 성능이 좋음
+
+### key- value 구조의 장점
+
+- 단순성에서 오는 쉬운 구현과 사용성
+- Hash를 이용해 값을 바로 읽으므로 속도가 빠름(추가 연산이 필요 없음)
+- 분산 환경에서의 수평적 확장성
+
+### key-value 구조의 단점
+
+- key를 통해서만 값을 읽을 수 있음
+- 범위 검색 등의 복잡한 질의가 불가능
+
+### key-value 스토어의 활용
+
+- 언어의 자료구조
+- NoSQL DB
+- 단순한 구조의 데이터로 높은 성능과 확장성이 필요할 때 사용
+
+## Redis 설치
+
+이 설치는 Docker를 활용하여 설치하였다.
+
+### Docker Registry에서 Redis 이미지 불러오기
+
+```text
+docker pull redis
+```
+
+### Redis 실행
+
+```text
+docker run --name my-redis -p 6379:6379 redis
+```
+
+> > 6379는 redis의 기본 포트이다.
+> > 도커(Docker)에서 -d 옵션은 컨테이너를 "백그라운드(background)" 또는 "데몬(daemon)" 모드로 실행하도록 지시하는 것이다. -d 옵션을 사용하면 컨테이너가 백그라운드에서 실행되며, 사용자는 콘솔을 차지하지 않고 다른 작업을 수행할 수 있다. 이 옵션을 사용하면 도커 컨테이너가 백그라운드에서 실행되면서도 그 상태를 확인할 수 있다.
+
+### Redis 중단
+
+```text
+docker stop my-redis
+```
+
+## Redis 모듈
+
+<p align="center">
+  <img
+    width="656"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/b3811a59-ced7-40fd-aa3f-835b10cd6b7e"
+  />
+</p>
+- redis-server: 레디스 서버 - redis-cli: 레디스 서버에 커맨드를 실행할 수 있는 인터페이스
+
+### Docker Container 안에 쉘 실행
+
+```text
+docker exec -it my-redis /bin/sh
+```
+
+### Container 내부의 쉘에서 Redis-cli 실행
+
+- 호스트와 포트를 지정하지 않으면 127.0.0.1:6379 사용
+
+```text
+# redis-cli
+```
+
+### Redis 커맨드 사용
+
+```text
+set key1 banana
+get key1
+```
