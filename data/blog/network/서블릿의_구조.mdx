@@ -1,0 +1,66 @@
+---
+title: '[ Network ] 서블릿의 구조'
+date: '2023-11-29'
+tags: ['COMPUTER_SCIENCE', 'Network']
+draft: false
+summary: '톰캣을 구현해보며 알아본 서블릿의 구조'
+---
+
+<p align="center">
+  <img
+    width="760"
+    alt="Screenshot 2023-11-29 at 10 46 16 PM"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/7bda1bc4-2059-4eca-9898-4366861e8308"
+  />
+</p>
+
+웹 서버의 주된 기능은 웹 페이지를 클라이언트로 전달하는 것이다. 주로 그림, CSS, 자바스크립트를 포함한 HTML 문서가 클라이언트로 전달된다. 하지만 이런 웹 서버의 경우 이미 존재하는 즉, 정적인 페이지를 제공하는 역할만 할 수 있다. 실시간으로 작성된 페이지를 제공하거나 서버 상에 데이터를 저장하는 것은 웹 서버가 할 수 없는 일이다. 때문에 이런 역할을 해 주는 다른 도우미 애플리케이션이 필요하다.
+
+이런 도우미 애플리케이션을 사용하면 웹 서버는 도우미 애플리케이션에 요청을 전달하기만 한다. 그러면 도우미 애플리케이션은 요청받은 작업을 수행하거나 정적인 페이지를 만들어서 웹서버로 전달한다. 웹서버는 이를 다시 클라이언트로 전해준다.
+
+자바에서는 이 역할을 해 주는 것이 서블릿이다.
+
+<p align="center">
+  <img
+    width="759"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/f25b73f5-f1e5-4802-b4ca-5fb555558620"
+  />
+</p>
+
+그러나 서블릿만으로는 웹서버가 동작하기 힘들다. 요청이 들어오면 누군가 요청을 처리할 새로운 스레드를 만들어야 하고 서블릿에서 필요한 메서드를 호출해야 한다. 또 파라미터로 받은 값을 넘겨주기도 해야 한다. 이 역할을 하는 것이 바로 컨테이너이다.
+
+웹서버가 사용자로부터 서블릿에 대한 요청을 받으면 컨테이너에게 이 요청을 넘긴다. 요청을 넘겨받은 컨테이너는 서블릿을 찾아 필요한 메소드를 호출하게 된다.
+
+다시 정리하면, 컨테이너는 분석된 요청을 받아, 서블릿을 찾아 호출시켜준다.
+
+<p align="center">
+  <img
+    width="716"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/b496b142-0db9-4908-99b5-e9b4851779ae"
+  />
+</p>
+
+컨테이는 사용자로부터 요청을 받을 때 마다 요청을 처리할 스레드를 생성한다. 그리고 그 스레드에서 필요한 서블릿 메소드를 호출하게 된다. 그렇다고 해서 스레드를 무제한으로 생성하기만 하는 것은 아니고 컨테이너 내부에 스레드풀(Thread pool)에 스레드를 저장하고, 필요할 때 꺼내 사용하게 된다.
+
+여기서 유의해야 할 점은 요청이 올 때 마다 스레드를 새로 생성하거나 스레드 풀에서 꺼내 쓰는 것이지 서블릿 인스턴스를 새로 생성하는 것은 아니라는 것이다.
+
+<p align="center">
+  <img
+    width="725"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/e5c56288-b2d7-4897-b639-6b283d64cd27"
+  />
+</p>
+
+컨테이너의 동작 방식을 살펴 보자.
+
+> 1. 사용자(클라이언트)가 URL을 통해 요청을 보내면 HTTP Request를 Servlet Conatiner로 전송한다.
+> 2. HTTP Request를 전송받은 Servlet Container는 HttpServletRequest, HttpServletResponse 두 객체를 생성한다.
+> 3. (web.xml은 사용자가) 그 다음에는 요청한 URL을 분석하여 어느 서블릿에 대해 요청을 한 것인지 찾는다.
+> 4. 해당 서블릿에서 service메소드를 호출한 후 POST, GET여부에 따라 doGet() 또는 doPost()를 호출한다.
+> 5. doGet() or doPost() 메소드는 동적 페이지를 생성한 후 HttpServletResponse객체에 응답을 보낸다.
+> 6. 응답이 끝나면 HttpServletRequest, HttpServletResponse 두 객체를 소멸시킨다.
+
+여기서 HttpServletRequest, HttpServletResponse 객체를 생성한 컨테이너는 요청에 알맞은 서블릿을 찾게 되는데 이 서블릿을 찾기 위해서는 개발자가 서블릿을 매핑해줘야 한다. 그렇지 않으면 적절한 서블릿을 찾을 수 있는 정보가 없기때문에 컨테이너는 서블릿을 찾지 못하게 된다.
