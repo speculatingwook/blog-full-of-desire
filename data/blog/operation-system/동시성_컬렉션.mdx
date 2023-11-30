@@ -1,0 +1,51 @@
+---
+title: '[ OS ] 동시성 컬렉션(Concurrent Collection)'
+date: '2023-11-30'
+tags: ['COMPUTER_SCIENCE', 'Operation_System', 'JAVA']
+draft: false
+summary: '톰캣을 구현해보며 공부하는 동시성 컬렉션'
+---
+
+## 동시성 컬렉션(Concurrent Collections)이란?
+
+동시성 문제는 멀티 스레드가 동시에 접근할 때 예기치 못한 결과를 얻는 문제를 말한다. 이 문제를 해결하기 위해 `synchronized` 키워드로 Lock을 걸어 한 쓰레드씩 접근하도록 한다.
+
+Java의 컬렉션에는 `synchronized` 키워드를 사용한 자료구조들이 있다. Vector, HashTable, Collections.synchronized\_\_\_() 같은 것들이 대표적이다.
+
+> `synchronized`을 사용한 컬렉션은 다음과 같은 문제점이 있다.
+>
+> - 성능 : 쓰레드 한개 씩 접근하니 성능이 저하.
+> - put-if-absent : 데이터가 없는 경우에만 put작업을 할 때 다른 쓰레드가 끼어 들 수 있어서 안전하지 못함.
+
+- 1번 쓰레드가 데이터가 있는지 확인. 작업종료.
+- 2번 쓰레드가 작업시작.
+- 1번 쓰레드는 데이터 put 작업 못하고 기다리게 됨.
+  이건 대기의 문제로 끝날게 아니다. 만약 1번 쓰레드가 넣을 데이터를 대기하는 중에 다른 쓰레드가 넣었다면? 1번 쓰레드는 작업 권한을 얻으면 데이터를 추가하겠지만 원하는 결과는 아닐 것 이다.
+
+위와 같은 문제들을 Concurrent Collections으로 해결 할 수 있다.
+
+Concurrent Collections은 synchronized와 달리 `lock striping`같은 좀 더 세분화된 락을 사용하여 여러 쓰레드가 동시 접근을 가능하게 한다.
+
+단점은 clear()와 같이 전체 데이터를 독점적으로 사용해야할 경우, 단일 락을 사용할 때보다 동기화 시키기도 어렵고 자원도 많이 소모하게 된다. 또한, size(), isEmpty()같은 연산이 최신값을 반환하지 못할 수도 있다.
+
+### 종류
+
+> - List : CopyOnWriteArrayList
+> - Map : ConcurrentMap, ConcurrentHashMap
+> - Set : CopyOnWriteArraySet
+> - SortedMap : ConcurrentSkipListMap
+> - SortedSet : ConcurrentSkipListSet
+> - Queue : ConcurrentLinkedQueue
+
+### CopyOnWrite?
+
+> 컬렉션의 데이터를 변경하는 작업 시 내부적으로 복사본을 하나 더 만들어 작업하는 방식이다.
+>
+> - iterate 중에 add/remove를 수행하면
+
+- 비동기화 컬렉션의 경우에는 ConcurrentModificationException
+- 동기화 컬렉션의 경우 락을 걸어 쓰레드가 동시접근 할 수 없다.
+
+CopyOnWrite은 iterate 중에 add/remove 수행하면 동일한 데이터 복사본을 만들어서 add/remove 작업을 한다. iterate는 원본 데이터로 하고 있고 작업이 끝나면 사라지고 add/remove 작업을 한 복사본이 최종적으로 남는다.
+
+복사본을 만들어 작업하는 만큼 성능이슈가 있을 수 있다. 따라서 크기가 작고, 읽기 작업이 많을 때 사용하기 좋으며 추가, 삭제 작업이 많다면 성능이 떨어진다.

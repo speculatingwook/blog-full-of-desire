@@ -1,0 +1,82 @@
+---
+title: '[ Network ] 톰캣(Tomcat)과 쓰레드풀(Thread Pool)'
+date: '2023-11-30'
+tags: ['COMPUTER_SCIENCE', 'Network']
+draft: false
+summary: '톰캣을 구현해보며 공부하는 쓰레드 풀'
+---
+
+## Thread란?
+
+> 쓰레드(thread)는 프로세스 내에서 실행되는 실행 흐름의 단위를 말한다. 하나의 프로세스는 여러 개의 쓰레드를 가질 수 있으며, 각 쓰레드는 독립적인 작업을 수행한다.
+>
+> 하나의 프로세스 안에서 여러 개의 쓰레드가 동시에 실행될 수 있다. 이러한 쓰레드들은 해당 프로세스의 자원(메모리 등)을 공유하면서 작업을 수행한다.
+
+"어? 그러면 쓰레드가 많을수록 좋은거 아니야?" 할 수 있다. 하지만 스레드는 생성할때마다 비용이 들어간다. 컨텍스트 스위칭이 일어나면 그만큼 메모리 손실이 생기고, 그러면서 cpu 오버헤드 비용이 든다.
+
+스레드는 생성비용이 상당히 크다. 그래서 스레드 생성 요청에 대한 응답시간이 늘어날 가능성이 커진다.
+
+<p align="center">
+  <img
+    width="410"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/afe132a0-780f-4396-984e-783b080e84e2"
+  />
+</p>
+위 그림을 보자. Java의 경우, One-to-One Threading-Model로 Thread를 생성한다. User Thread(Process의 스레드)를
+생성할 때, OS Thread(OS 레벨의 스레드)와 연결해야 한다. 그래서 새로운 Thread를 생성할 때마다 OS Kernel의
+작업이 필요하다.
+
+위 과정은 Thread 생성비용이 많이 든다고 한다. 그래서 작업 요청이 들어올 때마다 Thread를 생성하면 최종적인 요청 처리 시간이 증가한다.
+
+그래서 Thread가 너무 많아지면, 상당한 문제가 생긴다.
+
+## Thread Pool이란?
+
+위와 같은 이유로 Thread는 생성 비용이 커 너무 많이 만들어 두면 위험하다. 그래서 이 문제를 해결하기 위한 아이디어가 Pool이다. Thread를 미리 만들어 둔 후, 매번 새로 만드는 것이 아니라 필요할 때 재사용할 수 있게 하면 비용 문제가 많이 해결된다.
+
+그리고 사용할 Thread 개수도 제한하기 때문에 무제한적으로 스레드가 생성되지 않아 비용이 너무 많이 드는 걸 방지할 수 있다.
+
+<p align="center">
+  <img
+    width="731"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/ff7d6a9e-ed5a-4580-898b-40ab897a5994"
+  />
+</p>
+
+> 따라서, 여러개의 작업을 동시에 처리하면서도 안정적으로 처리하고 싶을 때, Thread Pool은 효과적이다.
+
+## Thread Pool을 활용한 WAS, Tomcat
+
+<p align="center">
+  <img
+    width="735"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/f4e6607e-b787-4783-b410-a3a2ac88b728"
+  />
+</p>
+톰캣에서 주로 사용되는 두 가지 스레드 풀은 "Connector Thread Pool"과 "Executor Thread Pool"이 있다.
+
+### Connector Thread Pool
+
+> 웹 서버에서 클라이언트의 요청을 받기 위해 네트워크 커넥터가 사용하는 스레드 풀이다.
+>
+> 클라이언트의 HTTP 요청을 수락하고, 해당 요청을 처리하기 위해 사용된다.
+>
+> 각각의 Connector는 별도의 스레드 풀을 가질 수 있으며, 이는 클라이언트의 요청을 동시에 처리할 수 있도록 해준다.
+>
+> 각 Connector는 별도의 포트나 프로토콜로 들어오는 요청을 처리한다.
+
+### Executor Thread Pool
+
+> Tomcat의 백그라운드 작업이나 애플리케이션의 비동기 작업을 처리하기 위한 스레드 풀이다.
+>
+> 주로 Servlet 컨테이너나 JSP 처리 등의 작업에 사용된다.
+>
+> Executor는 일정량의 스레드를 유지하고, 요청이 들어오면 해당 스레드를 사용하여 작업을 수행한다.
+>
+> 작업 큐에 있는 작업들을 처리하고, 스레드가 작업을 완료하면 다음 작업을 가져와 처리한다.
+
+출처
+[Tomcat Thread Pool 정리](https://velog.io/@mooh2jj/Tomcat-Thread-Pool-%EC%A0%95%EB%A6%AC)

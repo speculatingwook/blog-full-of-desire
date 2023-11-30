@@ -1,0 +1,90 @@
+---
+title: '[ Network ] HTTP 프로토콜'
+date: '2023-11-30'
+tags: ['COMPUTER_SCIENCE', 'Network', 'HTTP']
+draft: false
+summary: '톰캣을 구현해보며 복습하는 HTTP 프로토콜'
+---
+
+## HTTP 프로토콜이란?
+
+> HTTP(HyperText Transfer Protocol)는 인터넷 상에서 데이터를 주고받기 위한 표준 프로토콜 중 하나이다. 웹 브라우저와 웹 서버 간에 정보를 주고받을 때 사용되며, 클라이언트(일반적으로 웹 브라우저)가 서버로부터 웹 페이지, 이미지, 동영상 등을 요청하고, 서버가 이 요청에 응답하여 데이터를 제공하는 데 사용된다.
+
+[HTTP 공식문서](https://developer.mozilla.org/ko/docs/Web/HTTP)를 참고하자.
+
+<p align="center">
+  <img
+    width="421"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/4660cccf-7f36-4b57-87e5-b7d100f9e491"
+  />
+</p>
+
+HTTP는 위 그림과 같이 HTTP 클라이언트에서 HTTP 서버로 요청을 보내고, 요청을 받은 서버는 클라이언트에게 상황에 맞는 응답을 보내는 형태로 이루어져 있다.
+
+## HTTP Request Message
+
+<p align="center">
+  <img
+    width="299"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/638d3934-5bf7-48ac-840d-d36b631585dc"
+  />
+</p>
+
+일반적인 HTTP Request Message의 구조는 위 그림과 같다. 그래서 크게 3가지로 구성된다.
+
+### Request line
+
+`Request_Method` `Request_URI` `HTTP_version` 이렇게 3가지가 공백을 두고 구성되어 있다.
+
+### Request header
+
+Request Header에는 다음과 같은 내용들이 들어간다.
+
+> **Host**: 도메인 이름
+>
+> **Accept**: 클라이언트가 다룰 수 있는 MINE 타입이 열거된다.
+>
+> **Accept-Language**: 클라이언트가 다룰 수 있고 선호하는 언어 타입이 열거된다.
+>
+> **Accept-Charset**: 클라이언트가 다룰 수 있고 선호하는 문자 집합이 열거된다. Ex) UTF8, BIG5, ISO-8859-2 등
+>
+> **Accept-Encoding:** 클라이언트가 지원하는 Encoding 타입이 열거된다. Ex) gzip, deflate 등
+>
+> **Connection**: Request 후 연결을 닫을 것인지 유지할 것인지를 나타낸다. Close / Keep-Alive
+>
+> **User-Agent**: Request가 만들어진 브라우저 타입을 알려준다.
+>
+> **Content-Length**: POST Request를 사용할 때, Request Body의 데이터 길이를 나타낸다.
+>
+> **Content-Type:** POST Request를 사용할 때, Request Body 데이터의 형식을 MIME 타입으로 나타낸다.
+
+#### Request body
+
+POST나 PUT 요청을 보낼 때, 담을 데이터를 나타낸다.
+
+### HTTP Response Message
+
+<p align="center">
+  <img
+    width="299"
+    alt="image"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/b9dffd50-a5ac-4fa6-9fe2-df8e77fd6fc5
+"
+  />
+</p>
+
+response도 request와 거의 동일하다. Request에 대한 Status와 Response Header 그리고 Response Body의 순으로 Response Message가 구성되어 있다.
+
+### Status Code
+
+Status code는 위 [공식문서](https://developer.mozilla.org/ko/docs/Web/HTTP) 에 있다. 가장 많이 쓰이는 것만 정리하자면
+
+> 1. **200 OK**: 요청이 성공했고, 클라이언트에게 요청한 데이터가 정상적으로 전달된 상태이다.
+> 2. **404 Not Found**: 요청한 리소스를 찾을 수 없는 상태이다. 주로 잘못된 URL이나 존재하지 않는 페이지를 요청했을 때 반환된다.
+> 3. **400 Bad Request**: 잘못된 요청으로 인해 서버가 요청을 이해할 수 없거나 처리할 수 없는 상태이다. 예를 들어, 요청이 잘못된 구문을 갖고 있거나 유효하지 않은 요청일 때 반환된다.
+> 4. **401 Unauthorized**: 해당 리소스에 접근하기 위해서는 인증이 필요한 상태이다. 클라이언트가 인증되지 않았을 때 반환된다.
+> 5. **403 Forbidden**: 요청이 서버에 의해 이해되었지만, 요청된 동작이 허용되지 않는 상태이다. 접근 권한이 없는 경우에 사용된다.
+> 6. **500 Internal Server Error**: 서버가 요청을 처리하는 도중에 발생한 내부 서버 오류를 나타내는 상태이다. 일반적으로 서버 측에서 처리할 수 없는 예외적인 상황이 발생했을 때 반환된다.
+> 7. **503 Service Unavailable**: 서버가 현재 요청을 처리할 수 없는 상태이다. 일시적으로 서비스를 이용할 수 없는 상태일 때 반환된다.
