@@ -1,0 +1,34 @@
+---
+title: '[ Pintos ] 1.Threads: Priority Scheduling'
+date: '2024-01-11'
+tags: ['operating-system', 'pintos']
+draft: false
+summary: pint-os, 작은 OS 구현 프로젝트
+---
+
+## Main Goal
+
+Pintos uses FIFO scheduling
+
+Modify PintOS scheduler for priority scheduling
+
+- Sort the ready list by the thread priority
+- Sort the wait list for synchronization primitives(semaphore, condition variable)
+- Implement the preemption
+- Preemption point: ehwn the thread is put into the ready list(not everytime when the timer interrupt is called)
+
+## Three things to consider
+
+### 1: selecting
+
+when selecting a thread to run in the ready list, select one with the highest priority
+
+### 2: Preemption
+
+when inserting the new thread to the ready list, compare the priority with the running thread.
+
+Schedule the newly inserted thread if it has the higher priority with the currently running thread
+
+### 3: Lock - semaphore, condition variable
+
+when selecting a thread from the set of threads wating for a lock(or condition variable), select the one with the highest priority
