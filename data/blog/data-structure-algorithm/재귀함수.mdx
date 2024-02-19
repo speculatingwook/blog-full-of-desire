@@ -105,3 +105,87 @@ public int calculateSignature(int[] data, int multiplier){
 #### 꼬리 재귀(tail recursion)
 
 꼬리 호출이 특수한 경우이다. 마지막에 호출하는 함수(꼬리 호출)가 자기 자신(재귀)인 경우를 말한다. 이 경우에는 꼬리 호출과 똑같은 최적화가 적용된다.
+
+예를 들어, 일단 팩토리얼 재귀 함수를 보자
+
+```java
+int factorialRecursive(int n){
+    if(n <=1){
+        return 1;
+    }
+    return n * factorialRecursive(n - 1);
+}
+```
+
+이 알고리즘은 꼬리재귀인가??
+
+아니다. 마지막 명령어가 `factorialRecursive()`였다면, 꼬리 재귀가 맞을 텐데, n이 곱해지기 때문에 꼬리 재귀가 아니다.
+
+그렇다면 팩토리얼 꼬리 재귀 함수는 어떻게 나와야 할까
+
+```java
+int factorial(int n){
+    return factorialRecursive(n, 1);
+}
+
+int factorialRecursive(int n, int fac){
+    if(n <=1){
+        return fac;
+    }
+
+    return factorialRecursive(n-1, n * fac);
+}
+```
+
+근데 느꼈다시피, 꼬리재귀함수가 읽기가 더 힘들다. 그러나, 이런 식으로 작성된 코드가 종종 보이기도 한다. 이렇게 작성하는 이유는 앞에서 말한 최적화때문에 이렇게 작성한다.
+
+그렇다면 꼬리 재귀 함수를 지원하지 않는 언어 있더라도 꼬리 재귀 함수를 작성할 줄 알아야 한다. 꼬리 재귀는 반복문으로 쉽게 변경이 가능하기 때문에 쓸 줄 알아야 한다.
+
+### 재귀 함수로 총합 구하기
+
+#### 재귀 함수
+
+```java
+public class Program{
+    public static void main(String[] args){
+        int sum = sumRecursive(10);
+
+        System.out.println(sum); // 55
+
+        sum = sumRecursive(100);
+
+        System.out.println(sum); // 5050
+    }
+
+    private static int sumRecursive(int n){
+        if(n <= 1){
+            return n;
+        }
+        return n + sumRecursive(n - 1);
+    }
+}
+```
+
+#### 꼬리 재귀 함수
+
+```java
+public class Program{
+    public static void main(String[] args){
+        int sum = sumTailRecursive(10, 0);
+
+        System.out.println(sum); // 55
+
+        sum = sumTailRecursive(100, 10);
+
+        System.out.println(sum); // 5050
+
+    }
+
+    private static int sumTailRecursive(int n, int sum){
+        if(n <= 0){
+            return sum;
+        }
+        return sumTailRecursive(n - 1, sum + n);
+    }
+}
+```

@@ -1,0 +1,91 @@
+---
+title: '[ Pintos ] 1.Threads: Alarm Clock'
+date: '2024-01-07'
+tags: ['operating-system', 'pintos']
+draft: false
+summary: pint-os, 작은 OS 구현 프로젝트
+---
+
+## Alarm Clock이 뭐지?
+
+운영체제에는 실행중인 스레드를 잠시 재웠다가 일정 시간이 지나면 다시 깨우도록 하는 기능이 있는데, 이 기능을 `Alarm Clock`이라고 한다.
+
+> 운영체제에서는 시스템 자원을 효율적으로 활용하고 다양한 작업을 조율하기 위해서 스레드를 잠시 재웠다가 깨운다.
+
+현재 핀토스에 구현되어 있는 Alarm Clock 기능은 `busy-waiting` 방식으로 구현되어 있다.
+
+> `busy-waiting`?
+>
+> - OS에서는 원하는 자원을 얻기 위해 기다리는 것이 아니라 권한을 얻을 때까지 확인하는 것을 의미한다.
+> - 지금 핀토스에서는 비효율적이라고 함
+
+## Busy Waiting 그리고 Sleep
+
+프로그래밍을 하다 보면 동기화를 하기 위해서, 혹은 선행 작업이 끝나기를 기다리기 위해서 wait을 하는 경우가 존재한다.
+
+이 때 사용하는 방식으로 sleep, busy-waiting 두가지 방식이 있다.
+
+### Busy Waiting
+
+Busy-waiting이란 어떤 조건을 만족하지 못할 경우에, 그 조건을 만족할 때까지 다른 작업을 수행하지 않고 기다리는 경우를 의미한다. 수도 코드로 보면 더 직관적으로 알 수 있다.
+
+```c
+while(cond()){
+
+}
+doTask();
+```
+
+Task를 수행하기 이전에 컨디션을 만족하는지 계속해서 loop을 활용해서 검사하는 로직을 넣는 방식이다. 가장 직관적인 waiting 방식이지만, 치명적인 문제가 있다. 프로세스는 계속해서 condition 검사를 하고 있고, 그 조건검사 작업을 수행하고 있기 때문에 CPU 자원을 계속해서 사용한다.(while의 조건을 계속 확인하기 때문에 그 비용이 든다.)
+
+### Sleep
+
+Sleep은 어떤 조건을 만족시키지 못하면 특정 시간동안 sleep 상태로 프로세스를 두고, 이후에 조건을 확인하는 방식이다. 아래 수도코드다.
+
+```c
+while(cond()){
+    sleep(1);
+}
+doTask();
+```
+
+## 요구사항: Reimplement `timer_sleep()`, defined in `devices/timer.c`
+
+코드부터 보자
+
+```c
+void
+timer_sleep (int64_t ticks) {
+	int64_t start = timer_ticks ();
+
+	ASSERT (intr_get_level () == INTR_ON);
+	while (timer_elapsed (start) < ticks)
+		thread_yield ();
+}
+```
+
+> tick은 운영 체제에서 사용되는 작은 시간 단위로, 컴퓨터 시스템의 시간 관리와 이벤트 처리에 중요한 역할을 한다. 기본적으로 system timer는 초당 100회의 ticks을 발생시킨다 (즉, 1 tick = 10ms )
+
+위에서 보았던 busy-waiting 방식으로 구현되어 있다.
+
+<p align="center">
+  <img
+    alt="image"
+    width="840"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/686de3a1-41f6-4234-9c60-b5cf23b2546f"
+  />
+</p>
+
+<p align="center">
+  <img
+    alt="image"
+    width="840"
+    src="https://github.com/speculatingwook/blog-full-of-desire/assets/105579811/a1ea972e-82c8-4d08-b82d-7c19742ddce1"
+  />
+</p>
+
+- 참고자료
+
+[pintos alarmclock](https://poalim.tistory.com/28)
+
+[Busy Waiting, Sleep](https://soundness.tistory.com/4)
