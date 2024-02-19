@@ -44,13 +44,13 @@ NoSQL 데이터베이스에는 JOIN이 없다. 말 그대로 비관계형 데이
 
 ## DynamoDB 파티셔닝 원리
 
-![DB 파티셔닝 원리](../../../../public/static/images/blog/파티셔닝_원리.png)
+![DB 파티셔닝 원리](/static/images/blog/파티셔닝_원리.png)
 
 DynamoDB 내에는 해쉬 함수가 존재한다. 여기서 파티션 키는 해쉬 함수를 거쳐서 데이터를 저장할 파티션을 결정한다. 동일한 파티션 키를 지닌 데이터는 물리적으로 가까운 위치에 저장된다. 이때 데이터를 구분하기 위해 정렬 키를 사용한다. 정렬 키를 사용하면 동일한 파티션에 저장된 데이터는 정렬 키를 기준으로 저장된다.
 
 ### Key
 
-![DynamoDB 주요 개념](../../../../public/static/images/blog/DynamoDB_주요_개념.png)
+![DynamoDB 주요 개념](/static/images/blog/DynamoDB_주요_개념.png)
 
 ### Primary Key (PK)
 
