@@ -17,6 +17,12 @@ const projectsData = [
     imgSrc: '/static/images/지구방위대.png',
     href: '/blog/project/done/지구방위대/edc',
   },
+  {
+    title: 'Glow Alarm',
+    description: `청각장애인들을 위한 시각 알람`,
+    imgSrc: '/static/images/glow_alarm_2.png',
+    href: '/blog/project/done/솔루션챌린지',
+  },
 ]
 
 export default projectsData

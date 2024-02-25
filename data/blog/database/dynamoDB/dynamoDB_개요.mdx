@@ -48,6 +48,8 @@ NoSQL 데이터베이스에는 JOIN이 없다. 말 그대로 비관계형 데이
 
 DynamoDB 내에는 해쉬 함수가 존재한다. 여기서 파티션 키는 해쉬 함수를 거쳐서 데이터를 저장할 파티션을 결정한다. 동일한 파티션 키를 지닌 데이터는 물리적으로 가까운 위치에 저장된다. 이때 데이터를 구분하기 위해 정렬 키를 사용한다. 정렬 키를 사용하면 동일한 파티션에 저장된 데이터는 정렬 키를 기준으로 저장된다.
 
+## DynamoDB 구성요소
+
 ### Key
 
 ![DynamoDB 주요 개념](/static/images/blog/DynamoDB_주요_개념.png)
@@ -71,6 +73,16 @@ DynamoDB에서의 Primary Key는 두개의 키로 이루어져 있다. Partition
 - 단순 정렬이기 때문에 파티션 사이즈가 커져도 데이터를 빠르게 가져올 수 있다.
 - 파티션 키와 달리 범위지정 방식 검색 지원한다. 하지만 정렬 키만 가지고는 검색할 수 없다.
 
+#### 키 사용 방식
+
+만약, 키 형태가 전역적으로 유일하다면(기존 mysql에서 pk와 같다면) Partition Key 하나만 사용해도 된다. 하지만 유일하지 않거나, 다른 값들과 함께 범위지정을 한 쿼리를 기반으로 사용하고 싶다면 Partition Key와 Sort Key를 같이 사용하면 된다.
+
+이 외에도 다른 전략들이 있는데 참고만 하자.
+
+- Prefixes / Suffixes
+- composed partition keys
+- DynamoDB Accelerator(DAX)
+
 #### GSI(Global Secondary Index)
 
 > 만약에, 위 사진에 있는 테이블에서 OriginCountry가 USA인 사람을 리스트로 받아 보려면 어떻게 하면 될까?
@@ -79,18 +91,29 @@ DynamoDB에서의 Primary Key는 두개의 키로 이루어져 있다. Partition
 >
 > 그래서 GSI라는 것을 사용한다.
 
+![GSI 작동방식](/static/images/blog/GSI_작동방식.png)
+
 - GSI는 기본 테이블의 파티션 키와 정렬 키 외에 다른 속성을 기반으로 쿼리할 수 있는 보조 인덱스이다.
-- GSI를 생성하면 DynamoDB는 기본 테이블에 있는 각 항목에 대해 GSI의 파티션 키와 정렬 키의 값에 해당하는 항목을 GSI에 복제한다.
+- GSI를 생성하면 DynamoDB는 기본 테이블에 있는 각 항목에 대해 GSI의 파티션 키와 정렬 키의 값에 해당하는 항목을 GSI에 복제한다. 하지만 두 테이블은 동기화된 상태로 유지한다.
 - GSI를 통해 데이터를 조회할 때, GSI의 파티션 키와 정렬 키를 기반으로 쿼리할 수 있다.
+- 성능을 극대화하기 위해서는 데이터가 여러 파티션에 고르게 분산되어 있어야 한다.
 
 #### LSI(Local Secondary Index)
 
 - LSI는 기본 테이블과 같은 파티션 키를 공유하며, 다른 정렬 키를 사용하여 쿼리할 수 있는 인덱스이다. 하지만 GSI와 달리 파티션 키를 변경할 수 없다.
 - LSI는 테이블 생성 시에만 정의할 수 있으며, 생성 후에는 변경할 수 없다.
 
-## DynamoDB에서 데이터를 읽어오는 두가지 방식
+## DynamoDB에서 데이터를 핸들링하는 3가지 방식
 
-### Query
+### Item-based Actions
+
+DynamoDB에서 Item은 관계형데이터베이스의 Row에 해당한다.
+
+Item-based Actions에는 Write, Delete, Update가 있다.
+
+그리고 Primary Key를 통해 하나의 Item을 대상으로 처리한다. 다시 말해, 한번에 여러개를 처리 할 수 없다.(batch request 불가)
+
+### Query - Read-only Action
 
 - Query는 테이블 내의 항목을 검색할 때 사용한다.
 - 주로 파티션 키(Partition Key)를 기준으로 검색하며, 파티션 키는 테이블의 항목을 빠르게 식별할 수 있는 주요 키이다.
@@ -104,8 +127,30 @@ DynamoDB에서의 Primary Key는 두개의 키로 이루어져 있다. Partition
 - 하지만 파티션 키(Partition Key)나 정렬 키(Sort Key)와 상관없이 테이블의 모든 항목을 검색할 수 있다.
 - 특정 조건이나 필터를 적용하여 스캔 결과를 좁힐 수 있지만, 이 역시 비용과 성능에 영향을 줄 수 있다.
 
+## DynamoDB 모델링 방법
+
+크게 세가지를 순서대로 하면 된다.
+
+1. Start with an ERD
+2. Define your access patterns
+3. Design your primary keys & secondary indexes
+
+### Start with an ERD
+
+구현하고자 하는 서비스에서 필요한 Entity간의 관계를 표현해야 한다. 이 부분은 관계형 데이터베이스를 모델링 할때와 다르지 않다.
+
+### Define your access patterns
+
+구현하고자 하는 서비스의 요구사항이 뭔지, 그리고 요구사항에 따라 어떤 데이터를 넣고 읽을것이지 작성해야 한다.
+
+### Design your primary keys & secondary indexes
+
+앞서 본 두가지를 바탕으로 Write/Delete/Modify 가 가능하게 하고, Scan이 아는 Query로 데이터를 얻고, 필터링이 가능하게 key를 디자인해야 한다.
+
 - 참고자료
 
 [DynamoDB 제대로 알고 사용하기](https://spongeb0b.tistory.com/549)
 
 [Tables, Items, and Attributes](https://youtu.be/Mw8wCj0gkRc?si=88puYaXMVygTOsEF)
+[AWS DynamoDB Guides](https://youtube.com/playlist?list=PL9nWRykSBSFi5QD8ssI0W5odL9S0309E2&si=_wpK6jm9FGQgApbN)
+[60분만에 이해하는 DynamoDB 모델링: DynamoDB Modeling](https://alphahackerhan.tistory.com/39)
