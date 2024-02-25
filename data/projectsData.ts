@@ -18,9 +18,15 @@ const projectsData = [
     href: '/blog/project/done/지구방위대/edc',
   },
   {
+    title: 'ReFit',
+    description: `개인 맞춤형 피트니스 레포트 서비스`,
+    imgSrc: '/static/images/ReFit.png',
+    href: '/blog/project/done/리핏',
+  },
+  {
     title: 'Glow Alarm',
     description: `청각장애인들을 위한 시각 알람`,
-    imgSrc: '/static/images/glow_alarm_2.png',
+    imgSrc: '/static/images/glow_alarm_2.jpg',
     href: '/blog/project/done/솔루션챌린지',
   },
 ]
